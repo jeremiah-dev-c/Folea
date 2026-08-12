@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 export function ContactHero() {
@@ -17,8 +18,15 @@ export function ContactHero() {
         We horen graag van je
       </h1>
       <p className="mt-6 text-lg text-charcoal-soft leading-relaxed">
-        Vragen, feedback of gewoon even kennismaken? Stuur ons een bericht of
-        bekijk eerst de veelgestelde vragen hieronder.
+        Vragen, feedback of gewoon even kennismaken? Stuur ons een bericht,
+        of bekijk eerst de{" "}
+        <Link
+          href="/faq"
+          className="font-medium text-forest underline underline-offset-4 hover:text-forest-light"
+        >
+          veelgestelde vragen
+        </Link>
+        .
       </p>
     </motion.div>
   );

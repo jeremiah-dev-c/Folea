@@ -77,6 +77,14 @@ No em dashes (—) anywhere in UI copy or metadata — rewrite with a period, co
 
 There is no 3D viewer or in-PDP video (`@react-three/fiber` etc. were tried and then removed — don't reinstall unless asked again). The product-pour cinemagraph video lives in the Over Ons "Ons verhaal" section (`AboutStory.tsx`), not on the PDP; the PDP shows only the static photo gallery (`ProductGallery.tsx`).
 
+### Product photography
+
+Product photos in rotation: `hairbutter-front.jpg` (primary/square), `hairbutter-podium.jpg` (portrait), `hairbutter-stack.jpg` (two jars — keep it out of primary product slots; the client flagged the two-jar shot as not representative). More photoshoot imagery is still to be delivered to the developer, but do NOT add visible "photos coming soon" placeholder sections to the site — that was tried (ImagePlaceholder/CampaignPreview/StudioPeek components) and removed on request: the pending photoshoot is an internal matter, not site content. The Instagram grid at the bottom of the homepage is the one deliberate stand-in section (real images, dummy links) and stays as-is until the client's real feeds/photos land.
+
+### FAQ page
+
+FAQ lives on its own route `/faq` (accordion + "Naar contact" card). The contact page (`/contact`) holds only the form + contact info and links to `/faq` from its hero. Footer "Klantenservice" links point at both.
+
 ### Known quirks
 
 - The installed `lucide-react` version does not export brand/social icons (`Instagram`, etc. were removed upstream). Custom inline SVGs live in `components/ui/SocialIcons.tsx` (`InstagramIcon`, `TikTokIcon`, `SnapchatIcon`) — reach for these instead of trying to import from lucide-react. (Snapchat replaced Pinterest in the footer by request.)

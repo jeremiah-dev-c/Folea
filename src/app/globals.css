@@ -58,6 +58,10 @@
   --container-page: 1440px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--color-background);
   color: var(--color-foreground);

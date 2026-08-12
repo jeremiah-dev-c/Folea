@@ -1,7 +1,7 @@
 # FOLÉA Webshop — Handover
 
-**Laatst bijgewerkt:** 12 augustus 2026, 20:06 (CEST)
-**Repo:** `Snel Online Marketing/Folea` (git, branch `main`). Eén commit deze sessie (`Build FOLÉA webshop: homepage, product, over ons, contact & FAQ pages`); alle latere wijzigingen (Portfolio, Blog, herstijling, kleuren, copy-cleanup) staan nog **niet** gecommit.
+**Laatst bijgewerkt:** 12 augustus 2026, 20:56 (CEST)
+**Repo:** `Snel Online Marketing/Folea` (git, branch `main`, 2 commits voor op origin). Laatste commit: `4fd142a` (Portfolio/Blog, herontwerp, reviews weg). Daarna nog uncommitted: nieuwe productfoto's + placeholder-systeem + design-pass (zie sectie 3, punt 13).
 **Stack:** Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · Framer Motion · Zustand · lucide-react · embla-carousel-react
 
 ---
@@ -89,6 +89,8 @@ src/
 10. Footer volledig herbouwd: betere structuur, klantcontact-blok, betaal-badges (Apple Pay/iDEAL/Wero/Creditcard).
 11. Hero-video kwaliteit hersteld (was te agressief gecomprimeerd) en visueel meermaals herzien: van gecentreerd/overlappend met gezichten → links onderaan → boven → **uiteindelijk gecentreerd + bovenaan**, met een roze CTA-knop.
 12. Alle em dashes en het woord "ambachtelijk" uit de volledige site-copy verwijderd.
+13. **Design-pass met nieuwe productfotografie (nog niet gecommit):** twee nieuwe studiofoto's verwerkt (`hairbutter-front.jpg` als primair beeld, `hairbutter-podium.jpg` als tweede hoek) zodat het gestapelde twee-potjes-beeld uit de primaire productplekken is. PDP-galerij toont nu 3 thumbnails. ProductSpotlight herstijld (checklist + floating badge, eyebrow "Onze hairbutter"), HowToUse omgebouwd naar split-layout met productfoto, UspBar met iconen-in-cirkels, InstagramGrid gevuld met echte beelden + hover-overlay, smooth scroll toegevoegd.
+14. **Aparte FAQ-pagina + placeholders teruggedraaid (nog niet gecommit):** `/faq` is nu een eigen pagina (accordeon + "Naar contact"-kaart); de contactpagina is geslankt tot formulier + contactinfo en linkt naar `/faq`; footer-Klantenservice linkt naar beide. De "fotoshoot komt eraan"-placeholdersecties (ImagePlaceholder/CampaignPreview/StudioPeek) zijn op verzoek weer verwijderd: de nog te ontvangen foto's zijn een interne kwestie voor de developer, geen site-content. De Instagram-grid onderaan de homepage blijft staan als de bewuste placeholder-sectie.
 
 ---
 

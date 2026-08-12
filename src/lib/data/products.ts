@@ -11,6 +11,14 @@ export const hairbutter: Product = {
   currency: "EUR",
   images: [
     {
+      src: "/images/hairbutter-front.jpg",
+      alt: "FOLÉA Hairbutter potje recht van voren op een roze achtergrond",
+    },
+    {
+      src: "/images/hairbutter-podium.jpg",
+      alt: "FOLÉA Hairbutter potje op een roze podium",
+    },
+    {
       src: "/images/hairbutter-stack.jpg",
       alt: "Twee gestapelde potten FOLÉA Hairbutter op een lichte achtergrond",
     },

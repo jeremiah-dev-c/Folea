@@ -23,7 +23,7 @@ export const faqItems: AccordionItemData[] = [
     id: "retour",
     title: "Kan ik mijn bestelling retourneren?",
     content:
-      "Je hebt 14 dagen bedenktijd na ontvangst. Ongeopende producten kun je kosteloos retourneren. Neem contact met ons op via het formulier hierboven om een retour te starten.",
+      "Je hebt 14 dagen bedenktijd na ontvangst. Ongeopende producten kun je kosteloos retourneren. Neem contact met ons op via de contactpagina om een retour te starten.",
   },
   {
     id: "ingredienten",

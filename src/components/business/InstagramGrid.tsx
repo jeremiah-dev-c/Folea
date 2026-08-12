@@ -1,7 +1,33 @@
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { InstagramIcon } from "@/components/ui/SocialIcons";
 
-const tiles = Array.from({ length: 6 });
+const tiles = [
+  {
+    src: "/images/hairbutter-front.jpg",
+    alt: "FOLÉA Hairbutter potje recht van voren",
+  },
+  {
+    src: "/images/portfolio-beweging.jpg",
+    alt: "Zijden stof met minimalistische flessen",
+  },
+  {
+    src: "/images/hairbutter-podium.jpg",
+    alt: "FOLÉA Hairbutter op een roze podium",
+  },
+  {
+    src: "/images/portfolio-voeding.jpg",
+    alt: "Romige haarbutter in een houten kom",
+  },
+  {
+    src: "/images/hairbutter-stack.jpg",
+    alt: "Twee gestapelde potten FOLÉA Hairbutter",
+  },
+  {
+    src: "/images/portfolio-structuur.jpg",
+    alt: "Gekruld varenblad op een crème achtergrond",
+  },
+];
 
 export function InstagramGrid() {
   return (
@@ -17,21 +43,27 @@ export function InstagramGrid() {
         </div>
 
         <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
-          {tiles.map((_, i) => (
+          {tiles.map((tile) => (
             <a
-              key={i}
+              key={tile.src}
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative aspect-square overflow-hidden rounded-md bg-blush transition-colors hover:bg-blush-deep"
-              aria-label="Bekijk op Instagram"
+              className="group relative aspect-square overflow-hidden rounded-md bg-blush"
+              aria-label={`Bekijk op Instagram: ${tile.alt}`}
             >
-              <div className="absolute inset-0 flex items-center justify-center opacity-40 transition-opacity group-hover:opacity-70">
+              <Image
+                src={tile.src}
+                alt={tile.alt}
+                fill
+                sizes="(min-width: 768px) 17vw, (min-width: 640px) 33vw, 50vw"
+                className="object-cover transition-transform duration-700 ease-[var(--ease-elegant)] group-hover:scale-110"
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/40">
                 <InstagramIcon
-                  width={24}
-                  height={24}
-                  strokeWidth={1.25}
-                  className="text-earth"
+                  width={22}
+                  height={22}
+                  className="text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                 />
               </div>
             </a>

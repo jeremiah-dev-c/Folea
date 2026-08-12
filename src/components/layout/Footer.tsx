@@ -37,8 +37,9 @@ const footerNav = [
   {
     title: "Klantenservice",
     links: [
-      { label: "Contact & FAQ", href: "/contact" },
-      { label: "Verzending & Retour", href: "/contact" },
+      { label: "Contact", href: "/contact" },
+      { label: "Veelgestelde vragen", href: "/faq" },
+      { label: "Verzending & Retour", href: "/faq" },
     ],
   },
 ];
