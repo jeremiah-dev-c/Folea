@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+:root {
+  /* Primair — achtergrond */
+  --color-blush: #f8e8e8;
+  --color-blush-deep: #f3d8da;
+  --color-cream: #fdfbf7;
+  --color-cream-deep: #f5efe6;
+
+  /* Accent & details */
+  --color-forest: #2c4235;
+  --color-forest-light: #3e5a49;
+  --color-earth: #4a3728;
+  --color-earth-light: #6b5240;
+
+  /* Tekst */
+  --color-charcoal: #1c1c1c;
+  --color-charcoal-soft: #4a4a4a;
+
+  /* Basis */
+  --color-white: #ffffff;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-full: 999px;
+
+  --ease-elegant: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@theme inline {
+  --color-blush: var(--color-blush);
+  --color-blush-deep: var(--color-blush-deep);
+  --color-cream: var(--color-cream);
+  --color-cream-deep: var(--color-cream-deep);
+
+  --color-forest: var(--color-forest);
+  --color-forest-light: var(--color-forest-light);
+  --color-earth: var(--color-earth);
+  --color-earth-light: var(--color-earth-light);
+
+  --color-charcoal: var(--color-charcoal);
+  --color-charcoal-soft: var(--color-charcoal-soft);
+
+  --color-background: var(--color-cream);
+  --color-foreground: var(--color-charcoal);
+
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", serif;
+  --font-sans: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-full: var(--radius-full);
+
+  --ease-elegant: var(--ease-elegant);
+
+  --container-page: 1440px;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--color-forest);
+  color: var(--color-white);
+}
