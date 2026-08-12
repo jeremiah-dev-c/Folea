@@ -34,6 +34,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# raw source media (unoptimized originals, not served) — optimized derivatives live in public/
+/source-media
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

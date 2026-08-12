@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  /* Primair — achtergrond */
-  --color-blush: #f8e8e8;
-  --color-blush-deep: #f3d8da;
-  --color-cream: #fdfbf7;
-  --color-cream-deep: #f5efe6;
+  /* Primair — achtergrond (Pantone: Flushing Pink / Papyrus) */
+  --color-blush: #f4c9d3;
+  --color-blush-deep: #eaa7bd;
+  --color-cream: #fbf8f0;
+  --color-cream-deep: #efe6d2;
 
-  /* Accent & details */
-  --color-forest: #2c4235;
-  --color-forest-light: #3e5a49;
-  --color-earth: #4a3728;
-  --color-earth-light: #6b5240;
+  /* Accent & details (Pantone: Peridot / Potting Soil) */
+  --color-forest: #4c6b2f;
+  --color-forest-light: #5f8239;
+  --color-earth: #47301f;
+  --color-earth-light: #6b4a32;
 
   /* Tekst */
   --color-charcoal: #1c1c1c;

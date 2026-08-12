@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
 import { hairbutter } from "@/lib/data/products";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -47,21 +46,6 @@ export function ProductSpotlight() {
             <h2 className="text-4xl md:text-5xl text-forest">
               {hairbutter.name}
             </h2>
-
-            <div className="flex items-center gap-2">
-              <div className="flex text-earth">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    size={16}
-                    fill={i < Math.round(hairbutter.rating) ? "currentColor" : "none"}
-                  />
-                ))}
-              </div>
-              <span className="text-sm text-charcoal-soft">
-                {hairbutter.rating} ({hairbutter.reviewCount} reviews)
-              </span>
-            </div>
 
             <p className="text-charcoal-soft leading-relaxed">
               {hairbutter.description}

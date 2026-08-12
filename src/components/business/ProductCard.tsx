@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
 import type { Product } from "@/types/product";
 import { Button } from "@/components/ui/Button";
 import { formatPrice } from "@/lib/utils/format";
@@ -40,20 +39,6 @@ export function ProductCard({ product }: { product: Product }) {
               {product.name}
             </h3>
           </Link>
-          <div className="mt-1 flex items-center gap-1.5">
-            <div className="flex text-earth">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star
-                  key={i}
-                  size={12}
-                  fill={i < Math.round(product.rating) ? "currentColor" : "none"}
-                />
-              ))}
-            </div>
-            <span className="text-xs text-charcoal-soft">
-              ({product.reviewCount})
-            </span>
-          </div>
           <p className="mt-2 text-base font-medium text-charcoal">
             {formatPrice(product.price)}
           </p>

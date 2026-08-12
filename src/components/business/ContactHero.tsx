@@ -17,8 +17,8 @@ export function ContactHero() {
         We horen graag van je
       </h1>
       <p className="mt-6 text-lg text-charcoal-soft leading-relaxed">
-        Vragen, feedback of gewoon even kennismaken — stuur ons een bericht
-        of bekijk eerst de veelgestelde vragen hieronder.
+        Vragen, feedback of gewoon even kennismaken? Stuur ons een bericht of
+        bekijk eerst de veelgestelde vragen hieronder.
       </p>
     </motion.div>
   );

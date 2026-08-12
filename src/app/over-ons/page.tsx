@@ -7,7 +7,7 @@ import { AboutValues } from "@/components/business/AboutValues";
 export const metadata: Metadata = {
   title: "Over Ons",
   description:
-    "Het verhaal achter FOLÉA: ambachtelijk gemaakte, natuurlijke haarverzorging voor alle haartypes.",
+    "Het verhaal achter FOLÉA: met zorg gemaakte, natuurlijke haarverzorging voor alle haartypes.",
 };
 
 export default function OverOnsPage() {

@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 const usps = [
   { icon: Leaf, label: "100% Natuurlijk" },
   { icon: Sparkles, label: "Alle Haartypes" },
-  { icon: Hand, label: "Ambachtelijk" },
+  { icon: Hand, label: "Handgemaakt" },
   { icon: HeartHandshake, label: "Vegan" },
 ];
 

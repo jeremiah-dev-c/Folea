@@ -38,29 +38,31 @@ export function ProductGallery({ images }: ProductGalleryProps) {
         </AnimatePresence>
       </div>
 
-      <div className="flex gap-3 sm:flex-col">
-        {images.map((image, index) => (
-          <button
-            key={image.src + index}
-            onClick={() => setActiveIndex(index)}
-            aria-label={`Toon afbeelding ${index + 1}`}
-            className={cn(
-              "relative h-20 w-20 shrink-0 overflow-hidden rounded-md bg-blush transition-opacity",
-              index === activeIndex
-                ? "ring-2 ring-forest ring-offset-2 ring-offset-cream"
-                : "opacity-60 hover:opacity-100",
-            )}
-          >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              sizes="80px"
-              className="object-cover"
-            />
-          </button>
-        ))}
-      </div>
+      {images.length > 1 && (
+        <div className="flex gap-3 sm:flex-col">
+          {images.map((image, index) => (
+            <button
+              key={image.src + index}
+              onClick={() => setActiveIndex(index)}
+              aria-label={`Toon afbeelding ${index + 1}`}
+              className={cn(
+                "relative h-20 w-20 shrink-0 overflow-hidden rounded-md bg-blush transition-opacity",
+                index === activeIndex
+                  ? "ring-2 ring-forest ring-offset-2 ring-offset-cream"
+                  : "opacity-60 hover:opacity-100",
+              )}
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                sizes="80px"
+                className="object-cover"
+              />
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

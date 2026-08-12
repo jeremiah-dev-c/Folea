@@ -23,7 +23,7 @@ export function AboutHero() {
           </h1>
           <p className="mx-auto mt-6 max-w-lg text-lg text-charcoal-soft leading-relaxed">
             FOLÉA ontstond uit een simpele overtuiging: goede
-            haarverzorging hoort er voor iedereen te zijn — ongeacht
+            haarverzorging hoort er voor iedereen te zijn, ongeacht
             haartype, textuur of structuur.
           </p>
         </motion.div>

@@ -21,7 +21,7 @@ export function HowToUse() {
             Hoe te Gebruiken
           </h2>
           <p className="mt-4 text-charcoal-soft">
-            Eén potje, vier manieren om je haar te verzorgen — ontdek wat bij
+            Eén potje, vier manieren om je haar te verzorgen. Ontdek wat bij
             jouw haar past.
           </p>
         </div>

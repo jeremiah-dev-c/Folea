@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { Minus, Plus, ShoppingBag, X } from "lucide-react";
+import { CheckCircle2, Minus, Plus, ShoppingBag, X } from "lucide-react";
 import { useCart } from "@/hooks/useCart";
 import { Button } from "@/components/ui/Button";
 import { formatPrice } from "@/lib/utils/format";
@@ -65,8 +65,9 @@ export function CartDrawer() {
                     tot gratis verzending
                   </>
                 ) : (
-                  <span className="text-forest font-semibold">
-                    Je hebt gratis verzending! 🎉
+                  <span className="flex items-center gap-1.5 text-forest font-semibold">
+                    <CheckCircle2 size={16} />
+                    Je hebt gratis verzending
                   </span>
                 )}
               </p>

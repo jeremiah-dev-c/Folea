@@ -21,7 +21,7 @@ const steps = [
     icon: ShieldCheck,
     title: "Kwaliteitscontrole per batch",
     description:
-      "Voor elk potje de deur uitgaat, testen we textuur, geur en stabiliteit — pas dan krijgt het onze naam.",
+      "Voor elk potje de deur uitgaat, testen we textuur, geur en stabiliteit. Pas dan krijgt het onze naam.",
   },
 ];
 
@@ -37,10 +37,10 @@ export function AboutCraft() {
           className="mx-auto max-w-xl text-center"
         >
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
-            Het ambacht
+            Het proces
           </p>
           <h2 className="mt-3 text-3xl md:text-4xl text-charcoal">
-            Ambachtelijk gemaakt, van begin tot pot
+            Met de hand gemaakt, van begin tot pot
           </h2>
           <p className="mt-4 text-charcoal-soft leading-relaxed">
             Geen fabriekslijnen, geen haast. Elk potje FOLÉA doorloopt

@@ -27,6 +27,4 @@ export interface Product {
   highlights: string[];
   usageMethods: UsageMethod[];
   ingredients: IngredientItem[];
-  rating: number;
-  reviewCount: number;
 }

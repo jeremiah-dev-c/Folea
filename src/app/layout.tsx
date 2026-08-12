@@ -21,11 +21,11 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "FOLÉA — Geïnspireerd door natuur, gemaakt met intentie",
+    default: "FOLÉA: Geïnspireerd door natuur, gemaakt met intentie",
     template: "%s | FOLÉA",
   },
   description:
-    "FOLÉA Hairbutter: een ambachtelijke, 100% natuurlijke haarbutter voor alle haartypes. Voeding, bescherming en styling in één multifunctioneel product.",
+    "FOLÉA Hairbutter: een zorgvuldig gemaakte, 100% natuurlijke haarbutter voor alle haartypes. Voeding, bescherming en styling in één multifunctioneel product.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

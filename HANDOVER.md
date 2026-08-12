@@ -1,14 +1,14 @@
 # FOLÉA Webshop — Handover
 
-**Laatst bijgewerkt:** 12 augustus 2026, 14:06 (CEST)
-**Repo:** `Snel Online Marketing/Folea` (git, branch `main`, nog geen commits van deze sessie — alles staat als untracked/gewijzigd op disk)
+**Laatst bijgewerkt:** 12 augustus 2026, 20:06 (CEST)
+**Repo:** `Snel Online Marketing/Folea` (git, branch `main`). Eén commit deze sessie (`Build FOLÉA webshop: homepage, product, over ons, contact & FAQ pages`); alle latere wijzigingen (Portfolio, Blog, herstijling, kleuren, copy-cleanup) staan nog **niet** gecommit.
 **Stack:** Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · Framer Motion · Zustand · lucide-react · embla-carousel-react
 
 ---
 
 ## 1. Status in één oogopslag
 
-Fase 1–3 uit de oorspronkelijke opdracht (project setup, design tokens, componenten/pagina's) zijn onderweg. Vier van de zes geplande pagina's staan en zijn functioneel getest. Nog niet gestart: **Portfolio/Lookbook** en **Blog**. Fase 4 (code review/optimalisatie-pass) is nog niet als aparte stap uitgevoerd, al is elke pagina na bouwen gecontroleerd met `tsc --noEmit` en `eslint` (beide steeds schoon) plus browsertests.
+Alle 6 hoofdpagina's uit de oorspronkelijke opdracht staan: Home, Producten (+ PDP), Over Ons, Portfolio, Blog, Contact & FAQ. De site is inmiddels door meerdere feedbackrondes gegaan (kleuren, hero, footer, copy-toon) — zie sectie 3 voor wat er per ronde is aangepast. `npx tsc --noEmit` en `npx eslint src --max-warnings=0` zijn doorlopend schoon gehouden.
 
 Dev server draait via `.claude/launch.json` (`npm run dev`, poort 3000).
 
@@ -16,68 +16,95 @@ Dev server draait via `.claude/launch.json` (`npm run dev`, poort 3000).
 
 ## 2. Wat er staat
 
-### Design tokens & basis (`src/app/globals.css`)
-- Kleuren als CSS-variabelen + Tailwind v4 `@theme`: `blush`, `blush-deep`, `cream`, `cream-deep`, `forest`, `forest-light`, `earth`, `earth-light`, `charcoal`, `charcoal-soft`.
-- **Belangrijke designregel (expliciete klantfeedback tijdens sessie):** crème/beige en roze/blush zijn de dominante achtergrondkleuren op de site. Forest green en earth brown zijn alleen voor kleine details — labels, dunne randen, icoon-strokes, headings, hooguit één CTA-knop per sectie. Niet als grote kleurvlakken. Dit is ook vastgelegd in het auto-memory-systeem (`folea_color_balance.md`) zodat het in vervolgsessies wordt toegepast.
-  - Homepage **Newsletter** en **Footer** zijn al omgezet van volledig groen naar crème/roze-met-groen-accent.
-- Typografie: Cormorant Garamond (serif, headings) + Plus Jakarta Sans (sans, body) via `next/font/google`.
-- Taal: 100% Nederlands, `lang="nl"` in de root layout.
+### Design tokens (`src/app/globals.css`)
+Kleuren zijn Pantone-gerefereerd en bewust verzadigd (niet de originele zachte pastels): `forest` volgt Pantone Peridot, `earth` volgt Potting Soil, `blush` volgt Flushing Pink, `cream` volgt Papyrus. Crème/blush blijven de dominante achtergrondkleuren; forest/earth zijn alleen voor kleine accenten (labels, iconen, dunne randen, hooguit één knop per sectie) — deze regel staat ook vastgelegd in het auto-memory-systeem.
 
-### Mappenstructuur (OOP-opzet zoals gevraagd)
+Er is een `blush`-gevulde button-variant toegevoegd (`buttonVariants({ variant: "blush" })`) naast primary/secondary/ghost/earth, gebruikt voor de hero-CTA.
+
+Typografie: Cormorant Garamond (serif) + Plus Jakarta Sans (sans). Taal: 100% Nederlands.
+
+### Mappenstructuur
 ```
 src/
   app/                     → routes (App Router)
   components/
-    ui/                    → Button, Container, Accordion, QuantitySelector, SocialIcons
+    ui/                    → Button, Container, Accordion, QuantitySelector, SocialIcons, PaymentBadges
     layout/                → Header, Footer, CartDrawer
     business/              → alle sectie-/feature-componenten per pagina
   lib/
-    data/                  → dummy data (products, reviews, faq)
+    data/                  → dummy data (products, faq, portfolio, blog)
     store/                 → cart-store.ts (zustand)
-    utils/                 → cn.ts (class merge), format.ts (prijsformattering)
+    utils/                 → cn.ts, format.ts
   hooks/                   → useCart.ts
-  types/                   → product.ts, cart.ts, review.ts
+  types/                   → product.ts, cart.ts, portfolio.ts, blog.ts
 ```
 
-### Pagina's die klaar en getest zijn
+### Pagina's
 
 | Route | Inhoud |
 |---|---|
-| `/` | Header, Hero (video-achtergrond, geoptimaliseerd van `IMG_9125.MOV`), USP-bar, Product Spotlight, "Hoe te Gebruiken" (tabbed), Reviews slider, Newsletter, Instagram-grid, Footer |
-| `/producten` | Shop-overzicht, productgrid (nu 1 product, schaalbaar) |
-| `/producten/hairbutter` | Volledige PDP: fotogalerij met thumbnails, prijs, rating, aantal-selector, "in winkelmand", ingrediënten-accordeon, gebruiksaanwijzing per haartype |
-| `/over-ons` | Storytelling: ontstaan, ambacht/kwaliteitscontrole (3 stappen), missie/waarden met stats |
-| `/contact` | Contactformulier (front-end only, geen backend), contactinfo-kaart, FAQ-accordeon (5 vragen) |
+| `/` | Header, Hero (video-achtergrond, gecentreerd bovenaan), USP-bar, Product Spotlight, "Hoe te Gebruiken" (tabbed), Newsletter, Instagram-grid, Footer. **Geen reviews-sectie meer.** |
+| `/producten` | Shop-overzicht, productgrid (1 product, gecentreerd i.p.v. links uitgelijnd in leeg grid) |
+| `/producten/hairbutter` | PDP: alleen fotogalerij (geen 3D/video-tabs meer), prijs, aantal-selector, "in winkelmand", ingrediënten-accordeon, gebruiksaanwijzing per haartype. **Geen sterren-rating meer.** |
+| `/over-ons` | Storytelling: ontstaan (nu met de product-pour video i.p.v. statisch beeld), proces (3 stappen), missie/waarden met stats |
+| `/portfolio` | "Textuur & Ritueel" — filterbare lookbook-grid (4 stemmingsbeelden gekoppeld aan de 4 toepassingen), lightbox bij klikken |
+| `/blog` | 4 artikelkaarten met categorie-filter, leestijd, datum |
+| `/contact` | Contactformulier (front-end only), contactinfo-kaart, FAQ-accordeon |
 
 ### Globale functionaliteit
-- **Cart (zustand store, `lib/store/cart-store.ts`)**: add/remove/update quantity, subtotal, item count — werkend getest (toevoegen vanaf homepage, PDP en shopgrid, hoeveelheid aanpassen, gratis-verzending-indicator bij €45).
-- **Cart Drawer**: slide-in vanaf rechts, opent automatisch bij toevoegen, subtotaal + checkout-knop (checkout zelf nog niet gebouwd — geen betaalflow).
-- **Header**: sticky, transparant → solid bij scroll, mobiel hamburgermenu, cart-badge met live counter.
-- Alle interactieve componenten zijn getest op zowel desktop- als mobiel-viewport (375×812).
+- **Cart** (zustand): add/remove/update/subtotal, werkend getest overal waar "in winkelmand" staat.
+- **Cart Drawer**: slide-in, gratis-verzending-indicator bij €45, checkout-knop doet nog niets (geen betaalflow).
+- **Header**: staat nu **altijd solid** (crème, backdrop-blur) — niet meer transparant boven de hero. Mobiel hamburgermenu, werkende zoek-overlay (filtert live op producten.ts).
+- **Footer**: herbouwd met betaal-badges (Apple Pay/iDEAL/Wero/Creditcard) — zie openstaand punt hieronder over de logo's.
+
+### Copy-conventies (belangrijk voor vervolgwerk)
+- **Geen em dashes (—)** waar dan ook. Herschrijven met punt, dubbele punt of komma.
+- **Geen "ambachtelijk"** — vervangen door "met zorg gemaakt", "met de hand gemaakt", "handgemaakt", of gewoon weggelaten.
+- **Geen reviews/sterren/testimonials** nergens op de site, omdat er geen echte reviews bestaan.
 
 ### Assets
-- `public/video/hero.mp4` + `hero-poster.jpg` — getranscodeerd (H.264, ~1.9MB) van `IMG_9125.MOV` uit Downloads, want het origineel was HEVC (geen brede browsersupport).
-- `public/images/hairbutter-stack.jpg` — productfoto, geëxporteerd/verkleind vanuit een PNG in Downloads (`hf_20260812_101411_...png`). Dit is momenteel de **enige** echte productfoto; wordt hergebruikt op meerdere plekken (PDP-galerij toont 'm 3x, Over Ons-storysectie, shopgrid).
+- `public/video/hero.mp4` (4,3MB, CRF 18, volledige 1920px breedte) + `hero-poster.jpg` — herzien tijdens deze sessie nadat een eerdere te agressieve compressie kwaliteitsverlies gaf. Bron: `IMG_9125.MOV`.
+- `public/video/product-pour.mp4` (946KB) + `product-pour-poster.jpg` — de cinemagraph (gouden olie over de potjes), nu in Over Ons i.p.v. op de PDP.
+- `public/images/hairbutter-stack.jpg`, `hairbutter-jar-solo.jpg` — echte productfoto's.
+- `public/images/portfolio-*.jpg`, `blog-*.jpg` — via Higgsfield gegenereerde editorial stills (zie openstaand punt: gebruiker wil voortaan expliciet toestemming per generatie).
+- Ruwe, ongecomprimeerde bronbestanden staan in `source-media/` (git-ignored, niet in `public/`).
 
 ### Kwaliteit
-- `npx tsc --noEmit` en `npx eslint src --max-warnings=0` zijn na elke pagina schoon opgeleverd.
-- Geen console-errors in de browser (geverifieerd per pagina, inclusief een sessie waarin een stale lucide-react import — `Instagram` bestaat niet meer in de geïnstalleerde versie — werd gefixt met eigen SVG-iconen in `components/ui/SocialIcons.tsx`).
+- `npx tsc --noEmit` en `npx eslint src --max-warnings=0` zijn na elke wijziging schoon.
+- Uitgebreid browsergetest (desktop + mobiel) via de Browser-preview-tooling.
 
 ---
 
-## 3. Nog te doen (uit de oorspronkelijke scope)
+## 3. Wat er deze sessie is veranderd (chronologisch, kort)
 
-1. **Portfolio / Lookbook** (`/portfolio`) — visuele gallery per haartype, filteropties. Nog niet gestart; er is geen fotomateriaal voor "resultaten" beschikbaar buiten het ene productfoto — moet besproken worden of er dummy/placeholder styling komt of dat er meer beeldmateriaal nodig is.
-2. **Blog** (`/blog`) — artikeloverzicht met categorieën en leestijd. Nog niet gestart, geen content geschreven.
-3. **Meer productfoto's** — voor een echte galerij-ervaring op de PDP is er nu maar 1 unieke foto (3x herhaald). Zou goed zijn om meer hoeken/foto's te krijgen.
-4. **Checkout-flow** — de "Naar afrekenen" knop in de cart drawer doet nog niets; er is geen checkoutpagina of betaalintegratie (iDEAL/Bancontact/Creditcard staan nu alleen als visuele badges in de footer).
-5. **Formulieren zijn front-end only** — contactformulier en nieuwsbrief-inschrijvingen simuleren alleen een succesmelding; er is geen backend/e-mailservice gekoppeld.
-6. **Placeholder bedrijfsgegevens** — KvK-nummer en BTW-nummer in de footer zijn nog `00000000` / `NL000000000B00`, moeten vervangen worden door de echte gegevens.
-7. Homepage Newsletter/Footer-kleuren zijn aangepast; het is de moeite waard om ook nog eens kritisch naar de rest van de site te kijken of alles consistent de crème/roze-dominant-regel volgt.
+1. Design-scan uitgevoerd, 6 concrete fixes doorgevoerd (header-contrast, hero-overlay, Portfolio/Blog placeholders → later vervangen door echte pagina's, shopgrid-centrering, PDP-galerij, werkende zoekfunctie).
+2. Header permanent zichtbaar/solid gemaakt (was transparant-naar-solid).
+3. 3D-productviewer (React Three Fiber + Higgsfield-gegenereerd GLB-model) gebouwd op de PDP, **later weer volledig verwijderd** op verzoek van de gebruiker, samen met de video-tab op de PDP.
+4. Portfolio en Blog volledig uitgebouwd met filterbare grids en Higgsfield-gegenereerde beelden.
+5. Nieuwe video (cinemagraph) verplaatst naar Over Ons in plaats van de (verwijderde) PDP-video-tab.
+6. Kleurenpalet herzien: van zachte pastels naar Pantone-gerefereerde, verzadigde tinten (Flushing Pink / Peridot / Papyrus / Potting Soil).
+7. Alle reviews, sterren-ratings en reviewCount-velden volledig verwijderd (site heeft geen echte reviews).
+8. Social icon Pinterest → Snapchat.
+9. Emoji verwijderd (🎉 in cart drawer vervangen door een icoon).
+10. Footer volledig herbouwd: betere structuur, klantcontact-blok, betaal-badges (Apple Pay/iDEAL/Wero/Creditcard).
+11. Hero-video kwaliteit hersteld (was te agressief gecomprimeerd) en visueel meermaals herzien: van gecentreerd/overlappend met gezichten → links onderaan → boven → **uiteindelijk gecentreerd + bovenaan**, met een roze CTA-knop.
+12. Alle em dashes en het woord "ambachtelijk" uit de volledige site-copy verwijderd.
 
 ---
 
-## 4. Hoe verder te werken
+## 4. Openstaande punten
+
+1. **iDEAL/Wero-logo klopt niet.** De gebruiker stuurde de echte badge-afbeeldingen (Apple Pay + gecombineerde iDEAL/Wero) maar die zijn als inline chat-afbeelding geplakt, niet als bestand — ik kon ze niet oppakken. Zelfgetekende SVG-benadering in `components/ui/PaymentBadges.tsx` is door de gebruiker afgekeurd. **Actie nodig:** gebruiker moet de originele logo-bestanden (PNG/SVG) in `public/images/` zetten (bijv. `payment-ideal-wero.png`, `payment-apple-pay.png`), dan worden ze als `next/image` ingeladen i.p.v. de handgetekende versie.
+2. **Higgsfield-gebruik vereist voortaan expliciete toestemming per keer** — vastgelegd in memory. Niet meer proactief genereren.
+3. **Checkout-flow ontbreekt** — "Naar afrekenen" doet niets.
+4. **Formulieren zijn front-end only** — geen backend/e-mailservice.
+5. **Placeholder bedrijfsgegevens** — KvK/BTW-nummer in de footer zijn nog dummy-waarden.
+6. **Meer echte productfoto's** zouden de PDP-galerij (nu 1 unieke foto) sterker maken.
+7. Bericht van de gebruiker "de Ideal\\" kwam onvolledig binnen tijdens deze sessie — mogelijk was er meer te zeggen over het logo-punt hierboven; navragen bij volgende sessie als het niet vanzelf duidelijk wordt.
+
+---
+
+## 5. Hoe verder te werken
 
 ```bash
 npm run dev        # dev server op localhost:3000
@@ -85,6 +112,6 @@ npx tsc --noEmit    # typecheck
 npx eslint src      # lint
 ```
 
-`.claude/launch.json` staat al klaar zodat de Browser-preview-tooling de dev server automatisch kan starten onder de naam `folea-dev`.
+`.claude/launch.json` staat klaar zodat de Browser-preview-tooling de dev server automatisch kan starten onder de naam `folea-dev`.
 
-Voor de volgende sessie: begin met Portfolio of Blog (user's keuze), of vraag eerst om aanvullend fotomateriaal voor het Portfolio-lookbook.
+**Voor de volgende sessie:** begin met het logo-bestand-punt hierboven (blokkerend voor een correcte footer), en overweeg een commit te maken nu de site door een grote hoeveelheid wijzigingen is gegaan sinds de laatste commit.

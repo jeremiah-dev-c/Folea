@@ -12,6 +12,7 @@ export const buttonVariants = cva(
           "bg-transparent text-forest border border-forest hover:bg-forest hover:text-white",
         ghost: "bg-transparent text-charcoal hover:bg-blush",
         earth: "bg-earth text-white hover:bg-earth-light",
+        blush: "bg-blush text-charcoal hover:bg-blush-deep",
       },
       size: {
         sm: "h-9 px-4 text-xs",

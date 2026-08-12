@@ -5,7 +5,7 @@ export const faqItems: AccordionItemData[] = [
     id: "haartype",
     title: "Is de Hairbutter geschikt voor mijn haartype?",
     content:
-      "Ja — de FOLÉA Hairbutter is ontwikkeld voor alle haartypes en -structuren: steil, slag, krullend en kroeshaar. De formule past zich aan op basis van de hoeveelheid die je gebruikt.",
+      "Ja, de FOLÉA Hairbutter is ontwikkeld voor alle haartypes en -structuren: steil, slag, krullend en kroeshaar. De formule past zich aan op basis van de hoeveelheid die je gebruikt.",
   },
   {
     id: "gebruik",
@@ -29,6 +29,6 @@ export const faqItems: AccordionItemData[] = [
     id: "ingredienten",
     title: "Zijn de ingrediënten 100% natuurlijk en vegan?",
     content:
-      "Ja, alle ingrediënten zijn plantaardig en 100% natuurlijk. We gebruiken geen parabenen, sulfaten of dierlijke bestanddelen — de Hairbutter is volledig vegan.",
+      "Ja, alle ingrediënten zijn plantaardig en 100% natuurlijk. We gebruiken geen parabenen, sulfaten of dierlijke bestanddelen. De Hairbutter is volledig vegan.",
   },
 ];

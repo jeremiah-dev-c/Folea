@@ -7,7 +7,7 @@ import { buttonVariants } from "@/components/ui/Button";
 const values = [
   {
     stat: "4",
-    label: "Haartypes ondersteund — steil, slag, krul, kroes",
+    label: "Haartypes ondersteund: steil, slag, krul, kroes",
   },
   {
     stat: "100%",
@@ -32,7 +32,7 @@ export function AboutValues() {
           </h2>
           <p className="mt-4 text-charcoal-soft leading-relaxed">
             We geloven dat goede haarverzorging niet zou moeten vragen om
-            tien verschillende producten. FOLÉA past zich aan — aan jouw
+            tien verschillende producten. FOLÉA past zich aan: op jouw
             structuur, jouw poreusheid, jouw routine.
           </p>
         </div>

@@ -6,13 +6,14 @@ export const hairbutter: Product = {
   name: "FOLÉA Hairbutter",
   tagline: "Eén butter. Oneindig veel mogelijkheden.",
   description:
-    "Een ambachtelijke, multifunctionele haarbutter die voedt, beschermt en stylt — geschikt voor steil, slag, krullend en kroeshaar. Gemaakt met 100% natuurlijke ingrediënten, zonder compromis.",
+    "Een multifunctionele haarbutter die voedt, beschermt en stylt, geschikt voor steil, slag, krullend en kroeshaar. Gemaakt met 100% natuurlijke ingrediënten, zonder compromis.",
   price: 24.95,
   currency: "EUR",
   images: [
-    { src: "/images/hairbutter-stack.jpg", alt: "Twee gestapelde potten FOLÉA Hairbutter op een lichte achtergrond" },
-    { src: "/images/hairbutter-stack.jpg", alt: "FOLÉA Hairbutter potje detail" },
-    { src: "/images/hairbutter-stack.jpg", alt: "FOLÉA Hairbutter potje geopend" },
+    {
+      src: "/images/hairbutter-stack.jpg",
+      alt: "Twee gestapelde potten FOLÉA Hairbutter op een lichte achtergrond",
+    },
   ],
   highlights: [
     "Leave-in conditioner",
@@ -68,8 +69,6 @@ export const hairbutter: Product = {
       description: "Vol antioxidanten, geeft glans en beschermt tegen hitteschade.",
     },
   ],
-  rating: 4.8,
-  reviewCount: 214,
 };
 
 export const products: Product[] = [hairbutter];

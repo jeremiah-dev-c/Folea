@@ -2,21 +2,20 @@
 
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
-import { Send } from "lucide-react";
+import { ArrowRight, Mail, MapPin } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import {
   InstagramIcon,
-  PinterestIcon,
+  SnapchatIcon,
   TikTokIcon,
 } from "@/components/ui/SocialIcons";
-
-const paymentMethods = ["iDEAL", "Bancontact", "Creditcard"];
+import { ApplePayBadge, IdealWeroBadge } from "@/components/ui/PaymentBadges";
 
 const socialLinks = [
   { label: "Instagram", href: "https://instagram.com", icon: InstagramIcon },
   { label: "TikTok", href: "https://tiktok.com", icon: TikTokIcon },
-  { label: "Pinterest", href: "https://pinterest.com", icon: PinterestIcon },
+  { label: "Snapchat", href: "https://snapchat.com", icon: SnapchatIcon },
 ];
 
 const footerNav = [
@@ -57,14 +56,15 @@ export function Footer() {
 
   return (
     <footer className="mt-24 border-t border-earth/15 bg-cream-deep/60 text-charcoal">
-      <Container className="py-16">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <div className="lg:col-span-1 space-y-4">
-            <p className="font-serif text-2xl text-forest">FOLÉA</p>
-            <p className="text-sm text-charcoal-soft">
-              Inspired by nature, created with intention.
+      <Container className="py-16 md:py-20">
+        <div className="grid gap-14 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1.2fr]">
+          <div className="space-y-5">
+            <p className="font-serif text-3xl text-forest">FOLÉA</p>
+            <p className="max-w-xs text-sm leading-relaxed text-charcoal-soft">
+              Haarverzorging geïnspireerd door natuur, gemaakt met intentie
+              voor elk haartype.
             </p>
-            <div className="flex gap-3 pt-2">
+            <div className="flex gap-2.5 pt-1">
               {socialLinks.map(({ label, href, icon: Icon }) => (
                 <a
                   key={label}
@@ -72,9 +72,9 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="rounded-full border border-charcoal/15 p-2 text-forest transition-colors hover:bg-blush"
+                  className="rounded-full border border-charcoal/15 p-2.5 text-forest transition-all duration-300 hover:border-forest hover:bg-forest hover:text-white"
                 >
-                  <Icon width={16} height={16} />
+                  <Icon width={15} height={15} />
                 </a>
               ))}
             </div>
@@ -82,10 +82,10 @@ export function Footer() {
 
           {footerNav.map((group) => (
             <div key={group.title} className="space-y-4">
-              <p className="text-sm font-semibold uppercase tracking-wider text-earth">
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-earth">
                 {group.title}
               </p>
-              <ul className="space-y-2.5">
+              <ul className="space-y-3">
                 {group.links.map((link) => (
                   <li key={link.label}>
                     <Link
@@ -100,19 +100,45 @@ export function Footer() {
             </div>
           ))}
 
-          <div className="space-y-4 md:col-span-2 lg:col-span-1">
-            <p className="text-sm font-semibold uppercase tracking-wider text-earth">
-              Blijf op de hoogte
+          <div className="space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-earth">
+              Klantcontact
             </p>
-            <p className="text-sm text-charcoal-soft">
-              Schrijf je in voor exclusieve aanbiedingen en haarverzorgingstips.
-            </p>
+            <ul className="space-y-3 text-sm text-charcoal-soft">
+              <li className="flex items-center gap-2.5">
+                <Mail size={15} className="shrink-0 text-forest" />
+                <a href="mailto:hello@folea.nl" className="hover:text-forest">
+                  hello@folea.nl
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <MapPin size={15} className="shrink-0 text-forest" />
+                Amsterdam, Nederland
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-14 rounded-lg bg-blush/50 p-6 sm:p-8">
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="font-serif text-xl text-forest">
+                Blijf op de hoogte
+              </p>
+              <p className="mt-1 text-sm text-charcoal-soft">
+                Exclusieve aanbiedingen en haarverzorgingstips, rechtstreeks
+                in je inbox.
+              </p>
+            </div>
             {submitted ? (
               <p className="text-sm font-medium text-forest">
                 Bedankt voor je inschrijving!
               </p>
             ) : (
-              <form onSubmit={handleSubmit} className="flex gap-2">
+              <form
+                onSubmit={handleSubmit}
+                className="flex w-full max-w-sm gap-2"
+              >
                 <input
                   type="email"
                   required
@@ -128,27 +154,27 @@ export function Footer() {
                   className="shrink-0"
                   aria-label="Inschrijven"
                 >
-                  <Send size={16} />
+                  <ArrowRight size={16} />
                 </Button>
               </form>
             )}
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-charcoal/10 pt-8 text-xs text-charcoal-soft md:flex-row md:items-center md:justify-between">
+        <div className="mt-10 flex flex-col-reverse gap-4 border-t border-charcoal/10 pt-8 text-xs text-charcoal-soft sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} FOLÉA. Alle rechten voorbehouden. KvK
-            00000000 · BTW NL000000000B00 · hello@folea.nl
+            © {new Date().getFullYear()} FOLÉA. Alle rechten voorbehouden. ·
+            KvK 00000000 · BTW NL000000000B00
           </p>
-          <div className="flex items-center gap-3">
-            {paymentMethods.map((method) => (
-              <span
-                key={method}
-                className="rounded border border-charcoal/15 px-2.5 py-1 font-medium tracking-wide text-charcoal-soft"
-              >
-                {method}
-              </span>
-            ))}
+          <div className="flex items-center gap-2">
+            <span className="mr-1 text-[11px] text-charcoal-soft/70">
+              Veilig betalen met
+            </span>
+            <IdealWeroBadge />
+            <ApplePayBadge />
+            <span className="rounded-md border border-charcoal/15 bg-cream px-2.5 py-1 text-[11px] font-medium tracking-wide text-charcoal-soft">
+              Creditcard
+            </span>
           </div>
         </div>
       </Container>

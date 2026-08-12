@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, Search, ShoppingBag, X } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
 import { useCart } from "@/hooks/useCart";
+import { SearchOverlay } from "@/components/business/SearchOverlay";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -19,6 +20,7 @@ const navItems = [
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const { itemCount, openCart } = useCart();
 
   useEffect(() => {
@@ -28,20 +30,18 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const solid = scrolled || mobileOpen;
-
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-colors duration-500 ease-[var(--ease-elegant)]",
-        solid
-          ? "bg-cream/90 backdrop-blur-md shadow-[0_1px_0_0_rgba(28,28,28,0.06)]"
-          : "bg-transparent",
+        "fixed inset-x-0 top-0 z-50 bg-cream/95 backdrop-blur-md transition-shadow duration-500 ease-[var(--ease-elegant)]",
+        scrolled
+          ? "shadow-[0_1px_0_0_rgba(28,28,28,0.08)]"
+          : "shadow-[0_1px_0_0_rgba(28,28,28,0.03)]",
       )}
     >
       <div className="mx-auto flex h-20 w-full max-w-[var(--container-page)] items-center justify-between px-6 md:px-10 lg:px-16">
         <button
-          className="p-2 -ml-2 md:hidden"
+          className="-ml-2 p-2 text-charcoal transition-colors md:hidden"
           aria-label="Menu openen"
           onClick={() => setMobileOpen((v) => !v)}
         >
@@ -50,10 +50,7 @@ export function Header() {
 
         <Link
           href="/"
-          className={cn(
-            "font-serif text-2xl tracking-wide transition-colors",
-            solid ? "text-forest" : "text-forest",
-          )}
+          className="font-serif text-2xl tracking-wide text-forest transition-colors"
         >
           FOLÉA
         </Link>
@@ -63,10 +60,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={cn(
-                "text-sm font-medium tracking-wide transition-colors hover:text-forest",
-                solid ? "text-charcoal" : "text-charcoal",
-              )}
+              className="text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-forest"
             >
               {item.label}
             </Link>
@@ -75,17 +69,18 @@ export function Header() {
 
         <div className="flex items-center gap-1">
           <button
-            className="p-2 rounded-full hover:bg-blush transition-colors"
+            className="rounded-full p-2 text-charcoal transition-colors hover:bg-blush"
             aria-label="Zoeken"
+            onClick={() => setSearchOpen((v) => !v)}
           >
-            <Search size={20} className="text-charcoal" />
+            <Search size={20} />
           </button>
           <button
-            className="relative p-2 rounded-full hover:bg-blush transition-colors"
+            className="relative rounded-full p-2 text-charcoal transition-colors hover:bg-blush"
             aria-label="Winkelmand openen"
             onClick={openCart}
           >
-            <ShoppingBag size={20} className="text-charcoal" />
+            <ShoppingBag size={20} />
             <AnimatePresence>
               {itemCount > 0 && (
                 <motion.span
@@ -126,6 +121,8 @@ export function Header() {
           </motion.nav>
         )}
       </AnimatePresence>
+
+      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
   );
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 
@@ -16,13 +15,17 @@ export function AboutStory() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="relative aspect-[4/5] overflow-hidden rounded-lg bg-cream-deep md:order-2"
           >
-            <Image
-              src="/images/hairbutter-stack.jpg"
-              alt="Twee gestapelde potten FOLÉA Hairbutter"
-              fill
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover"
-            />
+            <video
+              className="h-full w-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster="/video/product-pour-poster.jpg"
+              aria-label="FOLÉA Hairbutter met gouden olie overgoten"
+            >
+              <source src="/video/product-pour.mp4" type="video/mp4" />
+            </video>
           </motion.div>
 
           <motion.div
@@ -50,7 +53,7 @@ export function AboutStory() {
               <p>
                 Dus gingen we zelf aan de slag. Met natuurlijke boters en
                 oliën, in onze eigen keuken, tot we een formule hadden die
-                zich aanpast aan het haar dat het draagt — in plaats van
+                zich aanpast aan het haar dat het draagt, in plaats van
                 andersom.
               </p>
             </div>

@@ -3,10 +3,15 @@
 import { motion } from "framer-motion";
 import { buttonVariants } from "@/components/ui/Button";
 
+const EASE = [0.22, 1, 0.36, 1] as const;
+
 export function Hero() {
   return (
-    <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden">
-      <video
+    <section className="relative flex h-[100svh] min-h-[640px] w-full items-center overflow-hidden bg-charcoal">
+      <motion.video
+        initial={{ scale: 1.12 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 3.5, ease: EASE }}
         className="absolute inset-0 h-full w-full object-cover"
         autoPlay
         muted
@@ -15,65 +20,59 @@ export function Hero() {
         poster="/video/hero-poster.jpg"
       >
         <source src="/video/hero.mp4" type="video/mp4" />
-      </video>
+      </motion.video>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/20 to-charcoal/40" />
+      {/* Darkest on the left where the text sits, fading out toward the right */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(28,28,28,0.85) 0%, rgba(28,28,28,0.6) 35%, rgba(28,28,28,0.2) 65%, rgba(28,28,28,0.05) 100%)",
+        }}
+      />
 
-      <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-6 text-center text-white">
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-4 text-xs font-medium uppercase tracking-[0.35em] text-blush"
-        >
-          Inspired by nature, created with intention
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-serif text-6xl leading-[1.05] sm:text-7xl md:text-8xl"
-        >
-          FOLÉA
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 max-w-md text-base text-white/90 sm:text-lg"
-        >
-          Eén ambachtelijke hairbutter voor al je haar — natuurlijk gevoed,
-          bewust gemaakt.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10"
-        >
-          <a
-            href="#product-spotlight"
-            className={buttonVariants({ variant: "primary", size: "lg" })}
+      <div className="relative z-10 mx-auto w-full max-w-[var(--container-page)] px-6 sm:px-10 md:px-16 lg:px-20">
+        <div className="max-w-md text-left text-white">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: EASE }}
+            className="mb-5 text-[11px] font-medium uppercase tracking-[0.4em] text-blush"
           >
-            Ontdek Hairbutter
-          </a>
-        </motion.div>
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.8 }}
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-white/70"
-      >
-        <div className="h-9 w-5 rounded-full border border-white/50 p-1">
+            Geïnspireerd door natuur, gemaakt met intentie
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
+            className="font-serif text-6xl leading-[1.02] sm:text-7xl md:text-8xl"
+          >
+            FOLÉA
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.2, ease: EASE }}
+            className="mt-6 text-balance text-base leading-relaxed text-white/85 sm:text-lg"
+          >
+            Eén hairbutter voor al je haar, natuurlijk gevoed en bewust
+            gemaakt.
+          </motion.p>
           <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="h-1.5 w-1.5 rounded-full bg-white"
-          />
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.32, ease: EASE }}
+            className="mt-9"
+          >
+            <a
+              href="#product-spotlight"
+              className={buttonVariants({ variant: "blush", size: "lg" })}
+            >
+              Ontdek Hairbutter
+            </a>
+          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

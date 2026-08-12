@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ChevronRight, Star } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import type { Product } from "@/types/product";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -54,21 +54,6 @@ export function ProductDetail({ product }: { product: Product }) {
               <h1 className="mt-3 text-4xl md:text-5xl text-forest">
                 {product.name}
               </h1>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <div className="flex text-earth">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    size={16}
-                    fill={i < Math.round(product.rating) ? "currentColor" : "none"}
-                  />
-                ))}
-              </div>
-              <span className="text-sm text-charcoal-soft">
-                {product.rating} ({product.reviewCount} reviews)
-              </span>
             </div>
 
             <p className="text-2xl font-medium text-forest">

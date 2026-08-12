@@ -24,7 +24,7 @@ export function ContactForm() {
         <CheckCircle2 size={32} strokeWidth={1.5} className="text-forest" />
         <p className="font-serif text-2xl text-forest">Bericht verzonden</p>
         <p className="max-w-sm text-charcoal-soft">
-          Bedankt voor je bericht — we reageren binnen 1-2 werkdagen.
+          Bedankt voor je bericht. We reageren binnen 1 tot 2 werkdagen.
         </p>
       </motion.div>
     );

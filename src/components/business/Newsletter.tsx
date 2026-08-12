@@ -33,13 +33,13 @@ export function Newsletter() {
             Blijf op de hoogte
           </h2>
           <p className="mx-auto mt-4 max-w-sm text-charcoal-soft">
-            Exclusieve aanbiedingen, nieuwe producten en haarverzorgingstips —
+            Exclusieve aanbiedingen, nieuwe producten en haarverzorgingstips,
             rechtstreeks in je inbox.
           </p>
 
           {submitted ? (
             <p className="mt-8 font-medium text-forest">
-              Welkom bij FOLÉA — check je inbox!
+              Welkom bij FOLÉA. Check je inbox!
             </p>
           ) : (
             <form
