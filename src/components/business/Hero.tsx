@@ -22,9 +22,11 @@ export function Hero() {
         <source src="/video/hero.mp4" type="video/mp4" />
       </motion.video>
 
-      {/* Darkest on the left where the text sits, fading out toward the right */}
+      {/* Mobiel: egale overlay achter gecentreerde tekst */}
+      <div className="absolute inset-0 bg-charcoal/45 sm:hidden" />
+      {/* Desktop: donkerst links waar de tekst staat, uitdovend naar rechts */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 hidden sm:block"
         style={{
           background:
             "linear-gradient(to right, rgba(28,28,28,0.85) 0%, rgba(28,28,28,0.6) 35%, rgba(28,28,28,0.2) 65%, rgba(28,28,28,0.05) 100%)",
@@ -32,7 +34,7 @@ export function Hero() {
       />
 
       <div className="relative z-10 mx-auto w-full max-w-[var(--container-page)] px-6 sm:px-10 md:px-16 lg:px-20">
-        <div className="max-w-md text-left text-white">
+        <div className="mx-auto max-w-md text-center text-white sm:mx-0 sm:text-left">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
