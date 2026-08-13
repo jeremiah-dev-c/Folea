@@ -16,7 +16,7 @@ export default function PortfolioPage() {
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
             Portfolio
           </p>
-          <h1 className="mt-3 text-4xl md:text-5xl text-forest">
+          <h1 className="mt-3 text-4xl md:text-5xl text-berry">
             Textuur & Ritueel
           </h1>
           <p className="mt-4 text-charcoal-soft leading-relaxed">

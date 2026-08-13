@@ -60,7 +60,7 @@ export function Footer() {
       <Container className="py-16 md:py-20">
         <div className="grid gap-14 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1.2fr]">
           <div className="space-y-5">
-            <p className="font-serif text-3xl text-forest">FOLÉA</p>
+            <p className="font-serif text-3xl text-berry">FOLÉA</p>
             <p className="max-w-xs text-sm leading-relaxed text-charcoal-soft">
               Haarverzorging geïnspireerd door natuur, gemaakt met intentie
               voor elk haartype.
@@ -73,7 +73,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="rounded-full border border-charcoal/15 p-2.5 text-forest transition-all duration-300 hover:border-forest hover:bg-forest hover:text-white"
+                  className="rounded-full border border-charcoal/15 p-2.5 text-berry transition-all duration-300 hover:border-berry hover:bg-berry hover:text-white"
                 >
                   <Icon width={15} height={15} />
                 </a>
@@ -91,7 +91,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-charcoal-soft transition-colors hover:text-forest"
+                      className="text-sm text-charcoal-soft transition-colors hover:text-berry"
                     >
                       {link.label}
                     </Link>
@@ -107,13 +107,13 @@ export function Footer() {
             </p>
             <ul className="space-y-3 text-sm text-charcoal-soft">
               <li className="flex items-center gap-2.5">
-                <Mail size={15} className="shrink-0 text-forest" />
-                <a href="mailto:hello@folea.nl" className="hover:text-forest">
+                <Mail size={15} className="shrink-0 text-berry" />
+                <a href="mailto:hello@folea.nl" className="hover:text-berry">
                   hello@folea.nl
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <MapPin size={15} className="shrink-0 text-forest" />
+                <MapPin size={15} className="shrink-0 text-berry" />
                 Amsterdam, Nederland
               </li>
             </ul>
@@ -123,7 +123,7 @@ export function Footer() {
         <div className="mt-14 rounded-lg bg-blush/50 p-6 sm:p-8">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="font-serif text-xl text-forest">
+              <p className="font-serif text-xl text-berry">
                 Blijf op de hoogte
               </p>
               <p className="mt-1 text-sm text-charcoal-soft">
@@ -132,7 +132,7 @@ export function Footer() {
               </p>
             </div>
             {submitted ? (
-              <p className="text-sm font-medium text-forest">
+              <p className="text-sm font-medium text-berry">
                 Bedankt voor je inschrijving!
               </p>
             ) : (
@@ -146,7 +146,7 @@ export function Footer() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="jouw@email.com"
-                  className="w-full rounded-full border border-charcoal/15 bg-cream px-4 py-2.5 text-sm text-charcoal placeholder:text-charcoal-soft/60 focus:border-forest focus:outline-none"
+                  className="w-full rounded-full border border-charcoal/15 bg-cream px-4 py-2.5 text-sm text-charcoal placeholder:text-charcoal-soft/60 focus:border-berry focus:outline-none"
                 />
                 <Button
                   type="submit"

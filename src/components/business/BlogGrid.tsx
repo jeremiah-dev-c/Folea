@@ -31,8 +31,8 @@ export function BlogGrid() {
             className={cn(
               "rounded-full border px-5 py-2.5 text-sm font-medium transition-colors duration-300",
               active === category
-                ? "border-forest bg-forest text-white"
-                : "border-charcoal/15 bg-transparent text-charcoal hover:border-forest",
+                ? "border-berry bg-berry text-white"
+                : "border-charcoal/15 bg-transparent text-charcoal hover:border-berry",
             )}
           >
             {category}
@@ -76,7 +76,7 @@ export function BlogGrid() {
                     {post.readTime} leestijd
                   </span>
                 </div>
-                <h3 className="mt-2 flex items-start justify-between gap-2 text-xl text-forest transition-colors group-hover:text-forest-light">
+                <h3 className="mt-2 flex items-start justify-between gap-2 text-xl text-berry transition-colors group-hover:text-berry-light">
                   {post.title}
                   <ArrowUpRight
                     size={18}

@@ -29,7 +29,7 @@ export function Newsletter() {
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
             De FOLÉA-familie
           </p>
-          <h2 className="mt-3 text-4xl text-forest md:text-5xl">
+          <h2 className="mt-3 text-4xl text-berry md:text-5xl">
             Blijf op de hoogte
           </h2>
           <p className="mx-auto mt-4 max-w-sm text-charcoal-soft">
@@ -38,7 +38,7 @@ export function Newsletter() {
           </p>
 
           {submitted ? (
-            <p className="mt-8 font-medium text-forest">
+            <p className="mt-8 font-medium text-berry">
               Welkom bij FOLÉA. Check je inbox!
             </p>
           ) : (
@@ -52,7 +52,7 @@ export function Newsletter() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="jouw@email.com"
-                className="w-full rounded-full border border-charcoal/15 bg-cream px-5 py-3 text-sm text-charcoal placeholder:text-charcoal-soft/60 focus:border-forest focus:outline-none"
+                className="w-full rounded-full border border-charcoal/15 bg-cream px-5 py-3 text-sm text-charcoal placeholder:text-charcoal-soft/60 focus:border-berry focus:outline-none"
               />
               <Button type="submit" variant="primary" size="md">
                 Inschrijven

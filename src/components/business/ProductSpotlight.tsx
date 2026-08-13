@@ -37,7 +37,7 @@ export function ProductSpotlight() {
               />
             </div>
             <div className="absolute -bottom-5 left-6 flex items-center gap-2 rounded-full bg-cream px-4 py-2.5 shadow-lg shadow-earth/10">
-              <Leaf size={14} className="text-forest" />
+              <Leaf size={14} className="text-berry" />
               <span className="text-xs font-semibold tracking-wide text-charcoal">
                 100% natuurlijke ingrediënten
               </span>
@@ -55,7 +55,7 @@ export function ProductSpotlight() {
               <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
                 Onze hairbutter
               </p>
-              <h2 className="mt-3 text-4xl md:text-5xl text-forest">
+              <h2 className="mt-3 text-4xl md:text-5xl text-berry">
                 {hairbutter.name}
               </h2>
             </div>
@@ -71,7 +71,7 @@ export function ProductSpotlight() {
                   className="flex items-center gap-3 text-sm font-medium text-charcoal"
                 >
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blush/70">
-                    <Check size={13} strokeWidth={2.5} className="text-forest" />
+                    <Check size={13} strokeWidth={2.5} className="text-berry" />
                   </span>
                   {highlight}
                 </li>
@@ -79,7 +79,7 @@ export function ProductSpotlight() {
             </ul>
 
             <div className="flex items-center gap-5 border-t border-charcoal/10 pt-6">
-              <span className="text-3xl font-medium text-forest">
+              <span className="text-3xl font-medium text-berry">
                 {formatPrice(hairbutter.price)}
               </span>
               <Button
@@ -93,7 +93,7 @@ export function ProductSpotlight() {
 
             <Link
               href={`/producten/${hairbutter.slug}`}
-              className="inline-block text-sm font-medium text-forest underline underline-offset-4 hover:text-forest-light"
+              className="inline-block text-sm font-medium text-berry underline underline-offset-4 hover:text-berry-light"
             >
               Bekijk volledige productinformatie
             </Link>

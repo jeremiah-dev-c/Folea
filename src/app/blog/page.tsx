@@ -16,7 +16,7 @@ export default function BlogPage() {
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
             Haircare Advies
           </p>
-          <h1 className="mt-3 text-4xl md:text-5xl text-forest">Blog</h1>
+          <h1 className="mt-3 text-4xl md:text-5xl text-berry">Blog</h1>
           <p className="mt-4 text-charcoal-soft leading-relaxed">
             Verhalen over natuurlijke haarverzorging, onze ingrediënten en het
             ambacht achter elk potje FOLÉA.

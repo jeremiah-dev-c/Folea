@@ -50,7 +50,7 @@ export function Header() {
 
         <Link
           href="/"
-          className="font-serif text-2xl tracking-wide text-forest transition-colors"
+          className="font-serif text-2xl tracking-wide text-berry transition-colors"
         >
           FOLÉA
         </Link>
@@ -60,7 +60,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-forest"
+              className="text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-berry"
             >
               {item.label}
             </Link>
@@ -87,7 +87,7 @@ export function Header() {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   exit={{ scale: 0 }}
-                  className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-forest text-[10px] font-semibold text-white"
+                  className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-berry text-[10px] font-semibold text-white"
                 >
                   {itemCount}
                 </motion.span>

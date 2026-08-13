@@ -44,7 +44,7 @@ export function CartDrawer() {
             aria-label="Winkelmand"
           >
             <div className="flex items-center justify-between border-b border-charcoal/10 px-6 py-5">
-              <h2 className="font-serif text-2xl text-forest">Winkelmand</h2>
+              <h2 className="font-serif text-2xl text-berry">Winkelmand</h2>
               <button
                 onClick={closeCart}
                 aria-label="Winkelmand sluiten"
@@ -59,13 +59,13 @@ export function CartDrawer() {
                 {remaining > 0 ? (
                   <>
                     Nog{" "}
-                    <span className="text-forest font-semibold">
+                    <span className="text-berry font-semibold">
                       {formatPrice(remaining)}
                     </span>{" "}
                     tot gratis verzending
                   </>
                 ) : (
-                  <span className="flex items-center gap-1.5 text-forest font-semibold">
+                  <span className="flex items-center gap-1.5 text-berry font-semibold">
                     <CheckCircle2 size={16} />
                     Je hebt gratis verzending
                   </span>
@@ -73,7 +73,7 @@ export function CartDrawer() {
               </p>
               <div className="h-1.5 w-full overflow-hidden rounded-full bg-blush">
                 <motion.div
-                  className="h-full rounded-full bg-forest"
+                  className="h-full rounded-full bg-berry"
                   initial={{ width: 0 }}
                   animate={{ width: `${progress}%` }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
@@ -143,7 +143,7 @@ export function CartDrawer() {
                               <Plus size={14} />
                             </button>
                           </div>
-                          <p className="text-sm font-medium text-forest">
+                          <p className="text-sm font-medium text-berry">
                             {formatPrice(item.product.price * item.quantity)}
                           </p>
                         </div>
@@ -158,7 +158,7 @@ export function CartDrawer() {
               <div className="border-t border-charcoal/10 px-6 py-6 space-y-4">
                 <div className="flex items-center justify-between text-base">
                   <span className="text-charcoal-soft">Subtotaal</span>
-                  <span className="font-semibold text-forest">
+                  <span className="font-semibold text-berry">
                     {formatPrice(subtotal)}
                   </span>
                 </div>

@@ -18,8 +18,8 @@ export function UspBar() {
               key={label}
               className="flex flex-col items-center gap-3 text-center"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-forest/20 bg-cream">
-                <Icon size={18} strokeWidth={1.5} className="text-forest" />
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-berry/20 bg-cream">
+                <Icon size={18} strokeWidth={1.5} className="text-berry" />
               </span>
               <span className="text-sm font-medium tracking-wide text-charcoal">
                 {label}

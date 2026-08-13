@@ -14,7 +14,7 @@ export function ContactHero() {
       <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
         Contact
       </p>
-      <h1 className="mt-4 text-5xl leading-[1.1] text-forest md:text-6xl">
+      <h1 className="mt-4 text-5xl leading-[1.1] text-berry md:text-6xl">
         We horen graag van je
       </h1>
       <p className="mt-6 text-lg text-charcoal-soft leading-relaxed">
@@ -22,7 +22,7 @@ export function ContactHero() {
         of bekijk eerst de{" "}
         <Link
           href="/faq"
-          className="font-medium text-forest underline underline-offset-4 hover:text-forest-light"
+          className="font-medium text-berry underline underline-offset-4 hover:text-berry-light"
         >
           veelgestelde vragen
         </Link>

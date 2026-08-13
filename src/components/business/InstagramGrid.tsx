@@ -4,7 +4,7 @@ import { InstagramIcon } from "@/components/ui/SocialIcons";
 
 const tiles = [
   {
-    src: "/images/hairbutter-front.jpg",
+    src: "/images/product-front.jpg",
     alt: "FOLÉA Hairbutter potje recht van voren",
   },
   {
@@ -12,16 +12,16 @@ const tiles = [
     alt: "Zijden stof met minimalistische flessen",
   },
   {
-    src: "/images/hairbutter-podium.jpg",
-    alt: "FOLÉA Hairbutter op een roze podium",
+    src: "/images/product-top.jpg",
+    alt: "FOLÉA Hairbutter van bovenaf met het logo op de deksel",
   },
   {
     src: "/images/portfolio-voeding.jpg",
     alt: "Romige haarbutter in een houten kom",
   },
   {
-    src: "/images/hairbutter-stack.jpg",
-    alt: "Twee gestapelde potten FOLÉA Hairbutter",
+    src: "/images/product-duo.jpg",
+    alt: "Twee potten FOLÉA Hairbutter met waterdruppels",
   },
   {
     src: "/images/portfolio-structuur.jpg",
@@ -37,7 +37,7 @@ export function InstagramGrid() {
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
             @folea
           </p>
-          <h2 className="mt-3 text-4xl md:text-5xl text-forest">
+          <h2 className="mt-3 text-4xl md:text-5xl text-berry">
             Volg ons op Instagram
           </h2>
         </div>

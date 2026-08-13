@@ -1,6 +1,6 @@
 # FOLÉA Webshop — Handover
 
-**Laatst bijgewerkt:** 12 augustus 2026, 20:56 (CEST)
+**Laatst bijgewerkt:** 13 augustus 2026, 18:45 (CEST)
 **Repo:** `Snel Online Marketing/Folea` (git, branch `main`, 2 commits voor op origin). Laatste commit: `4fd142a` (Portfolio/Blog, herontwerp, reviews weg). Daarna nog uncommitted: nieuwe productfoto's + placeholder-systeem + design-pass (zie sectie 3, punt 13).
 **Stack:** Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · Framer Motion · Zustand · lucide-react · embla-carousel-react
 
@@ -17,7 +17,7 @@ Dev server draait via `.claude/launch.json` (`npm run dev`, poort 3000).
 ## 2. Wat er staat
 
 ### Design tokens (`src/app/globals.css`)
-Kleuren zijn Pantone-gerefereerd en bewust verzadigd (niet de originele zachte pastels): `forest` volgt Pantone Peridot, `earth` volgt Potting Soil, `blush` volgt Flushing Pink, `cream` volgt Papyrus. Crème/blush blijven de dominante achtergrondkleuren; forest/earth zijn alleen voor kleine accenten (labels, iconen, dunne randen, hooguit één knop per sectie) — deze regel staat ook vastgelegd in het auto-memory-systeem.
+Er zit **geen groen** meer in het palet. Het oude `forest`-token (Pantone Peridot) is op verzoek volledig vervangen door `berry`: het diepe karmijnrood van het etiket op de pot (`#a3182a`, hover `#c02236`). Crème/blush blijven de dominante achtergrondkleuren; berry/earth zijn alleen voor kleine accenten (labels, iconen, dunne randen, hooguit één knop per sectie). `blush` volgt Flushing Pink, `cream` volgt Papyrus, `earth` volgt Potting Soil.
 
 Er is een `blush`-gevulde button-variant toegevoegd (`buttonVariants({ variant: "blush" })`) naast primary/secondary/ghost/earth, gebruikt voor de hero-CTA.
 
@@ -65,7 +65,8 @@ src/
 ### Assets
 - `public/video/hero.mp4` (4,3MB, CRF 18, volledige 1920px breedte) + `hero-poster.jpg` — herzien tijdens deze sessie nadat een eerdere te agressieve compressie kwaliteitsverlies gaf. Bron: `IMG_9125.MOV`.
 - `public/video/product-pour.mp4` (946KB) + `product-pour-poster.jpg` — de cinemagraph (gouden olie over de potjes), nu in Over Ons i.p.v. op de PDP.
-- `public/images/hairbutter-stack.jpg`, `hairbutter-jar-solo.jpg` — echte productfoto's.
+- `public/images/product-front.jpg`, `product-top.jpg`, `product-duo.jpg` — de studiofoto's van de klant (1400px breed, q92, 72-92KB elk). Volledige originelen staan in `source-media/images/` (git-ignored).
+- **Harde regel: geen enkele afbeelding in `public/images/` boven de 100KB.** De hele map is nu ~840KB, elk bestand tussen 24KB en 94KB. De werkwijze staat in CLAUDE.md: quality niet onder q82, liever de afmetingen verkleinen dan de kwaliteit, `cjpeg -optimize -progressive`, en altijd vanaf het origineel hercomprimeren.
 - `public/images/portfolio-*.jpg`, `blog-*.jpg` — via Higgsfield gegenereerde editorial stills (zie openstaand punt: gebruiker wil voortaan expliciet toestemming per generatie).
 - Ruwe, ongecomprimeerde bronbestanden staan in `source-media/` (git-ignored, niet in `public/`).
 
@@ -90,19 +91,20 @@ src/
 11. Hero-video kwaliteit hersteld (was te agressief gecomprimeerd) en visueel meermaals herzien: van gecentreerd/overlappend met gezichten → links onderaan → boven → **uiteindelijk gecentreerd + bovenaan**, met een roze CTA-knop.
 12. Alle em dashes en het woord "ambachtelijk" uit de volledige site-copy verwijderd.
 13. **Design-pass met nieuwe productfotografie (nog niet gecommit):** twee nieuwe studiofoto's verwerkt (`hairbutter-front.jpg` als primair beeld, `hairbutter-podium.jpg` als tweede hoek) zodat het gestapelde twee-potjes-beeld uit de primaire productplekken is. PDP-galerij toont nu 3 thumbnails. ProductSpotlight herstijld (checklist + floating badge, eyebrow "Onze hairbutter"), HowToUse omgebouwd naar split-layout met productfoto, UspBar met iconen-in-cirkels, InstagramGrid gevuld met echte beelden + hover-overlay, smooth scroll toegevoegd.
-14. **Aparte FAQ-pagina + placeholders teruggedraaid (nog niet gecommit):** `/faq` is nu een eigen pagina (accordeon + "Naar contact"-kaart); de contactpagina is geslankt tot formulier + contactinfo en linkt naar `/faq`; footer-Klantenservice linkt naar beide. De "fotoshoot komt eraan"-placeholdersecties (ImagePlaceholder/CampaignPreview/StudioPeek) zijn op verzoek weer verwijderd: de nog te ontvangen foto's zijn een interne kwestie voor de developer, geen site-content. De Instagram-grid onderaan de homepage blijft staan als de bewuste placeholder-sectie.
+14. **Aparte FAQ-pagina + placeholders teruggedraaid:** `/faq` is nu een eigen pagina (accordeon + "Naar contact"-kaart); de contactpagina is geslankt tot formulier + contactinfo en linkt naar `/faq`; footer-Klantenservice linkt naar beide. De "fotoshoot komt eraan"-placeholdersecties (ImagePlaceholder/CampaignPreview/StudioPeek) zijn op verzoek weer verwijderd: de nog te ontvangen foto's zijn een interne kwestie voor de developer, geen site-content. De Instagram-grid onderaan de homepage blijft staan als de bewuste placeholder-sectie.
+15. **Echte studiofotografie, nieuwe prijs, groen eruit (13 augustus):** de drie aangeleverde studiofoto's zijn verwerkt als `product-front.jpg` / `product-top.jpg` / `product-duo.jpg` (van ~19MB samen naar 286KB) en vervangen alle oude productbeelden site-breed; de oude `hairbutter-*.jpg` bestanden zijn verwijderd. Prijs van €24,95 naar **€39,95** per pot. Het `forest`-token (groen) is site-breed hernoemd naar `berry` met het karmijnrood van het etiket (`#a3182a`); 96 voorkomens in 28 bestanden omgezet, geverifieerd dat er nul groene kleuren meer op de pagina's staan.
+16. **Alle afbeeldingen onder 100KB (13 augustus):** de hele `public/images/` map opnieuw gecomprimeerd volgens de nieuwe regel. Drie bestanden zaten boven de limiet en zijn met behoud van kwaliteit teruggebracht: `blog-ingredienten.jpg` 180→90KB, `portfolio-voeding.jpg` 182→90KB, `blog-deep-mask.jpg` 126→94KB (bij die drie zijn de afmetingen verkleind in plaats van de quality te verlagen, omdat ze in de UI toch nooit op volle breedte worden getoond). Drie andere bestanden werden bij hercompressie juist groter en zijn daarom op het origineel gelaten. Map totaal nu ~840KB.
 
 ---
 
 ## 4. Openstaande punten
 
-1. **iDEAL/Wero-logo klopt niet.** De gebruiker stuurde de echte badge-afbeeldingen (Apple Pay + gecombineerde iDEAL/Wero) maar die zijn als inline chat-afbeelding geplakt, niet als bestand — ik kon ze niet oppakken. Zelfgetekende SVG-benadering in `components/ui/PaymentBadges.tsx` is door de gebruiker afgekeurd. **Actie nodig:** gebruiker moet de originele logo-bestanden (PNG/SVG) in `public/images/` zetten (bijv. `payment-ideal-wero.png`, `payment-apple-pay.png`), dan worden ze als `next/image` ingeladen i.p.v. de handgetekende versie.
-2. **Higgsfield-gebruik vereist voortaan expliciete toestemming per keer** — vastgelegd in memory. Niet meer proactief genereren.
-3. **Checkout-flow ontbreekt** — "Naar afrekenen" doet niets.
-4. **Formulieren zijn front-end only** — geen backend/e-mailservice.
-5. **Placeholder bedrijfsgegevens** — KvK/BTW-nummer in de footer zijn nog dummy-waarden.
-6. **Meer echte productfoto's** zouden de PDP-galerij (nu 1 unieke foto) sterker maken.
-7. Bericht van de gebruiker "de Ideal\\" kwam onvolledig binnen tijdens deze sessie — mogelijk was er meer te zeggen over het logo-punt hierboven; navragen bij volgende sessie als het niet vanzelf duidelijk wordt.
+1. **Higgsfield-gebruik vereist voortaan expliciete toestemming per keer** — vastgelegd in memory. Niet meer proactief genereren.
+2. **Checkout-flow ontbreekt** — "Naar afrekenen" doet niets.
+3. **Formulieren zijn front-end only** — geen backend/e-mailservice.
+4. **Placeholder bedrijfsgegevens** — KvK/BTW-nummer in de footer zijn nog dummy-waarden.
+5. **Portfolio/blog-beelden zijn nog AI-gegenereerde stills** (`portfolio-*.jpg`, `blog-*.jpg`); vervangen zodra er echte lifestyle-fotografie is.
+6. **Gratis-verzendingsdrempel staat op €45** (hardcoded in `CartDrawer.tsx`). Met de nieuwe prijs van €39,95 haalt één pot dat net niet; controleren of dat de bedoeling is of dat de drempel mee moet bewegen.
 
 ---
 
@@ -116,4 +118,4 @@ npx eslint src      # lint
 
 `.claude/launch.json` staat klaar zodat de Browser-preview-tooling de dev server automatisch kan starten onder de naam `folea-dev`.
 
-**Voor de volgende sessie:** begin met het logo-bestand-punt hierboven (blokkerend voor een correcte footer), en overweeg een commit te maken nu de site door een grote hoeveelheid wijzigingen is gegaan sinds de laatste commit.
+**Voor de volgende sessie:** check punt 6 hierboven (verzendingsdrempel versus de nieuwe prijs) en vervang de resterende AI-gegenereerde portfolio/blog-beelden zodra er echt materiaal is.

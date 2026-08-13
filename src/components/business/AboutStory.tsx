@@ -57,7 +57,7 @@ export function AboutStory() {
                 andersom.
               </p>
             </div>
-            <blockquote className="mt-8 border-l-2 border-forest pl-5 font-serif text-2xl italic text-forest">
+            <blockquote className="mt-8 border-l-2 border-berry pl-5 font-serif text-2xl italic text-berry">
               &ldquo;Haarverzorging die luistert naar je haar, niet naar een
               label.&rdquo;
             </blockquote>

@@ -48,7 +48,7 @@ export function ProductGallery({ images }: ProductGalleryProps) {
               className={cn(
                 "relative h-20 w-20 shrink-0 overflow-hidden rounded-md bg-blush transition-opacity",
                 index === activeIndex
-                  ? "ring-2 ring-forest ring-offset-2 ring-offset-cream"
+                  ? "ring-2 ring-berry ring-offset-2 ring-offset-cream"
                   : "opacity-60 hover:opacity-100",
               )}
             >

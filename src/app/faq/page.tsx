@@ -18,7 +18,7 @@ export default function FaqPage() {
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
             FAQ
           </p>
-          <h1 className="mt-3 text-4xl md:text-5xl text-forest">
+          <h1 className="mt-3 text-4xl md:text-5xl text-berry">
             Veelgestelde vragen
           </h1>
           <p className="mt-4 text-charcoal-soft leading-relaxed">
@@ -31,7 +31,7 @@ export default function FaqPage() {
         </div>
 
         <div className="mx-auto mt-14 max-w-2xl rounded-lg bg-blush/50 p-8 text-center">
-          <h2 className="text-2xl text-forest">
+          <h2 className="text-2xl text-berry">
             Staat je vraag er niet tussen?
           </h2>
           <p className="mt-2 text-sm text-charcoal-soft">
@@ -39,7 +39,7 @@ export default function FaqPage() {
           </p>
           <Link
             href="/contact"
-            className="mt-5 inline-block text-sm font-medium text-forest underline underline-offset-4 hover:text-forest-light"
+            className="mt-5 inline-block text-sm font-medium text-berry underline underline-offset-4 hover:text-berry-light"
           >
             Naar contact
           </Link>

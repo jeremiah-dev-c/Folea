@@ -25,8 +25,8 @@ export function HowToUse() {
             className="relative order-2 aspect-[4/5] overflow-hidden rounded-lg bg-cream md:order-1"
           >
             <Image
-              src="/images/hairbutter-podium.jpg"
-              alt="FOLÉA Hairbutter potje op een roze podium"
+              src="/images/product-top.jpg"
+              alt="FOLÉA Hairbutter van bovenaf met het logo op de deksel"
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover"
@@ -37,7 +37,7 @@ export function HowToUse() {
             <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
               Multifunctioneel
             </p>
-            <h2 className="mt-3 text-4xl md:text-5xl text-forest">
+            <h2 className="mt-3 text-4xl md:text-5xl text-berry">
               Hoe te Gebruiken
             </h2>
             <p className="mt-4 text-charcoal-soft leading-relaxed">
@@ -53,8 +53,8 @@ export function HowToUse() {
                   className={cn(
                     "rounded-full border px-4 py-2 text-sm font-medium transition-colors duration-300",
                     activeId === method.id
-                      ? "border-forest bg-forest text-white"
-                      : "border-charcoal/15 bg-transparent text-charcoal hover:border-forest",
+                      ? "border-berry bg-berry text-white"
+                      : "border-charcoal/15 bg-transparent text-charcoal hover:border-berry",
                   )}
                 >
                   {method.title}
@@ -75,7 +75,7 @@ export function HowToUse() {
                   <p className="text-xs font-medium uppercase tracking-wider text-earth">
                     {active.hairType}
                   </p>
-                  <h3 className="mt-2 text-2xl text-forest">{active.title}</h3>
+                  <h3 className="mt-2 text-2xl text-berry">{active.title}</h3>
                   <p className="mt-3 text-charcoal-soft leading-relaxed">
                     {active.description}
                   </p>

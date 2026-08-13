@@ -33,7 +33,7 @@ export function ContactInfo() {
       <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
         Rechtstreeks contact
       </p>
-      <h2 className="mt-3 text-2xl text-forest">We helpen je graag</h2>
+      <h2 className="mt-3 text-2xl text-berry">We helpen je graag</h2>
       <p className="mt-3 text-sm text-charcoal-soft leading-relaxed">
         Vragen over je bestelling, huidtype of het gebruik van de
         Hairbutter? Ons team staat voor je klaar.
@@ -42,8 +42,8 @@ export function ContactInfo() {
       <ul className="mt-8 space-y-6">
         {items.map((item) => (
           <li key={item.title} className="flex items-start gap-3">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-forest/25">
-              <item.icon size={16} strokeWidth={1.5} className="text-forest" />
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-berry/25">
+              <item.icon size={16} strokeWidth={1.5} className="text-berry" />
             </div>
             <div>
               <p className="text-sm font-medium text-charcoal">{item.title}</p>

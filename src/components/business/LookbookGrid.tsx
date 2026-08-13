@@ -33,8 +33,8 @@ export function LookbookGrid() {
             className={cn(
               "rounded-full border px-5 py-2.5 text-sm font-medium transition-colors duration-300",
               active === category
-                ? "border-forest bg-forest text-white"
-                : "border-charcoal/15 bg-transparent text-charcoal hover:border-forest",
+                ? "border-berry bg-berry text-white"
+                : "border-charcoal/15 bg-transparent text-charcoal hover:border-berry",
             )}
           >
             {category}
@@ -119,7 +119,7 @@ export function LookbookGrid() {
                 <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
                   {selected.category}
                 </p>
-                <h3 className="mt-3 text-3xl text-forest">{selected.title}</h3>
+                <h3 className="mt-3 text-3xl text-berry">{selected.title}</h3>
                 <p className="mt-4 text-charcoal-soft leading-relaxed">
                   {selected.description}
                 </p>

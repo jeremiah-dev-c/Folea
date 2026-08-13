@@ -51,7 +51,7 @@ export function AboutValues() {
               }}
               className="rounded-lg bg-cream/70 px-6 py-10 text-center"
             >
-              <p className="font-serif text-5xl text-forest">{value.stat}</p>
+              <p className="font-serif text-5xl text-berry">{value.stat}</p>
               <p className="mt-3 text-sm text-charcoal-soft leading-relaxed">
                 {value.label}
               </p>

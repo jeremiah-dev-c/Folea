@@ -27,11 +27,11 @@ export function ProductDetail({ product }: { product: Product }) {
     <div className="py-10 md:py-16">
       <Container>
         <nav className="mb-8 flex items-center gap-1.5 text-xs text-charcoal-soft">
-          <Link href="/" className="hover:text-forest">
+          <Link href="/" className="hover:text-berry">
             Home
           </Link>
           <ChevronRight size={12} />
-          <Link href="/producten" className="hover:text-forest">
+          <Link href="/producten" className="hover:text-berry">
             Producten
           </Link>
           <ChevronRight size={12} />
@@ -51,12 +51,12 @@ export function ProductDetail({ product }: { product: Product }) {
               <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
                 {product.tagline}
               </p>
-              <h1 className="mt-3 text-4xl md:text-5xl text-forest">
+              <h1 className="mt-3 text-4xl md:text-5xl text-berry">
                 {product.name}
               </h1>
             </div>
 
-            <p className="text-2xl font-medium text-forest">
+            <p className="text-2xl font-medium text-berry">
               {formatPrice(product.price)}
             </p>
 
@@ -97,7 +97,7 @@ export function ProductDetail({ product }: { product: Product }) {
         </div>
 
         <section className="mt-20 md:mt-28">
-          <h2 className="text-3xl md:text-4xl text-forest text-center">
+          <h2 className="text-3xl md:text-4xl text-berry text-center">
             Gebruiksaanwijzing per haartype
           </h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
@@ -109,7 +109,7 @@ export function ProductDetail({ product }: { product: Product }) {
                 <p className="text-xs font-medium uppercase tracking-wider text-earth">
                   {method.hairType}
                 </p>
-                <h3 className="mt-2 text-2xl text-forest">{method.title}</h3>
+                <h3 className="mt-2 text-2xl text-berry">{method.title}</h3>
                 <p className="mt-3 text-charcoal-soft leading-relaxed">
                   {method.description}
                 </p>

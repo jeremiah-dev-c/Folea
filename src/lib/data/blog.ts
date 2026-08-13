@@ -45,8 +45,8 @@ export const blogPosts: BlogPost[] = [
       "Van ruwe grondstof tot afgewerkt potje: hoe elke batch FOLÉA Hairbutter met de hand wordt gemaakt.",
     category: "Achter de Schermen",
     readTime: "4 min",
-    image: "/images/hairbutter-stack.jpg",
-    alt: "Twee gestapelde potten FOLÉA Hairbutter",
+    image: "/images/product-duo.jpg",
+    alt: "Twee potten FOLÉA Hairbutter met waterdruppels",
     date: "19 juni 2026",
   },
 ];
