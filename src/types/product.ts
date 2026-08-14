@@ -12,7 +12,11 @@ export interface UsageMethod {
 
 export interface IngredientItem {
   name: string;
-  description: string;
+  /**
+   * Optioneel: de omschrijvingen komen van de klant. Tot die er zijn tonen we
+   * alleen de namen, in plaats van zelfbedachte claims over werking.
+   */
+  description?: string;
 }
 
 export interface Product {

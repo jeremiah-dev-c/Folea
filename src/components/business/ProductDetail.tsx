@@ -17,10 +17,13 @@ export function ProductDetail({ product }: { product: Product }) {
   const [quantity, setQuantity] = useState(1);
   const { addItem } = useCart();
 
+  // Zolang de klant geen omschrijvingen heeft aangeleverd tonen we een platte
+  // lijst; een accordeon die leeg openklapt is alleen maar verwarrend.
+  const heeftOmschrijvingen = product.ingredients.some((i) => i.description);
   const ingredientItems = product.ingredients.map((ingredient) => ({
     id: ingredient.name,
     title: ingredient.name,
-    content: ingredient.description,
+    content: ingredient.description ?? "",
   }));
 
   return (
@@ -91,7 +94,20 @@ export function ProductDetail({ product }: { product: Product }) {
               <h2 className="mb-2 text-sm font-semibold uppercase tracking-wider text-charcoal">
                 Ingrediënten
               </h2>
-              <Accordion items={ingredientItems} />
+              {heeftOmschrijvingen ? (
+                <Accordion items={ingredientItems} />
+              ) : (
+                <ul className="flex flex-wrap gap-x-2 gap-y-2 pt-1">
+                  {product.ingredients.map((ingredient) => (
+                    <li
+                      key={ingredient.name}
+                      className="rounded-full border border-charcoal/15 px-4 py-2 text-sm text-charcoal-soft"
+                    >
+                      {ingredient.name}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </motion.div>
         </div>

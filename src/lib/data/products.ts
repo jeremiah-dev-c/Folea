@@ -67,23 +67,13 @@ export const hairbutter: Product = {
         "Gebruik op handdoekdroog haar om krullen te definiëren en pluis te bestrijden, de hele dag door.",
     },
   ],
+  // Omschrijvingen bewust leeg: de eerdere teksten waren zelfbedacht en dat
+  // zijn productclaims. De echte tekst komt van de klant.
   ingredients: [
-    {
-      name: "Shea Butter",
-      description: "Rijk aan vetzuren, diep voedend en herstellend voor droog haar.",
-    },
-    {
-      name: "Kokosolie",
-      description: "Dringt diep door in de haarschacht voor langdurige hydratatie.",
-    },
-    {
-      name: "Jojoba-olie",
-      description: "Lijkt op de natuurlijke talg van de hoofdhuid en balanceert zonder te verzwaren.",
-    },
-    {
-      name: "Arganolie",
-      description: "Vol antioxidanten, geeft glans en beschermt tegen hitteschade.",
-    },
+    { name: "Shea Butter" },
+    { name: "Kokosolie" },
+    { name: "Jojoba-olie" },
+    { name: "Arganolie" },
   ],
 };
 

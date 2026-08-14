@@ -40,9 +40,12 @@ export function Ingredients() {
               <h3 className="mt-3 font-display text-lg uppercase tracking-[0.02em] text-white transition-colors duration-500 group-hover:text-blush sm:text-xl">
                 {ingredient.name}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-white/60">
-                {ingredient.description}
-              </p>
+              {/* Alleen tonen als de klant een omschrijving heeft geleverd. */}
+              {ingredient.description && (
+                <p className="mt-3 text-sm leading-relaxed text-white/60">
+                  {ingredient.description}
+                </p>
+              )}
             </motion.li>
           ))}
         </ul>

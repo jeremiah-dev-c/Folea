@@ -147,6 +147,8 @@ src/
     - **Social-sectie herzien:** asymmetrisch raster met één groot beeld en vier kleine, een duidelijke "Volg ons"-knop, en het Instagram-icoon in de eigen merkverloop (`InstagramIconColor`).
     - **Footer-copy afgezwakt:** "over haar, niet over korting" is "Eén mail per maand, meer niet" geworden, zodat het merk zich niet vastlegt op nooit kortingen geven.
 
+24. **Verzonnen ingrediëntteksten verwijderd, hero lichter (14 augustus).** De omschrijvingen bij de ingrediënten waren door mij geschreven en dus feitelijk productclaims; die haalt de developer op bij de klant. `description` is nu optioneel en overal leeg: de PDP toont de namen als chips in plaats van een accordeon, en de homepage-sectie laat de alinea weg. Beide schakelen vanzelf terug zodra de teksten in `products.ts` staan. Verder is de eyebrow "Het vlaggenschip" geschrapt en is de hero-overlay flink lichter gemaakt (egale laag van 45% naar 22%), zodat de video zelf beter tot zijn recht komt terwijl de radiale kern de tekst leesbaar houdt.
+
 23. **Collectiepagina herzien (14 augustus, na de commit).** `/producten` stond nog volledig in de oude stijl: een klein vierkant kaartje met een bruine eyebrow midden op een lege pagina. Nu een Horizon-kop op beige, de productkaart in 4:5 (het vierkant sneed de staande studiofoto's te hard bij), en daarnaast de vier toepassingen genummerd. De pagina sluit af met dezelfde marquee-band als de homepage. Zodra er een tweede product bijkomt schakelt de layout automatisch terug naar een normaal raster.
 
 ---

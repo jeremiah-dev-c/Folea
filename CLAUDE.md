@@ -105,6 +105,10 @@ There is no newsletter section in the body any more; the signup lives in the foo
 
 **Don't wrap animating children in a `motion` element that carries scroll transforms.** The hero briefly had its whole text block inside a `motion.div` with `style={{ y, opacity }}` from `useTransform`; every child with its own `initial`/`animate` then stayed stuck on its initial value and the entire hero text rendered invisible while the DOM looked healthy (`opacity: 0` on the letters was the giveaway). Apply parallax to the media layer, and leave the animating content in a plain `div`.
 
+### No invented product claims
+
+`IngredientItem.description` is optional and currently **empty for every ingredient**. The earlier descriptions ("rijk aan vetzuren, diep voedend…") were written by me, and those are product claims about what the formula does. The real copy comes from the client. Until then only the ingredient names are shown: the PDP renders them as plain chips instead of an accordion, and the homepage `Ingredients` section omits the paragraph. Both switch back automatically once descriptions are filled in, so just populate `products.ts`.
+
 ### No reviews, no fake ratings
 
 There is no reviews feature anywhere on the site (homepage slider, star ratings on product cards/PDP, etc. were all removed). Don't reintroduce star ratings, review counts, or testimonials unless the user explicitly asks — the site has no real reviews yet and fabricated ones were called out as misleading.

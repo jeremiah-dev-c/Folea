@@ -61,22 +61,12 @@ export function ProductSpotlight() {
           </div>
 
           <div>
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, ease: EASE }}
-              className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50"
-            >
-              Het vlaggenschip
-            </motion.p>
-
             <motion.h2
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: 0.05, ease: EASE }}
-              className="mt-4 font-display text-2xl uppercase leading-[1.15] tracking-[0.02em] text-ink sm:text-3xl lg:text-4xl"
+              className="font-display text-2xl uppercase leading-[1.15] tracking-[0.02em] text-ink sm:text-3xl lg:text-4xl"
             >
               {hairbutter.name}
             </motion.h2>

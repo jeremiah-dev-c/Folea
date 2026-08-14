@@ -85,12 +85,12 @@ export function Hero() {
         <source src="/video/hero.mp4" type="video/mp4" />
       </motion.video>
 
-      {/* De studio-achtergrond in de video is licht, dus zonder verdonkering
-          valt witte tekst weg. Egale laag, een zwaardere band bovenaan voor de
-          transparante header, en een kern in het midden voor de blush tagline. */}
-      <div className="absolute inset-0 bg-ink/45" />
-      <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-ink/60 to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_center,rgba(10,10,10,0.45)_0%,transparent_75%)]" />
+      {/* Zo licht mogelijk gehouden zodat de video zelf goed te zien blijft:
+          een dunne egale laag, een band bovenaan voor de transparante header,
+          en een kern in het midden die alleen de tekst leesbaar maakt. */}
+      <div className="absolute inset-0 bg-ink/22" />
+      <div className="absolute inset-x-0 top-0 h-56 bg-gradient-to-b from-ink/50 to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_center,rgba(10,10,10,0.42)_0%,transparent_72%)]" />
 
       {/* Let op: geen motion-wrapper met scroll-transforms om dit blok heen.
           Kinderen met een eigen initial/animate blijven dan op hun beginwaarde
