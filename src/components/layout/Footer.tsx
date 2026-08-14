@@ -60,14 +60,13 @@ export function Footer() {
           <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-white/40">
             Brief
           </p>
-          {/* Geen uitspraak over korting: het merk kan later prima acties
-              willen draaien, en dan staat die belofte in de weg. */}
+          {/* Geen beloftes over frequentie, korting of inhoud: niemand weet
+              nog hoe de klant deze lijst gaat gebruiken. */}
           <h2 className="mt-3 font-display text-lg uppercase leading-[1.2] tracking-[0.02em] sm:text-2xl lg:text-4xl">
-            Eén mail per maand, meer niet.
+            Nieuws uit de studio
           </h2>
           <p className="mt-3 max-w-md text-sm leading-relaxed text-white/60">
-            Wat we maken, wat erin gaat, en wanneer er een nieuwe batch
-            klaarstaat.
+            Schrijf je in en je hoort het als er iets nieuws is.
           </p>
 
           {submitted ? (
