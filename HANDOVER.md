@@ -147,6 +147,8 @@ src/
     - **Social-sectie herzien:** asymmetrisch raster met één groot beeld en vier kleine, een duidelijke "Volg ons"-knop, en het Instagram-icoon in de eigen merkverloop (`InstagramIconColor`).
     - **Footer-copy afgezwakt:** "over haar, niet over korting" is "Eén mail per maand, meer niet" geworden, zodat het merk zich niet vastlegt op nooit kortingen geven.
 
+23. **Collectiepagina herzien (14 augustus, na de commit).** `/producten` stond nog volledig in de oude stijl: een klein vierkant kaartje met een bruine eyebrow midden op een lege pagina. Nu een Horizon-kop op beige, de productkaart in 4:5 (het vierkant sneed de staande studiofoto's te hard bij), en daarnaast de vier toepassingen genummerd. De pagina sluit af met dezelfde marquee-band als de homepage. Zodra er een tweede product bijkomt schakelt de layout automatisch terug naar een normaal raster.
+
 ---
 
 ## 4. Openstaande punten

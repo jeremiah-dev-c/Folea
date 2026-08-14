@@ -72,6 +72,10 @@ src/
 
 There is no backend/API — `lib/data/*.ts` exports typed constants (`hairbutter`/`products` in `products.ts`, `faqItems`) consumed directly by server and client components. Product routes (`app/producten/hairbutter/page.tsx`) import the dummy data directly rather than fetching. `Product` has no rating/review fields — the site carries no reviews (real or dummy) anywhere, by explicit request.
 
+### Collection page with a single product
+
+`/producten` is built so one product doesn't look like an empty grid: below the Horizon header the card sits in a two-column layout with the four `highlights` listed beside it as numbered applications, closed off by the marquee band. The `enkelProduct` branch switches back to a normal 2/3-column grid as soon as a second product is added, so nothing needs rewriting then.
+
 ### Six routes: no Portfolio, no Blog
 
 The site is `/`, `/producten`, `/producten/hairbutter`, `/over-ons`, `/contact`, `/faq`. Portfolio and Blog were built out fully and then **deleted on client request** — routes, `LookbookGrid`/`BlogGrid`, `portfolio.ts`/`blog.ts`, their types and their images are all gone. Don't rebuild them unless asked; if you do, note that `InstagramGrid` used to depend on three `portfolio-*.jpg` files and now uses the real shoot photos instead.
