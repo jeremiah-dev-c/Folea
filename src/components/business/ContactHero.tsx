@@ -1,32 +1,26 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
+
+const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function ContactHero() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className="mx-auto max-w-xl text-center"
+      transition={{ duration: 0.7, ease: EASE }}
     >
-      <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
+      <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
         Contact
       </p>
-      <h1 className="mt-4 text-4xl leading-[1.15] text-ink md:text-5xl">
+      <h1 className="mt-4 max-w-2xl font-display text-2xl uppercase leading-[1.15] tracking-[0.02em] text-ink sm:text-3xl lg:text-4xl">
         We horen graag van je
       </h1>
-      <p className="mt-6 text-lg text-charcoal-soft leading-relaxed">
-        Vragen, feedback of gewoon even kennismaken? Stuur ons een bericht,
-        of bekijk eerst de{" "}
-        <Link
-          href="/faq"
-          className="font-medium text-ink underline underline-offset-4 hover:text-ink-light"
-        >
-          veelgestelde vragen
-        </Link>
-        .
+      <p className="mt-5 max-w-md leading-relaxed text-charcoal-soft">
+        Vragen over een bestelling, je haartype of het gebruik van de
+        hairbutter? Laat een bericht achter, we reageren binnen één tot twee
+        werkdagen.
       </p>
     </motion.div>
   );

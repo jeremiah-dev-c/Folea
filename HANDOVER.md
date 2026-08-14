@@ -1,7 +1,7 @@
 # FOLÉA Webshop — Handover
 
-**Laatst bijgewerkt:** 14 augustus 2026, 12:30 (CEST)
-**Repo:** `Snel Online Marketing/Folea` (git, branch `main`). Laatste commit: `ac42123`. Daarna de volledige herontwerpronde op verzoek van de klant (zie sectie 3, punt 17), nog niet gecommit.
+**Laatst bijgewerkt:** 14 augustus 2026 (CEST)
+**Repo:** `Snel Online Marketing/Folea` (git, branch `main`). Het volledige herontwerp staat in vier commits: `7eebe42` (herontwerp), `1c803ec` (collectiepagina), `747dad4` (ingrediëntteksten en hero) en `030e3c7` (nieuwsbriefcopy en fotoresolutie), plus de contactpagina.
 **Stack:** Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · Framer Motion · Zustand · lucide-react · embla-carousel-react
 
 ---
@@ -34,22 +34,22 @@ src/
     layout/                → Header, Footer, CartDrawer
     business/              → alle sectie-/feature-componenten per pagina
   lib/
-    data/                  → dummy data (products, faq, portfolio, blog)
+    data/                  → dummy data (products, faq)
     store/                 → cart-store.ts (zustand)
     utils/                 → cn.ts, format.ts
   hooks/                   → useCart.ts
-  types/                   → product.ts, cart.ts, portfolio.ts, blog.ts
+  types/                   → product.ts, cart.ts
 ```
 
 ### Pagina's
 
 | Route | Inhoud |
 |---|---|
-| `/` | Hero (video) → Product Spotlight (boterfoto + draaiend zegel) → Marquee-band → Lookbook (felroze, genummerd, carousel op mobiel) → FullBleedImage (parallax) → PhotoMarquee (bewegende fotostrip) → Ingredients (vier werkstoffen) → Instagram-grid. **Geen USP-bar, geen gebruiksaanwijzing, geen nieuwsbrieksectie in de body, geen reviews.** |
-| `/producten` | Shop-overzicht, productgrid (1 product, gecentreerd i.p.v. links uitgelijnd in leeg grid) |
-| `/producten/hairbutter` | PDP: fotogalerij met 5 beelden (`object-contain`), prijs, aantal-selector, "in winkelmand", ingrediënten-accordeon, gebruiksaanwijzing per haartype. **Geen sterren-rating.** |
+| `/` | Hero (video) → Product Spotlight (boterfoto + draaiend zegel) → Marquee-band → Lookbook (felroze, genummerd, loopt vanzelf door) → StatementSplit (parallax) → PhotoMarquee (bewegende fotostrip) → Ingredients (vier werkstoffen) → Instagram-grid. **Geen USP-bar, geen gebruiksaanwijzing, geen nieuwsbrieksectie in de body, geen reviews.** |
+| `/producten` | Horizon-kop op beige, productkaart in 4:5 met de vier toepassingen ernaast, afgesloten met de marquee-band. Schakelt naar een raster zodra er een tweede product bijkomt |
+| `/producten/hairbutter` | PDP: fotogalerij met 5 beelden (`object-contain`), prijs, aantal-selector, "in winkelmand", ingrediëntnamen als chips, gebruiksaanwijzing per haartype. **Geen sterren-rating.** |
 | `/over-ons` | Storytelling: ontstaan (met de product-pour video), proces (3 stappen), missie/waarden met stats |
-| `/contact` | Contactformulier (front-end only) + contactinfo, linkt naar `/faq` |
+| `/contact` | Horizon-kop, formulier naast een productfoto met contactgegevens eronder, zwarte FAQ-verwijzing en marquee-band. Formulier is front-end only |
 | `/faq` | Accordeon met veelgestelde vragen + "Naar contact"-kaart |
 
 ### Globale functionaliteit
@@ -62,12 +62,14 @@ src/
 - **Geen em dashes (—)** waar dan ook. Herschrijven met punt, dubbele punt of komma.
 - **Geen "ambachtelijk"** — vervangen door "met zorg gemaakt", "met de hand gemaakt", "handgemaakt", of gewoon weggelaten.
 - **Geen reviews/sterren/testimonials** nergens op de site, omdat er geen echte reviews bestaan.
+- **Geen verzonnen productclaims of beloftes.** De ingrediëntomschrijvingen zijn verwijderd omdat ze door mij bedacht waren; de nieuwsbriefcopy belooft niets over frequentie of korting. Wat het merk feitelijk doet, komt van de klant.
+- **Geen bezoekadres:** FOLÉA verkoopt alleen online.
 
 ### Assets
 - `public/video/hero.mp4` (4,3MB, CRF 18, volledige 1920px breedte) + `hero-poster.jpg` — herzien tijdens deze sessie nadat een eerdere te agressieve compressie kwaliteitsverlies gaf. Bron: `IMG_9125.MOV`.
 - `public/video/product-pour.mp4` (946KB) + `product-pour-poster.jpg` — de cinemagraph (gouden olie over de potjes), nu in Over Ons i.p.v. op de PDP.
-- `public/images/product-*.jpg` (6 productstills, 1400px) en `model-*.jpg` (16 modelfoto's, 1000-1100px, 2:3 staand) — de volledige studioshoot van de klant. Masters staan als `Folea-0xx.jpg` in `source-media/images/` (git-ignored).
-- **Harde regel: geen enkele afbeelding in `public/images/` boven de 100KB.** De hele map is nu ~1,9MB over 22 bestanden, elk tussen 24KB en 95KB. De werkwijze staat in CLAUDE.md: quality niet onder q82, liever de afmetingen verkleinen dan de kwaliteit, `cjpeg -optimize -progressive`, en altijd vanaf het origineel hercomprimeren.
+- `public/images/product-*.jpg` (6 productstills) en `model-*.jpg` (16 modelfoto's, 2:3 staand) — de volledige studioshoot van de klant, allemaal 1600x2400 of 2400x1600. Masters staan als `Folea-0xx.jpg` in `source-media/images/` (git-ignored).
+- **De oude 100KB-regel is vervallen**; die maakte de foto's te klein voor full-bleed en retinaschermen. Nu: 2400px langste zijde op q84, ~7MB voor de map. `next/image` comprimeert de bron alsnog naar 30-80KB WebP, dus de pagina wordt er niet zwaarder van. De werkwijze en de twee valkuilen (dev server herstarten na het vervangen van bestanden, en `naturalWidth` niet vertrouwen in de preview) staan in CLAUDE.md.
 - De AI-gegenereerde `portfolio-*.jpg` en `blog-*.jpg` beelden zijn verwijderd samen met hun pagina's.
 - `src/app/fonts/Horizon.woff2` (17KB) is het displaylettertype; de OTF-varianten en Horizon Outlined staan in `source-media/fonts/`.
 - Ruwe, ongecomprimeerde bronbestanden staan in `source-media/` (git-ignored, niet in `public/`).
@@ -147,9 +149,11 @@ src/
     - **Social-sectie herzien:** asymmetrisch raster met één groot beeld en vier kleine, een duidelijke "Volg ons"-knop, en het Instagram-icoon in de eigen merkverloop (`InstagramIconColor`).
     - **Footer-copy afgezwakt:** "over haar, niet over korting" is "Eén mail per maand, meer niet" geworden, zodat het merk zich niet vastlegt op nooit kortingen geven.
 
+23. **Collectiepagina herzien (14 augustus, na de commit).** `/producten` stond nog volledig in de oude stijl: een klein vierkant kaartje met een bruine eyebrow midden op een lege pagina. Nu een Horizon-kop op beige, de productkaart in 4:5 (het vierkant sneed de staande studiofoto's te hard bij), en daarnaast de vier toepassingen genummerd. De pagina sluit af met dezelfde marquee-band als de homepage. Zodra er een tweede product bijkomt schakelt de layout automatisch terug naar een normaal raster.
+
 24. **Verzonnen ingrediëntteksten verwijderd, hero lichter (14 augustus).** De omschrijvingen bij de ingrediënten waren door mij geschreven en dus feitelijk productclaims; die haalt de developer op bij de klant. `description` is nu optioneel en overal leeg: de PDP toont de namen als chips in plaats van een accordeon, en de homepage-sectie laat de alinea weg. Beide schakelen vanzelf terug zodra de teksten in `products.ts` staan. Verder is de eyebrow "Het vlaggenschip" geschrapt en is de hero-overlay flink lichter gemaakt (egale laag van 45% naar 22%), zodat de video zelf beter tot zijn recht komt terwijl de radiale kern de tekst leesbaar houdt.
 
-23. **Collectiepagina herzien (14 augustus, na de commit).** `/producten` stond nog volledig in de oude stijl: een klein vierkant kaartje met een bruine eyebrow midden op een lege pagina. Nu een Horizon-kop op beige, de productkaart in 4:5 (het vierkant sneed de staande studiofoto's te hard bij), en daarnaast de vier toepassingen genummerd. De pagina sluit af met dezelfde marquee-band als de homepage. Zodra er een tweede product bijkomt schakelt de layout automatisch terug naar een normaal raster.
+25. **Contactpagina herbouwd (14 augustus).** Dit was de laatste pagina die nog in de oude stijl stond: gecentreerde Jakarta-kop, bruine `text-earth` eyebrows, een vaal `bg-blush/50` kaartje en verder één beige blok zonder beeld. Nu: Horizon-kop links uitgelijnd, formulier van zeven kolommen naast een productfoto met de contactgegevens eronder, een zwarte FAQ-verwijzing en dezelfde marquee-band als de andere pagina's. Twee copy-fouten meegenomen die er al vanaf de eerste bouw stonden: er stond "huidtype" bij een haarproduct, en het product heette nog "Hairbutter". Het bezoekadres is geschrapt: FOLÉA verkoopt alleen online.
 
 ---
 
@@ -157,7 +161,8 @@ src/
 
 1. **Higgsfield-gebruik vereist voortaan expliciete toestemming per keer** — vastgelegd in memory. Niet meer proactief genereren.
 2. **Checkout-flow ontbreekt** — "Naar afrekenen" doet niets.
-3. **Formulieren zijn front-end only** — geen backend/e-mailservice.
+3. **Formulieren zijn front-end only** — geen backend/e-mailservice. Het contactformulier toont "Bericht verzonden" terwijl er niets verstuurd wordt; koppel dit aan een mailservice voordat de site live gaat, anders denken klanten dat ze contact hebben opgenomen.
+4. **Contactgegevens zijn aannames** — `hello@folea.nl` en de bereikbaarheid (ma t/m vr, 9:00-17:00) zijn door mij bedacht en moeten door de klant bevestigd worden.
 4. **Placeholder bedrijfsgegevens** — KvK/BTW-nummer in de footer zijn nog dummy-waarden.
 5. **Gratis-verzendingsdrempel staat op €45** (hardcoded in `CartDrawer.tsx`). Met de prijs van €39,95 haalt één pot dat net niet; controleren of dat de bedoeling is of dat de drempel mee moet bewegen.
 6. **Horizon-licentie niet geverifieerd.** Het font (Horizon Bold, Fontense 2019) is door de klant aangeleverd en wordt nu als woff2 mee-gebundeld en publiek geserveerd. Controleer of de licentie web-embedding dekt voordat de site live gaat.

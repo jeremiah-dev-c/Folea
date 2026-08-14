@@ -1,23 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Clock, Mail, MapPin } from "lucide-react";
+import { Clock, Mail } from "lucide-react";
 
+const EASE = [0.22, 1, 0.36, 1] as const;
+
+// FOLÉA verkoopt alleen online, dus geen bezoekadres. Let op: het e-mailadres
+// en de bereikbaarheid zijn nog aannames en moeten bij de klant bevestigd
+// worden voordat de site live gaat.
 const items = [
   {
     icon: Mail,
     title: "E-mail",
     detail: "hello@folea.nl",
+    href: "mailto:hello@folea.nl",
   },
   {
     icon: Clock,
-    title: "Klantenservice",
-    detail: "Maandag t/m vrijdag, 9:00 - 17:00",
-  },
-  {
-    icon: MapPin,
-    title: "Studio",
-    detail: "Amsterdam, Nederland",
+    title: "Bereikbaar",
+    detail: "Maandag t/m vrijdag, 9:00 tot 17:00",
   },
 ];
 
@@ -27,27 +28,35 @@ export function ContactInfo() {
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className="rounded-lg bg-blush/50 p-8"
+      transition={{ duration: 0.7, ease: EASE }}
+      className="border-t border-ink/12 pt-8"
     >
-      <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
-        Rechtstreeks contact
-      </p>
-      <h2 className="mt-3 text-2xl text-ink">We helpen je graag</h2>
-      <p className="mt-3 text-sm text-charcoal-soft leading-relaxed">
-        Vragen over je bestelling, huidtype of het gebruik van de
-        Hairbutter? Ons team staat voor je klaar.
+      <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
+        Rechtstreeks
       </p>
 
-      <ul className="mt-8 space-y-6">
+      <ul className="mt-6 space-y-5">
         {items.map((item) => (
-          <li key={item.title} className="flex items-start gap-3">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-ink/25">
-              <item.icon size={16} strokeWidth={1.5} className="text-ink" />
-            </div>
+          <li key={item.title} className="flex items-start gap-3.5">
+            <item.icon
+              size={17}
+              strokeWidth={1.5}
+              className="mt-0.5 shrink-0 text-ink"
+            />
             <div>
-              <p className="text-sm font-medium text-charcoal">{item.title}</p>
-              <p className="text-sm text-charcoal-soft">{item.detail}</p>
+              <p className="font-display text-sm uppercase tracking-[0.02em] text-ink">
+                {item.title}
+              </p>
+              {item.href ? (
+                <a
+                  href={item.href}
+                  className="text-sm text-charcoal-soft underline underline-offset-4 transition-colors hover:text-ink"
+                >
+                  {item.detail}
+                </a>
+              ) : (
+                <p className="text-sm text-charcoal-soft">{item.detail}</p>
+              )}
             </div>
           </li>
         ))}

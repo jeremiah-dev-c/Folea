@@ -3,11 +3,18 @@
 import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+
+const EASE = [0.22, 1, 0.36, 1] as const;
+
+const veldStijl =
+  "w-full rounded-lg border border-ink/15 bg-white/50 px-4 py-3 text-sm text-charcoal placeholder:text-charcoal-soft/55 transition-colors focus:border-ink focus:outline-none";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
 
+  // Nog geen backend: dit toont alleen een bevestiging. Voordat de site live
+  // gaat moet hier een mailservice achter, anders denken klanten dat ze
+  // contact hebben opgenomen terwijl het bericht nergens aankomt.
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setSubmitted(true);
@@ -18,13 +25,15 @@ export function ContactForm() {
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="flex flex-col items-center justify-center gap-3 rounded-lg bg-blush/50 px-8 py-16 text-center"
+        transition={{ duration: 0.5, ease: EASE }}
+        className="flex flex-col items-start gap-3 rounded-2xl bg-blush px-8 py-14"
       >
-        <CheckCircle2 size={32} strokeWidth={1.5} className="text-ink" />
-        <p className="text-xl font-medium text-ink">Bericht verzonden</p>
-        <p className="max-w-sm text-charcoal-soft">
-          Bedankt voor je bericht. We reageren binnen 1 tot 2 werkdagen.
+        <CheckCircle2 size={28} strokeWidth={1.5} className="text-ink" />
+        <p className="font-display text-xl uppercase tracking-[0.02em] text-ink">
+          Bericht verzonden
+        </p>
+        <p className="max-w-sm text-sm leading-relaxed text-ink/70">
+          Bedankt voor je bericht. We reageren binnen één tot twee werkdagen.
         </p>
       </motion.div>
     );
@@ -36,7 +45,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="name"
-            className="mb-1.5 block text-sm font-medium text-charcoal"
+            className="mb-2 block text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60"
           >
             Naam
           </label>
@@ -45,14 +54,14 @@ export function ContactForm() {
             name="name"
             type="text"
             required
-            className="w-full rounded-md border border-charcoal/15 bg-cream px-4 py-2.5 text-sm focus:border-ink focus:outline-none"
+            className={veldStijl}
             placeholder="Jouw naam"
           />
         </div>
         <div>
           <label
             htmlFor="email"
-            className="mb-1.5 block text-sm font-medium text-charcoal"
+            className="mb-2 block text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60"
           >
             E-mailadres
           </label>
@@ -61,7 +70,7 @@ export function ContactForm() {
             name="email"
             type="email"
             required
-            className="w-full rounded-md border border-charcoal/15 bg-cream px-4 py-2.5 text-sm focus:border-ink focus:outline-none"
+            className={veldStijl}
             placeholder="jouw@email.com"
           />
         </div>
@@ -70,7 +79,7 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="subject"
-          className="mb-1.5 block text-sm font-medium text-charcoal"
+          className="mb-2 block text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60"
         >
           Onderwerp
         </label>
@@ -79,7 +88,7 @@ export function ContactForm() {
           name="subject"
           type="text"
           required
-          className="w-full rounded-md border border-charcoal/15 bg-cream px-4 py-2.5 text-sm focus:border-ink focus:outline-none"
+          className={veldStijl}
           placeholder="Waar gaat je bericht over?"
         />
       </div>
@@ -87,7 +96,7 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="message"
-          className="mb-1.5 block text-sm font-medium text-charcoal"
+          className="mb-2 block text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60"
         >
           Bericht
         </label>
@@ -95,15 +104,18 @@ export function ContactForm() {
           id="message"
           name="message"
           required
-          rows={5}
-          className="w-full resize-none rounded-md border border-charcoal/15 bg-cream px-4 py-2.5 text-sm focus:border-ink focus:outline-none"
-          placeholder="Vertel ons hoe we kunnen helpen..."
+          rows={6}
+          className={`${veldStijl} resize-none`}
+          placeholder="Vertel ons hoe we kunnen helpen"
         />
       </div>
 
-      <Button type="submit" variant="primary" size="lg" className="w-full sm:w-auto">
+      <button
+        type="submit"
+        className="rounded-full bg-ink px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-transform duration-300 ease-[var(--ease-elegant)] hover:scale-105 hover:bg-ink-light"
+      >
         Verstuur bericht
-      </Button>
+      </button>
     </form>
   );
 }
