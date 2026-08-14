@@ -70,7 +70,7 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
   return (
     <div className="mx-auto max-w-xl">
       <div className="flex items-center gap-3 border-b border-charcoal/20 pb-3">
-        <Search size={20} className="text-berry" />
+        <Search size={20} className="text-ink" />
         <input
           ref={inputRef}
           type="text"
@@ -114,7 +114,7 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
                       {product.tagline}
                     </span>
                   </span>
-                  <span className="shrink-0 text-sm font-medium text-berry">
+                  <span className="shrink-0 text-sm font-medium text-ink">
                     {formatPrice(product.price)}
                   </span>
                 </Link>

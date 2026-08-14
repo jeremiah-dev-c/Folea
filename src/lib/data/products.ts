@@ -3,24 +3,32 @@ import type { Product } from "@/types/product";
 export const hairbutter: Product = {
   id: "folea-hairbutter",
   slug: "hairbutter",
-  name: "FOLÉA Hairbutter",
+  name: "Nourishing hairbutter",
   tagline: "Eén butter. Oneindig veel mogelijkheden.",
   description:
-    "Een multifunctionele haarbutter die voedt, beschermt en stylt, geschikt voor steil, slag, krullend en kroeshaar. Gemaakt met 100% natuurlijke ingrediënten, zonder compromis.",
+    "Een veelzijdige haarbutter die het haar intens voedt en beschermt. Geschikt voor iedere haartextuur: van steil en golvend tot krullend en kroeshaar. Met 100% natuurlijke ingrediënten, voor verzorging zonder compromissen.",
   price: 39.95,
   currency: "EUR",
   images: [
     {
+      src: "/images/product-butter.jpg",
+      alt: "Pot FOLÉA Nourishing hairbutter op een stapel verse boter",
+    },
+    {
       src: "/images/product-front.jpg",
-      alt: "FOLÉA Hairbutter potje recht van voren met het etiket in beeld",
+      alt: "FOLÉA Nourishing hairbutter recht van voren met het etiket in beeld",
+    },
+    {
+      src: "/images/product-trio.jpg",
+      alt: "Drie potten FOLÉA Nourishing hairbutter naast elkaar",
+    },
+    {
+      src: "/images/product-drip.jpg",
+      alt: "Gouden olie die over twee potten FOLÉA Nourishing hairbutter loopt",
     },
     {
       src: "/images/product-top.jpg",
-      alt: "FOLÉA Hairbutter van bovenaf met het logo op de deksel en de ingrediëntenlijst",
-    },
-    {
-      src: "/images/product-duo.jpg",
-      alt: "Twee potten FOLÉA Hairbutter met waterdruppels op een lichte achtergrond",
+      alt: "FOLÉA Nourishing hairbutter van bovenaf met het logo op de deksel en de ingrediëntenlijst",
     },
   ],
   highlights: [

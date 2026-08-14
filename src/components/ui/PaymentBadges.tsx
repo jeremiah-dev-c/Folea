@@ -9,9 +9,19 @@ function AppleGlyph(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-export function ApplePayBadge() {
+/**
+ * `tone="light"` is de omgekeerde variant voor donkere achtergronden. De
+ * standaard zwarte pill verdwijnt volledig op de zwarte footer.
+ */
+export function ApplePayBadge({ tone = "dark" }: { tone?: "dark" | "light" }) {
   return (
-    <span className="flex h-6 items-center gap-1 rounded-md bg-charcoal px-2.5 text-white">
+    <span
+      className={
+        tone === "light"
+          ? "flex h-6 items-center gap-1 rounded-md bg-white px-2.5 text-ink"
+          : "flex h-6 items-center gap-1 rounded-md bg-charcoal px-2.5 text-white"
+      }
+    >
       <AppleGlyph className="h-3 w-3" />
       <span className="text-xs font-semibold italic">Pay</span>
     </span>

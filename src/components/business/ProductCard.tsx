@@ -35,7 +35,7 @@ export function ProductCard({ product }: { product: Product }) {
       <div className="mt-4 flex items-start justify-between gap-3">
         <div>
           <Link href={`/producten/${product.slug}`}>
-            <h3 className="text-xl text-berry hover:text-berry-light">
+            <h3 className="text-xl text-ink hover:text-ink-light">
               {product.name}
             </h3>
           </Link>

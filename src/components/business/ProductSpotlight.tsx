@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { Check, Leaf } from "lucide-react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { hairbutter } from "@/lib/data/products";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
+import { RotatingBadge } from "@/components/ui/RotatingBadge";
 import { formatPrice } from "@/lib/utils/format";
 import { useCart } from "@/hooks/useCart";
 
@@ -14,90 +14,119 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function ProductSpotlight() {
   const { addItem } = useCart();
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Parallax staat op de beeldwrapper zelf, nooit op een parent van elementen
+  // met een eigen initial/animate: die blijven dan op hun beginwaarde hangen.
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const jarY = useTransform(scrollYProgress, [0, 1], ["6%", "-6%"]);
 
   return (
-    <section id="product-spotlight" className="py-24 md:py-32">
+    <section
+      ref={sectionRef}
+      id="product-spotlight"
+      className="overflow-hidden bg-cream py-16 md:py-24"
+    >
       <Container>
-        <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16 lg:gap-20">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: EASE }}
-            className="relative"
-          >
-            <div className="relative aspect-square overflow-hidden rounded-lg bg-blush">
+        <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+          <div className="relative mx-auto w-full max-w-md lg:mx-0">
+            {/* Roze vlak achter de pot, met een offset zodat het beeld ervoor
+                lijkt te zweven. */}
+            <div
+              className="absolute inset-x-5 -bottom-5 top-20 rounded-[2rem] bg-blush"
+              aria-hidden="true"
+            />
+
+            <motion.div
+              style={{ y: jarY }}
+              className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem]"
+            >
               <Image
                 src={hairbutter.images[0].src}
                 alt={hairbutter.images[0].alt}
                 fill
-                sizes="(min-width: 768px) 50vw, 100vw"
+                sizes="(min-width: 1024px) 42vw, 90vw"
                 className="object-cover"
                 priority
               />
-            </div>
-            <div className="absolute -bottom-5 left-6 flex items-center gap-2 rounded-full bg-cream px-4 py-2.5 shadow-lg shadow-earth/10">
-              <Leaf size={14} className="text-berry" />
-              <span className="text-xs font-semibold tracking-wide text-charcoal">
-                100% natuurlijke ingrediënten
-              </span>
-            </div>
-          </motion.div>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: EASE }}
-            className="space-y-6"
-          >
-            <div>
-              <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
-                Onze hairbutter
-              </p>
-              <h2 className="mt-3 text-4xl md:text-5xl text-berry">
-                {hairbutter.name}
-              </h2>
-            </div>
+            <RotatingBadge
+              text="100% natuurlijk · voor elke textuur · "
+              className="absolute -bottom-6 -left-4 h-28 w-28 text-ink sm:-left-8 sm:h-32 sm:w-32"
+            />
+          </div>
 
-            <p className="text-charcoal-soft leading-relaxed">
+          <div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, ease: EASE }}
+              className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50"
+            >
+              Het vlaggenschip
+            </motion.p>
+
+            <motion.h2
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, delay: 0.05, ease: EASE }}
+              className="mt-4 font-display text-2xl uppercase leading-[1.15] tracking-[0.02em] text-ink sm:text-3xl lg:text-4xl"
+            >
+              {hairbutter.name}
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
+              className="mt-5 max-w-md leading-relaxed text-charcoal-soft"
+            >
               {hairbutter.description}
-            </p>
+            </motion.p>
 
-            <ul className="space-y-3">
-              {hairbutter.highlights.map((highlight) => (
-                <li
-                  key={highlight}
-                  className="flex items-center gap-3 text-sm font-medium text-charcoal"
-                >
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blush/70">
-                    <Check size={13} strokeWidth={2.5} className="text-berry" />
-                  </span>
-                  {highlight}
-                </li>
-              ))}
-            </ul>
-
-            <div className="flex items-center gap-5 border-t border-charcoal/10 pt-6">
-              <span className="text-3xl font-medium text-berry">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, delay: 0.15, ease: EASE }}
+              className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4 border-t border-ink/10 pt-7"
+            >
+              {/* Niet in font-display: Horizon heeft wel een €-glyph, maar die
+                  rendert leeg, waardoor de prijs als "39,95" verscheen. */}
+              <span className="text-3xl font-semibold text-ink">
                 {formatPrice(hairbutter.price)}
               </span>
-              <Button
-                variant="primary"
-                size="lg"
+              <button
+                type="button"
                 onClick={() => addItem(hairbutter)}
+                className="rounded-full bg-ink px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-transform duration-300 ease-[var(--ease-elegant)] hover:scale-105 hover:bg-ink-light"
               >
                 In winkelmand
-              </Button>
-            </div>
+              </button>
+            </motion.div>
 
-            <Link
-              href={`/producten/${hairbutter.slug}`}
-              className="inline-block text-sm font-medium text-berry underline underline-offset-4 hover:text-berry-light"
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
+              className="mt-6"
             >
-              Bekijk volledige productinformatie
-            </Link>
-          </motion.div>
+              <Link
+                href={`/producten/${hairbutter.slug}`}
+                className="text-sm font-medium text-ink underline underline-offset-4 transition-colors hover:text-charcoal-soft"
+              >
+                Bekijk volledige productinformatie
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </Container>
     </section>

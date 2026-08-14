@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import { useId, type SVGProps } from "react";
 
 export function InstagramIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -14,6 +14,45 @@ export function InstagramIcon(props: SVGProps<SVGSVGElement>) {
       <rect x="3" y="3" width="18" height="18" rx="5" />
       <circle cx="12" cy="12" r="4" />
       <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+/**
+ * Instagram-glyph in de eigen merkverloop (geel naar roze naar paars), voor
+ * plekken waar het icoon juist mag opvallen. `useId` houdt de gradient-id
+ * uniek als er meerdere op één pagina staan.
+ */
+export function InstagramIconColor(props: SVGProps<SVGSVGElement>) {
+  const gradientId = `ig-gradient-${useId().replace(/:/g, "")}`;
+
+  return (
+    <svg viewBox="0 0 24 24" fill="none" {...props}>
+      <defs>
+        <linearGradient id={gradientId} x1="2" y1="22" x2="22" y2="2">
+          <stop offset="0%" stopColor="#fdc468" />
+          <stop offset="35%" stopColor="#e1306c" />
+          <stop offset="70%" stopColor="#c13584" />
+          <stop offset="100%" stopColor="#833ab4" />
+        </linearGradient>
+      </defs>
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="5"
+        stroke={`url(#${gradientId})`}
+        strokeWidth={2}
+      />
+      <circle
+        cx="12"
+        cy="12"
+        r="4"
+        stroke={`url(#${gradientId})`}
+        strokeWidth={2}
+      />
+      <circle cx="17.4" cy="6.6" r="1.2" fill={`url(#${gradientId})`} />
     </svg>
   );
 }

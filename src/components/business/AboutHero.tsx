@@ -16,7 +16,7 @@ export function AboutHero() {
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
             Ons verhaal
           </p>
-          <h1 className="mt-4 text-5xl leading-[1.1] text-berry md:text-6xl">
+          <h1 className="mt-4 text-4xl leading-[1.15] text-ink md:text-5xl">
             Geïnspireerd door natuur,
             <br />
             gemaakt met intentie

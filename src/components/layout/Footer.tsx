@@ -2,9 +2,7 @@
 
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
-import { ArrowRight, Mail, MapPin } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
 import {
   InstagramIcon,
   SnapchatIcon,
@@ -20,26 +18,24 @@ const socialLinks = [
 
 const footerNav = [
   {
-    title: "Shop",
+    title: "Winkel",
     links: [
-      { label: "Hairbutter", href: "/producten/hairbutter" },
+      { label: "Nourishing hairbutter", href: "/producten/hairbutter" },
       { label: "Alle producten", href: "/producten" },
     ],
   },
   {
     title: "FOLÉA",
     links: [
-      { label: "Over Ons", href: "/over-ons" },
-      { label: "Portfolio", href: "/portfolio" },
-      { label: "Blog", href: "/blog" },
+      { label: "Ons verhaal", href: "/over-ons" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {
-    title: "Klantenservice",
+    title: "Hulp",
     links: [
-      { label: "Contact", href: "/contact" },
       { label: "Veelgestelde vragen", href: "/faq" },
-      { label: "Verzending & Retour", href: "/faq" },
+      { label: "Verzending & retour", href: "/faq" },
     ],
   },
 ];
@@ -56,42 +52,71 @@ export function Footer() {
   }
 
   return (
-    <footer className="mt-24 border-t border-earth/15 bg-cream-deep/60 text-charcoal">
-      <Container className="py-16 md:py-20">
-        <div className="grid gap-14 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1.2fr]">
-          <div className="space-y-5">
-            <p className="font-serif text-3xl text-berry">FOLÉA</p>
-            <p className="max-w-xs text-sm leading-relaxed text-charcoal-soft">
-              Haarverzorging geïnspireerd door natuur, gemaakt met intentie
-              voor elk haartype.
-            </p>
-            <div className="flex gap-2.5 pt-1">
-              {socialLinks.map(({ label, href, icon: Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="rounded-full border border-charcoal/15 p-2.5 text-berry transition-all duration-300 hover:border-berry hover:bg-berry hover:text-white"
-                >
-                  <Icon width={15} height={15} />
-                </a>
-              ))}
-            </div>
-          </div>
+    <footer className="bg-ink text-white">
+      <Container className="py-10 md:py-20">
+        {/* Nieuwsbrief zit in de footer in plaats van als losse sectie in de
+            body, zodat de pagina op beeld eindigt en niet op een formulier. */}
+        <div className="max-w-2xl">
+          <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-white/40">
+            Brief
+          </p>
+          {/* Geen uitspraak over korting: het merk kan later prima acties
+              willen draaien, en dan staat die belofte in de weg. */}
+          <h2 className="mt-3 font-display text-lg uppercase leading-[1.2] tracking-[0.02em] sm:text-2xl lg:text-4xl">
+            Eén mail per maand, meer niet.
+          </h2>
+          <p className="mt-3 max-w-md text-sm leading-relaxed text-white/60">
+            Wat we maken, wat erin gaat, en wanneer er een nieuwe batch
+            klaarstaat.
+          </p>
 
+          {submitted ? (
+            <p className="mt-7 text-sm font-medium text-blush">
+              Bedankt, je staat op de lijst.
+            </p>
+          ) : (
+            <form
+              onSubmit={handleSubmit}
+              className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-end"
+            >
+              <div className="w-full sm:flex-1">
+                <label htmlFor="footer-email" className="sr-only">
+                  E-mailadres
+                </label>
+                <input
+                  id="footer-email"
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="je@mail.nl"
+                  className="w-full border-0 border-b border-white/25 bg-transparent pb-2.5 text-base text-white placeholder:text-white/35 focus:border-blush focus:outline-none"
+                />
+              </div>
+              <button
+                type="submit"
+                className="shrink-0 rounded-full bg-blush px-7 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-ink transition-transform duration-300 ease-[var(--ease-elegant)] hover:scale-105 hover:bg-blush-deep"
+              >
+                Inschrijven
+              </button>
+            </form>
+          )}
+        </div>
+
+        {/* Twee kolommen op mobiel houden dit blok kort; de klant vroeg om een
+            compactere footer op telefoon. */}
+        <div className="mt-11 grid grid-cols-2 gap-x-6 gap-y-7 md:mt-20 md:grid-cols-4">
           {footerNav.map((group) => (
-            <div key={group.title} className="space-y-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-earth">
+            <div key={group.title}>
+              <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/40">
                 {group.title}
               </p>
-              <ul className="space-y-3">
+              <ul className="mt-4 space-y-2.5">
                 {group.links.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-charcoal-soft transition-colors hover:text-berry"
+                      className="text-sm text-white/80 transition-colors hover:text-white"
                     >
                       {link.label}
                     </Link>
@@ -101,81 +126,41 @@ export function Footer() {
             </div>
           ))}
 
-          <div className="space-y-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-earth">
-              Klantcontact
+          <div>
+            <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/40">
+              Volg ons
             </p>
-            <ul className="space-y-3 text-sm text-charcoal-soft">
-              <li className="flex items-center gap-2.5">
-                <Mail size={15} className="shrink-0 text-berry" />
-                <a href="mailto:hello@folea.nl" className="hover:text-berry">
-                  hello@folea.nl
-                </a>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <MapPin size={15} className="shrink-0 text-berry" />
-                Amsterdam, Nederland
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-14 rounded-lg bg-blush/50 p-6 sm:p-8">
-          <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="font-serif text-xl text-berry">
-                Blijf op de hoogte
-              </p>
-              <p className="mt-1 text-sm text-charcoal-soft">
-                Exclusieve aanbiedingen en haarverzorgingstips, rechtstreeks
-                in je inbox.
-              </p>
-            </div>
-            {submitted ? (
-              <p className="text-sm font-medium text-berry">
-                Bedankt voor je inschrijving!
-              </p>
-            ) : (
-              <form
-                onSubmit={handleSubmit}
-                className="flex w-full max-w-sm gap-2"
-              >
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="jouw@email.com"
-                  className="w-full rounded-full border border-charcoal/15 bg-cream px-4 py-2.5 text-sm text-charcoal placeholder:text-charcoal-soft/60 focus:border-berry focus:outline-none"
-                />
-                <Button
-                  type="submit"
-                  variant="primary"
-                  size="md"
-                  className="shrink-0"
-                  aria-label="Inschrijven"
+            <div className="mt-4 flex gap-2.5">
+              {socialLinks.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="rounded-full border border-white/20 p-2.5 text-white transition-colors duration-300 hover:border-white hover:bg-white hover:text-ink"
                 >
-                  <ArrowRight size={16} />
-                </Button>
-              </form>
-            )}
+                  <Icon width={15} height={15} />
+                </a>
+              ))}
+            </div>
+            <a
+              href="mailto:hello@folea.nl"
+              className="mt-5 inline-block text-sm text-white/80 transition-colors hover:text-white"
+            >
+              hello@folea.nl
+            </a>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col-reverse gap-4 border-t border-charcoal/10 pt-8 text-xs text-charcoal-soft sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col-reverse gap-4 border-t border-white/12 pt-6 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} FOLÉA. Alle rechten voorbehouden. ·
-            KvK 00000000 · BTW NL000000000B00
+            © {new Date().getFullYear()} FOLÉA. KvK 00000000 · BTW
+            NL000000000B00
           </p>
           <div className="flex items-center gap-2">
-            <span className="mr-1 text-[11px] text-charcoal-soft/70">
-              Veilig betalen met
-            </span>
             <IdealWeroBadge />
-            <ApplePayBadge />
-            <span className="rounded-md border border-charcoal/15 bg-cream px-2.5 py-1 text-[11px] font-medium tracking-wide text-charcoal-soft">
-              Creditcard
-            </span>
+            <ApplePayBadge tone="light" />
           </div>
         </div>
       </Container>

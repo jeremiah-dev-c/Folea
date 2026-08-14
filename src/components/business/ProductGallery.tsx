@@ -16,7 +16,10 @@ export function ProductGallery({ images }: ProductGalleryProps) {
 
   return (
     <div className="flex flex-col gap-4 sm:flex-row-reverse">
-      <div className="relative aspect-square flex-1 overflow-hidden rounded-lg bg-blush">
+      {/* De studiofoto's zijn deels staand (2:3) en deels liggend (3:2). Met
+          object-cover in een vierkant kader werd de pot afgesneden, dus tonen
+          we ze volledig binnen een vast kader. */}
+      <div className="relative aspect-[4/5] flex-1 overflow-hidden rounded-lg bg-cream-deep/40 sm:aspect-auto sm:h-[560px]">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={activeIndex}
@@ -31,7 +34,7 @@ export function ProductGallery({ images }: ProductGalleryProps) {
               alt={active.alt}
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover transition-transform duration-700 ease-[var(--ease-elegant)] hover:scale-105"
+              className="object-contain"
               priority
             />
           </motion.div>
@@ -48,7 +51,7 @@ export function ProductGallery({ images }: ProductGalleryProps) {
               className={cn(
                 "relative h-20 w-20 shrink-0 overflow-hidden rounded-md bg-blush transition-opacity",
                 index === activeIndex
-                  ? "ring-2 ring-berry ring-offset-2 ring-offset-cream"
+                  ? "ring-2 ring-ink ring-offset-2 ring-offset-cream"
                   : "opacity-60 hover:opacity-100",
               )}
             >

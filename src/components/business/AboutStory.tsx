@@ -22,7 +22,7 @@ export function AboutStory() {
               loop
               playsInline
               poster="/video/product-pour-poster.jpg"
-              aria-label="FOLÉA Hairbutter met gouden olie overgoten"
+              aria-label="FOLÉA Nourishing hairbutter met gouden olie overgoten"
             >
               <source src="/video/product-pour.mp4" type="video/mp4" />
             </video>
@@ -57,7 +57,7 @@ export function AboutStory() {
                 andersom.
               </p>
             </div>
-            <blockquote className="mt-8 border-l-2 border-berry pl-5 font-serif text-2xl italic text-berry">
+            <blockquote className="mt-8 border-l-2 border-ink pl-5 text-xl italic text-ink">
               &ldquo;Haarverzorging die luistert naar je haar, niet naar een
               label.&rdquo;
             </blockquote>

@@ -17,7 +17,7 @@ export default function ProductenPage() {
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
             De collectie
           </p>
-          <h1 className="mt-3 text-4xl md:text-5xl text-berry">Producten</h1>
+          <h1 className="mt-3 text-3xl md:text-4xl text-ink">Producten</h1>
           <p className="mt-4 text-charcoal-soft">
             Elk FOLÉA-product wordt met zorg gemaakt van 100% natuurlijke
             ingrediënten, geschikt voor alle haartypes.

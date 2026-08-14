@@ -5,7 +5,7 @@ export const faqItems: AccordionItemData[] = [
     id: "haartype",
     title: "Is de Hairbutter geschikt voor mijn haartype?",
     content:
-      "Ja, de FOLÉA Hairbutter is ontwikkeld voor alle haartypes en -structuren: steil, slag, krullend en kroeshaar. De formule past zich aan op basis van de hoeveelheid die je gebruikt.",
+      "Ja, de FOLÉA Nourishing hairbutter is ontwikkeld voor alle haartypes en -structuren: steil, slag, krullend en kroeshaar. De formule past zich aan op basis van de hoeveelheid die je gebruikt.",
   },
   {
     id: "gebruik",

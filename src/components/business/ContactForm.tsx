@@ -21,8 +21,8 @@ export function ContactForm() {
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className="flex flex-col items-center justify-center gap-3 rounded-lg bg-blush/50 px-8 py-16 text-center"
       >
-        <CheckCircle2 size={32} strokeWidth={1.5} className="text-berry" />
-        <p className="font-serif text-2xl text-berry">Bericht verzonden</p>
+        <CheckCircle2 size={32} strokeWidth={1.5} className="text-ink" />
+        <p className="text-xl font-medium text-ink">Bericht verzonden</p>
         <p className="max-w-sm text-charcoal-soft">
           Bedankt voor je bericht. We reageren binnen 1 tot 2 werkdagen.
         </p>
@@ -45,7 +45,7 @@ export function ContactForm() {
             name="name"
             type="text"
             required
-            className="w-full rounded-md border border-charcoal/15 bg-cream px-4 py-2.5 text-sm focus:border-berry focus:outline-none"
+            className="w-full rounded-md border border-charcoal/15 bg-cream px-4 py-2.5 text-sm focus:border-ink focus:outline-none"
             placeholder="Jouw naam"
           />
         </div>
@@ -61,7 +61,7 @@ export function ContactForm() {
             name="email"
             type="email"
             required
-            className="w-full rounded-md border border-charcoal/15 bg-cream px-4 py-2.5 text-sm focus:border-berry focus:outline-none"
+            className="w-full rounded-md border border-charcoal/15 bg-cream px-4 py-2.5 text-sm focus:border-ink focus:outline-none"
             placeholder="jouw@email.com"
           />
         </div>
@@ -79,7 +79,7 @@ export function ContactForm() {
           name="subject"
           type="text"
           required
-          className="w-full rounded-md border border-charcoal/15 bg-cream px-4 py-2.5 text-sm focus:border-berry focus:outline-none"
+          className="w-full rounded-md border border-charcoal/15 bg-cream px-4 py-2.5 text-sm focus:border-ink focus:outline-none"
           placeholder="Waar gaat je bericht over?"
         />
       </div>
@@ -96,7 +96,7 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
-          className="w-full resize-none rounded-md border border-charcoal/15 bg-cream px-4 py-2.5 text-sm focus:border-berry focus:outline-none"
+          className="w-full resize-none rounded-md border border-charcoal/15 bg-cream px-4 py-2.5 text-sm focus:border-ink focus:outline-none"
           placeholder="Vertel ons hoe we kunnen helpen..."
         />
       </div>

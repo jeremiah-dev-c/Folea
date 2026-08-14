@@ -7,7 +7,7 @@ import { faqItems } from "@/lib/data/faq";
 export const metadata: Metadata = {
   title: "Veelgestelde vragen",
   description:
-    "Antwoorden op veelgestelde vragen over de FOLÉA Hairbutter, verzending en retourneren.",
+    "Antwoorden op veelgestelde vragen over de FOLÉA Nourishing hairbutter, verzending en retourneren.",
 };
 
 export default function FaqPage() {
@@ -18,7 +18,7 @@ export default function FaqPage() {
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
             FAQ
           </p>
-          <h1 className="mt-3 text-4xl md:text-5xl text-berry">
+          <h1 className="mt-3 text-3xl md:text-4xl text-ink">
             Veelgestelde vragen
           </h1>
           <p className="mt-4 text-charcoal-soft leading-relaxed">
@@ -31,7 +31,7 @@ export default function FaqPage() {
         </div>
 
         <div className="mx-auto mt-14 max-w-2xl rounded-lg bg-blush/50 p-8 text-center">
-          <h2 className="text-2xl text-berry">
+          <h2 className="text-2xl text-ink">
             Staat je vraag er niet tussen?
           </h2>
           <p className="mt-2 text-sm text-charcoal-soft">
@@ -39,7 +39,7 @@ export default function FaqPage() {
           </p>
           <Link
             href="/contact"
-            className="mt-5 inline-block text-sm font-medium text-berry underline underline-offset-4 hover:text-berry-light"
+            className="mt-5 inline-block text-sm font-medium text-ink underline underline-offset-4 hover:text-ink-light"
           >
             Naar contact
           </Link>

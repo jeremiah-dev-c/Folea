@@ -1,15 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  /* Primair — achtergrond (Pantone: Flushing Pink / Papyrus) */
-  --color-blush: #f4c9d3;
-  --color-blush-deep: #eaa7bd;
-  --color-cream: #fbf8f0;
-  --color-cream-deep: #efe6d2;
+  /* Primair. De klant wees wit af en vroeg om een echt zichtbaar beige, met
+     daarnaast het felle roze uit de referentie in plaats van zacht pastel. */
+  --color-blush: #f9a3bd;
+  --color-blush-deep: #f2779f;
+  --color-blush-soft: #fbd3e0;
+  --color-cream: #e9e3cb;
+  --color-cream-deep: #d8d0ae;
 
-  /* Accent & details — berry is het karmijnrood van het FOLÉA-etiket */
-  --color-berry: #a3182a;
-  --color-berry-light: #c02236;
+  /* Accent & details — ink is het zwart dat het oude etiketrood vervangt.
+     Rood zit alleen nog in de productfotografie zelf, niet in de interface. */
+  --color-ink: #0a0a0a;
+  --color-ink-light: #2e2e2e;
   --color-earth: #47301f;
   --color-earth-light: #6b4a32;
 
@@ -31,11 +34,12 @@
 @theme inline {
   --color-blush: var(--color-blush);
   --color-blush-deep: var(--color-blush-deep);
+  --color-blush-soft: var(--color-blush-soft);
   --color-cream: var(--color-cream);
   --color-cream-deep: var(--color-cream-deep);
 
-  --color-berry: var(--color-berry);
-  --color-berry-light: var(--color-berry-light);
+  --color-ink: var(--color-ink);
+  --color-ink-light: var(--color-ink-light);
   --color-earth: var(--color-earth);
   --color-earth-light: var(--color-earth-light);
 
@@ -45,7 +49,10 @@
   --color-background: var(--color-cream);
   --color-foreground: var(--color-charcoal);
 
-  --font-serif: var(--font-cormorant), "Cormorant Garamond", serif;
+  /* Horizon is het displaylettertype van het etiket: alleen inzetten voor de
+     wordmark en korte kopregels in hoofdletters, nooit voor lopende tekst. */
+  --font-display: var(--font-horizon), "Horizon", sans-serif;
+  --font-outline: var(--font-horizon-outline), "Horizon Outlined", sans-serif;
   --font-sans: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
 
   --radius-sm: var(--radius-sm);
@@ -68,17 +75,78 @@ body {
   font-family: var(--font-sans);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-serif);
-  letter-spacing: -0.01em;
+/* In @layer base, anders wint deze regel van elke font-utility: ongelaagde CSS
+   gaat in de cascade vóór alles wat Tailwind in @layer utilities zet, waardoor
+   `font-display` op een <h1> niets deed. */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
 }
 
 ::selection {
-  background: var(--color-berry);
+  background: var(--color-ink);
   color: var(--color-white);
+}
+
+/* Doorlopende horizontale loop. De track bevat de inhoud twee keer, dus op
+   -50% staat de tweede kopie exact waar de eerste begon en is de sprong
+   terug naar 0 onzichtbaar. */
+@keyframes folea-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: folea-marquee var(--marquee-duration, 30s) linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: folea-marquee var(--marquee-duration, 30s) linear infinite reverse;
+}
+
+@keyframes folea-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: folea-spin 22s linear infinite;
+}
+
+/* Swipebare rijen op mobiel houden hun scrollbar verborgen; de scroll-snap
+   punten maken al duidelijk dat er meer naast staat. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-reverse,
+  .animate-spin-slow {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }

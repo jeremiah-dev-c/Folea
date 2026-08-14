@@ -62,8 +62,8 @@ export function AboutCraft() {
               }}
               className="text-center"
             >
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-berry/25">
-                <step.icon size={20} strokeWidth={1.5} className="text-berry" />
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-ink/25">
+                <step.icon size={20} strokeWidth={1.5} className="text-ink" />
               </div>
               <h3 className="mt-5 text-lg font-medium text-charcoal">
                 {step.title}
