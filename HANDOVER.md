@@ -46,7 +46,7 @@ src/
 | Route | Inhoud |
 |---|---|
 | `/` | Hero (video) → Product Spotlight (boterfoto + draaiend zegel) → Marquee-band → Lookbook (felroze, genummerd, loopt vanzelf door) → StatementSplit (parallax) → PhotoMarquee (bewegende fotostrip) → Ingredients (vier werkstoffen) → Instagram-grid. **Geen USP-bar, geen gebruiksaanwijzing, geen nieuwsbrieksectie in de body, geen reviews.** |
-| `/producten` | Horizon-kop op beige, productkaart in 4:5 met de vier toepassingen ernaast, afgesloten met de marquee-band. Schakelt naar een raster zodra er een tweede product bijkomt |
+| `/producten` | Horizon-kop op beige met `ProductShowcase`: groot productbeeld met aanklikbare thumbnails, naam, prijs en winkelmandknop, afgesloten met de marquee-band. Schakelt naar een raster van kaarten zodra er een tweede product bijkomt |
 | `/producten/hairbutter` | PDP: fotogalerij met 5 beelden (`object-contain`), prijs, aantal-selector, "in winkelmand", ingrediëntnamen als chips, gebruiksaanwijzing per haartype. **Geen sterren-rating.** |
 | `/over-ons` | Storytelling: ontstaan (met de product-pour video), proces (3 stappen), missie/waarden met stats |
 | `/contact` | Horizon-kop, formulier naast een productfoto met contactgegevens eronder, zwarte FAQ-verwijzing en marquee-band. Formulier is front-end only |
@@ -66,7 +66,7 @@ src/
 - **Geen bezoekadres:** FOLÉA verkoopt alleen online.
 
 ### Assets
-- `public/video/hero.mp4` (4,3MB, CRF 18, volledige 1920px breedte) + `hero-poster.jpg` — herzien tijdens deze sessie nadat een eerdere te agressieve compressie kwaliteitsverlies gaf. Bron: `IMG_9125.MOV`.
+- `public/video/hero.mp4` (4,3MB, 1920px) en `hero-mobile.mp4` (569KB, 1280px) + `hero-poster.jpg` (89KB). De mobiele variant staat als eerste `<source>` met `media="(max-width: 767px)"`, omdat de volledige video op mobiele data merkbaar traag startte. Bron: `IMG_9125.MOV`.
 - `public/video/product-pour.mp4` (946KB) + `product-pour-poster.jpg` — de cinemagraph (gouden olie over de potjes), nu in Over Ons i.p.v. op de PDP.
 - `public/images/product-*.jpg` (6 productstills) en `model-*.jpg` (16 modelfoto's, 2:3 staand) — de volledige studioshoot van de klant, allemaal 1600x2400 of 2400x1600. Masters staan als `Folea-0xx.jpg` in `source-media/images/` (git-ignored).
 - **De oude 100KB-regel is vervallen**; die maakte de foto's te klein voor full-bleed en retinaschermen. Nu: 2400px langste zijde op q84, ~7MB voor de map. `next/image` comprimeert de bron alsnog naar 30-80KB WebP, dus de pagina wordt er niet zwaarder van. De werkwijze en de twee valkuilen (dev server herstarten na het vervangen van bestanden, en `naturalWidth` niet vertrouwen in de preview) staan in CLAUDE.md.
@@ -154,6 +154,11 @@ src/
 24. **Verzonnen ingrediëntteksten verwijderd, hero lichter (14 augustus).** De omschrijvingen bij de ingrediënten waren door mij geschreven en dus feitelijk productclaims; die haalt de developer op bij de klant. `description` is nu optioneel en overal leeg: de PDP toont de namen als chips in plaats van een accordeon, en de homepage-sectie laat de alinea weg. Beide schakelen vanzelf terug zodra de teksten in `products.ts` staan. Verder is de eyebrow "Het vlaggenschip" geschrapt en is de hero-overlay flink lichter gemaakt (egale laag van 45% naar 22%), zodat de video zelf beter tot zijn recht komt terwijl de radiale kern de tekst leesbaar houdt.
 
 25. **Contactpagina herbouwd (14 augustus).** Dit was de laatste pagina die nog in de oude stijl stond: gecentreerde Jakarta-kop, bruine `text-earth` eyebrows, een vaal `bg-blush/50` kaartje en verder één beige blok zonder beeld. Nu: Horizon-kop links uitgelijnd, formulier van zeven kolommen naast een productfoto met de contactgegevens eronder, een zwarte FAQ-verwijzing en dezelfde marquee-band als de andere pagina's. Twee copy-fouten meegenomen die er al vanaf de eerste bouw stonden: er stond "huidtype" bij een haarproduct, en het product heette nog "Hairbutter". Het bezoekadres is geschrapt: FOLÉA verkoopt alleen online.
+
+26. **Mobiele video, collectiepagina als showcase, nieuwsbriefcopy (14 augustus).**
+    - **Aparte mobiele hero-video:** `hero-mobile.mp4` (1280px, 569 KB) naast de bestaande `hero.mp4` (1920px, 4,3 MB), via een `<source media="(max-width: 767px)">` die als eerste staat. Over mobiele data startte de volledige video merkbaar traag. De metadata stond al vooraan bij beide bestanden, dus faststart was niet het probleem: het was puur de bestandsgrootte. De poster is meteen van 154 KB naar 89 KB gebracht, want die moet als eerste in beeld staan.
+    - **`/producten` is nu een echte showcase:** het blok met toepassingen is eruit en `ProductShowcase` maakt het ene product de pagina, met een groot beeld, aanklikbare thumbnails, naam in Horizon, prijs en winkelmandknop. Bij een tweede product schakelt de pagina vanzelf terug naar een raster van kaarten.
+    - **Nieuwsbriefcopy nogmaals aangepast:** "Nieuws uit de studio" suggereerde een studio die niet bestaat. Nu "Als eerste weten", met een regel die niets belooft over frequentie, korting of inhoud.
 
 ---
 

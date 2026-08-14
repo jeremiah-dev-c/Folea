@@ -60,13 +60,14 @@ export function Footer() {
           <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-white/40">
             Brief
           </p>
-          {/* Geen beloftes over frequentie, korting of inhoud: niemand weet
-              nog hoe de klant deze lijst gaat gebruiken. */}
+          {/* Geen studio (FOLÉA verkoopt alleen online) en geen beloftes over
+              frequentie, korting of inhoud: niemand weet nog hoe de klant deze
+              lijst gaat gebruiken. */}
           <h2 className="mt-3 font-display text-lg uppercase leading-[1.2] tracking-[0.02em] sm:text-2xl lg:text-4xl">
-            Nieuws uit de studio
+            Als eerste weten
           </h2>
           <p className="mt-3 max-w-md text-sm leading-relaxed text-white/60">
-            Schrijf je in en je hoort het als er iets nieuws is.
+            Laat je e-mail achter, dan hoor je het wanneer er iets nieuws is.
           </p>
 
           {submitted ? (

@@ -82,6 +82,15 @@ export function Hero() {
         preload="auto"
         poster="/video/hero-poster.jpg"
       >
+        {/* Volgorde telt: de browser pakt de eerste bron die matcht. De
+            mobiele versie is 1280px in plaats van 1920px en 569 KB in plaats
+            van 4,3 MB, wat op mobiele data het verschil maakt tussen meteen
+            spelen en seconden wachten. */}
+        <source
+          src="/video/hero-mobile.mp4"
+          type="video/mp4"
+          media="(max-width: 767px)"
+        />
         <source src="/video/hero.mp4" type="video/mp4" />
       </motion.video>
 
