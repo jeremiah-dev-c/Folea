@@ -42,7 +42,12 @@ export function ContactInfo() {
         />
       </a>
 
-      <p className="mt-4 text-sm leading-relaxed text-charcoal-soft">
+      {/* Het kopje "Bereikbaar" staat zo in de aangeleverde tekst en hoort bij
+          de tijden; zonder label bleef er een losse regel over. */}
+      <p className="mt-6 text-[11px] font-medium uppercase tracking-[0.2em] text-ink/50">
+        Bereikbaar
+      </p>
+      <p className="mt-2 text-sm leading-relaxed text-charcoal-soft">
         {BEREIKBAAR}
       </p>
     </motion.div>

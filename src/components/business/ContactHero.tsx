@@ -55,8 +55,8 @@ export function ContactHero() {
               transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
               className="mt-5 max-w-md leading-relaxed text-charcoal-soft"
             >
-              Vragen over een bestelling of het gebruik van de hairbutter? We
-              reageren binnen één tot twee werkdagen.
+              Vragen over een bestelling of het gebruik van de hairbutter? Laat
+              een bericht achter, we reageren binnen één tot twee werkdagen.
             </motion.p>
           </div>
 
