@@ -212,13 +212,9 @@ No "photos coming soon" placeholders anywhere; that was tried (ImagePlaceholder/
 
 **The product photo lives beside the form, not above it.** As its own block at the top of the page it was decoration with no argument for being there; in the form's right-hand column it is the thing the questions are about, and it is `lg:sticky` because the letter next to it is much taller. Below `lg` it drops under the form and is capped at `max-w-sm`, since a full-width 2:3 image there became a 750px wall.
 
-**The form is written as a letter, not a stack of boxes.** "ik ben [naam] en ik heb een vraag over", then subject chips, then the message, then "Je kunt me bereiken op [e-mail]". The fields are underlined and transparent, matching the footer's newsletter input; boxed fields on beige were most of what made the old page look like a default template. Three things carry the interaction and all three are deliberate:
+**The form was rebuilt twice; land on the plain version.** It first shipped as boxed inputs with labels on beige, which read as an untouched default template. That was replaced by a fill-in-the-blank letter ("Hoi FOLÉA, ik ben [naam] en ik heb een vraag over" with pill chips and a "n van 4 ingevuld" counter), and the client called that childish and asked for it gone (15 Aug). What stands now is a straight form: labels above underlined transparent fields, name and email side by side, subject as a native `<select>`, message, submit. The underlined fields are the part worth keeping, since they match the footer's newsletter input and are what stops it looking like a template. Don't reintroduce the greeting, the chips or the counter.
 
-- **Subject is a chip row backed by real radio inputs** (`peer sr-only` + a styled `<span>`), not a text field. It keeps native form semantics and keyboard focus while looking like pills.
-- **Inline fields grow while you type** via the `size` attribute, clamped between a readable minimum and a width that still fits a phone. `size` needs no measuring, so there is no ref, no layout effect and nothing to resync.
-- **A counter reads "n van 4 ingevuld"** with a bar next to it, so progress is visible before you press anything. The submit button is never disabled: native `required` validation handles the rest.
-
-`text-transform` also changes what `innerText` returns, so that counter reads back as "4 VAN 4 INGEVULD" when you assert on it in the browser.
+`text-transform` changes what `innerText` returns, so the confirmation reads back as "BERICHT VERZONDEN" when you assert on it in the browser. A case-sensitive check will tell you the form is broken when it is not.
 
 **Don't wrap FOLÉA in `BrandText` inside text that is already `font-display`.** `BrandText` scales the name to `0.86em` to sit correctly among Plus Jakarta Sans; inside a Horizon line it makes the brand name visibly *smaller* than the words around it. The "Hoi FOLÉA," line therefore sets the name plainly.
 
