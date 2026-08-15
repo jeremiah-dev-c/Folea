@@ -51,10 +51,11 @@ export function ProductDetail({ product }: { product: Product }) {
             className="space-y-6"
           >
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
+              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
                 {product.tagline}
               </p>
-              <h1 className="mt-3 text-3xl md:text-4xl text-ink">
+              {/* Zelfde displayfont als op de collectiepagina. */}
+              <h1 className="mt-3 font-display text-[clamp(0.8rem,4.2vw,2rem)] uppercase leading-[1.15] tracking-[0.02em] text-ink">
                 {product.name}
               </h1>
             </div>
@@ -66,17 +67,6 @@ export function ProductDetail({ product }: { product: Product }) {
             <p className="text-charcoal-soft leading-relaxed">
               {product.description}
             </p>
-
-            <ul className="grid grid-cols-2 gap-3">
-              {product.highlights.map((highlight) => (
-                <li
-                  key={highlight}
-                  className="rounded-md bg-cream-deep px-4 py-3 text-sm font-medium text-charcoal"
-                >
-                  {highlight}
-                </li>
-              ))}
-            </ul>
 
             <div className="flex items-center gap-4 pt-2">
               <QuantitySelector value={quantity} onChange={setQuantity} />
@@ -114,7 +104,7 @@ export function ProductDetail({ product }: { product: Product }) {
 
         <section className="mt-20 md:mt-28">
           <h2 className="text-3xl md:text-4xl text-ink text-center">
-            Gebruiksaanwijzing per haartype
+            Gebruiksaanwijzing Nourishing hairbutter
           </h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {product.usageMethods.map((method) => (
@@ -122,7 +112,7 @@ export function ProductDetail({ product }: { product: Product }) {
                 key={method.id}
                 className="rounded-lg bg-blush/40 p-8"
               >
-                <p className="text-xs font-medium uppercase tracking-wider text-earth">
+                <p className="text-xs font-medium uppercase tracking-wider text-ink/50">
                   {method.hairType}
                 </p>
                 <h3 className="mt-2 text-2xl text-ink">{method.title}</h3>

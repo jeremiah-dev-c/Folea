@@ -5,7 +5,6 @@ import { ContactHero } from "@/components/business/ContactHero";
 import { ContactForm } from "@/components/business/ContactForm";
 import { ContactInfo } from "@/components/business/ContactInfo";
 import { ContactFaqCta } from "@/components/business/ContactFaqCta";
-import { Marquee } from "@/components/business/Marquee";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -45,12 +44,6 @@ export default function ContactPage() {
       </section>
 
       <ContactFaqCta />
-
-      <Marquee
-        items={["FOLÉA.", "100% natuurlijk", "FOLÉA.", "Voor elke textuur"]}
-        baseVelocity={2}
-        className="border-y border-ink/10 bg-cream-deep py-5 text-ink"
-      />
     </>
   );
 }

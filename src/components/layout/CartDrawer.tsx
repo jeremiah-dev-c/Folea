@@ -108,7 +108,7 @@ export function CartDrawer() {
                           <button
                             onClick={() => removeItem(item.product.id)}
                             aria-label={`${item.product.name} verwijderen`}
-                            className="text-charcoal-soft hover:text-earth"
+                            className="text-charcoal-soft hover:text-ink"
                           >
                             <X size={16} />
                           </button>

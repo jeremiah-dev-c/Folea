@@ -6,18 +6,20 @@ import { Container } from "@/components/ui/Container";
 import {
   InstagramIcon,
   InstagramIconColor,
+  TikTokIcon,
 } from "@/components/ui/SocialIcons";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const INSTAGRAM_URL = "https://instagram.com";
+const INSTAGRAM_URL = "https://instagram.com/foleahair";
+const TIKTOK_URL = "https://tiktok.com/@folea";
 
 // De eerste tile is bewust groot: een gelijkmatig raster van zes vierkantjes
 // oogde als een opvulsectie in plaats van als een uitnodiging.
 const tiles = [
   {
-    src: "/images/model-duo-playful.jpg",
-    alt: "Twee modellen met potten FOLÉA in een speelse pose",
+    src: "/images/model-kneeling-front.jpg",
+    alt: "Model knielend met een pot FOLÉA",
     groot: true,
   },
   {
@@ -29,8 +31,8 @@ const tiles = [
     alt: "Model liggend met potten FOLÉA en een tas",
   },
   {
-    src: "/images/model-kneeling.jpg",
-    alt: "Model knielend op de studiovloer met een pot FOLÉA",
+    src: "/images/model-duo-playful.jpg",
+    alt: "Twee modellen met potten FOLÉA in een speelse pose",
   },
   {
     src: "/images/model-duo-hair.jpg",
@@ -40,27 +42,34 @@ const tiles = [
 
 export function InstagramGrid() {
   return (
-    <section className="bg-cream py-16 md:py-24">
+    <section className="bg-blush py-16 md:py-24">
       <Container>
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
-              @folea
-            </p>
-            <h2 className="mt-4 font-display text-2xl uppercase leading-[1.15] tracking-[0.02em] text-ink sm:text-3xl lg:text-4xl">
-              Zie het in het wild
-            </h2>
-          </div>
+        <div className="flex flex-col gap-7 sm:flex-row sm:items-end sm:justify-between">
+          <h2 className="max-w-md font-display text-2xl uppercase leading-[1.15] tracking-[0.02em] text-ink sm:text-3xl lg:text-4xl">
+            Laat je inspireren door FOLÉA
+          </h2>
 
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2.5 self-start rounded-full bg-ink px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-transform duration-300 ease-[var(--ease-elegant)] hover:scale-105 hover:bg-ink-light sm:self-auto"
-          >
-            <InstagramIconColor width={17} height={17} />
-            Volg ons
-          </a>
+          {/* Accountnamen in plaats van "volg ons", op verzoek van de klant. */}
+          <div className="flex shrink-0 flex-wrap gap-3">
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 rounded-full bg-ink px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.15em] text-white transition-transform duration-300 ease-[var(--ease-elegant)] hover:scale-105 hover:bg-ink-light"
+            >
+              <InstagramIconColor width={17} height={17} />
+              @foleahair
+            </a>
+            <a
+              href={TIKTOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 rounded-full bg-ink px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.15em] text-white transition-transform duration-300 ease-[var(--ease-elegant)] hover:scale-105 hover:bg-ink-light"
+            >
+              <TikTokIcon width={15} height={15} />
+              @folea
+            </a>
+          </div>
         </div>
 
         <div className="mt-10 grid grid-cols-2 gap-2.5 md:mt-14 md:grid-cols-4 md:gap-3">
@@ -75,7 +84,7 @@ export function InstagramGrid() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.06, ease: EASE }}
               aria-label={`Bekijk op Instagram: ${tile.alt}`}
-              className={`group relative aspect-square overflow-hidden rounded-lg bg-cream-deep/50 ${
+              className={`group relative aspect-square overflow-hidden rounded-lg bg-ink/5 ${
                 tile.groot ? "col-span-2 row-span-2" : ""
               }`}
             >

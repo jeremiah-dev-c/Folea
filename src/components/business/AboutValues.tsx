@@ -1,77 +1,65 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
-import { buttonVariants } from "@/components/ui/Button";
 
-const values = [
-  {
-    stat: "4",
-    label: "Haartypes ondersteund: steil, slag, krul, kroes",
-  },
-  {
-    stat: "100%",
-    label: "Natuurlijke, herkenbare ingrediënten",
-  },
-  {
-    stat: "1",
-    label: "Multifunctioneel product voor je hele routine",
-  },
-];
+const EASE = [0.22, 1, 0.36, 1] as const;
 
+/**
+ * Missieblok. De statistieken (4 haartypes, 100%, 1 product) zijn op verzoek
+ * van de klant vervallen; de tekst hieronder is letterlijk aangeleverd.
+ */
 export function AboutValues() {
   return (
-    <section className="bg-blush/60 py-20 md:py-28">
+    <section className="bg-blush py-20 md:py-28">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: EASE }}
+          className="mx-auto max-w-2xl text-center"
+        >
+          <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/60">
             Onze missie
           </p>
-          <h2 className="mt-3 text-3xl md:text-4xl text-charcoal">
-            Gemaakt voor ieder haartype, zonder compromis
+          <h2 className="mt-4 font-display text-2xl uppercase leading-[1.15] tracking-[0.02em] text-ink sm:text-3xl lg:text-4xl">
+            Elk haar verdient goede verzorging
           </h2>
-          <p className="mt-4 text-charcoal-soft leading-relaxed">
-            We geloven dat goede haarverzorging niet zou moeten vragen om
-            tien verschillende producten. FOLÉA past zich aan: op jouw
-            structuur, jouw poreusheid, jouw routine.
-          </p>
-        </div>
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-3">
-          {values.map((value, index) => (
-            <motion.div
-              key={value.stat}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.1,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="rounded-lg bg-cream/70 px-6 py-10 text-center"
-            >
-              <p className="font-display text-4xl text-ink">{value.stat}</p>
-              <p className="mt-3 text-sm text-charcoal-soft leading-relaxed">
-                {value.label}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+          <div className="mt-7 space-y-4 text-left leading-relaxed text-ink/75 sm:text-center">
+            <p>
+              FOLÉA is ontstaan vanuit de behoefte aan natuurlijke
+              haarverzorging die eenvoudig is in gebruik en geschikt is voor
+              verschillende haartypen. Ieder haar heeft een eigen structuur en
+              vraagt om een passende manier van verzorgen. Daarom hebben we één
+              veelzijdige hairbutter ontwikkeld die je op verschillende manieren
+              kunt gebruiken, afhankelijk van jouw haar en behoefte.
+            </p>
+            <p>
+              Met zorgvuldig gekozen, natuurlijke ingrediënten willen we
+              haarverzorging overzichtelijk en toegankelijk maken. Geen
+              ingewikkelde routines of een kast vol verschillende producten,
+              maar één bewuste verzorging die het haar voedt, verzacht en een
+              gezonde uitstraling geeft. Dat is waar FOLÉA voor staat.
+            </p>
+          </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-14 text-center"
+          transition={{ duration: 0.6, delay: 0.05, ease: EASE }}
+          className="mt-12 text-center"
         >
-          <a
+          <Link
             href="/producten/hairbutter"
-            className={buttonVariants({ variant: "primary", size: "lg" })}
+            className="inline-flex items-center rounded-full bg-ink px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-transform duration-300 ease-[var(--ease-elegant)] hover:scale-105 hover:bg-ink-light"
           >
-            Ontdek de Hairbutter
-          </a>
+            Ontdek de hairbutter
+          </Link>
         </motion.div>
       </Container>
     </section>

@@ -76,12 +76,9 @@ export function ProductShowcase({ product }: { product: Product }) {
         transition={{ duration: 0.7, delay: 0.05, ease: EASE }}
         className="lg:pt-6"
       >
-        <h2 className="font-display text-2xl uppercase leading-[1.15] tracking-[0.02em] text-ink sm:text-3xl">
+        <h2 className="font-display text-[clamp(0.8rem,4.2vw,2rem)] uppercase leading-[1.15] tracking-[0.02em] text-ink">
           {product.name}
         </h2>
-        <p className="mt-4 text-sm uppercase tracking-[0.2em] text-ink/50">
-          {product.tagline}
-        </p>
 
         <p className="mt-6 max-w-md leading-relaxed text-charcoal-soft">
           {product.description}

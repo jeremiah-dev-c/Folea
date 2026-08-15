@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { hairbutter } from "@/lib/data/products";
 import { Container } from "@/components/ui/Container";
@@ -16,11 +15,11 @@ export function Ingredients() {
           <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-blush">
             De formule
           </p>
-          {/* Horizon is breed: op telefoon loopt "werkstoffen" bij text-3xl
-              buiten beeld, vandaar een stap kleiner op mobiel. */}
+          {/* Niet "vier werkstoffen": de formule bevat er meer, dit zijn de
+              vier die de klant wil uitlichten. */}
           <FillOnScroll
-            text="Vier werkstoffen, meer niet"
-            className="mt-4 text-2xl sm:text-4xl lg:text-5xl"
+            text="De formule"
+            className="mt-4 text-3xl sm:text-4xl lg:text-5xl"
           />
         </div>
 
@@ -50,17 +49,11 @@ export function Ingredients() {
           ))}
         </ul>
 
-        <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-          <Link
-            href={`/producten/${hairbutter.slug}`}
-            className="rounded-full bg-blush px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] text-ink transition-transform duration-300 ease-[var(--ease-elegant)] hover:scale-105 hover:bg-blush-deep"
-          >
-            Volledige ingrediëntenlijst
-          </Link>
-          <p className="text-sm text-white/45">
-            Geen parabenen, sulfaten of dierlijke bestanddelen.
-          </p>
-        </div>
+        {/* De link naar de volledige lijst is er op verzoek van de klant uit;
+            de regel over parabenen blijft. */}
+        <p className="mt-10 text-sm text-white/45">
+          Geen parabenen, sulfaten of dierlijke bestanddelen.
+        </p>
       </Container>
     </section>
   );

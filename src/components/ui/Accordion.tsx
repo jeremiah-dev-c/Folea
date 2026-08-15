@@ -49,7 +49,10 @@ export function Accordion({ items, className, defaultOpenId }: AccordionProps) {
                   transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                   className="overflow-hidden"
                 >
-                  <div className="pb-5 text-sm leading-relaxed text-charcoal-soft">
+                  {/* whitespace-pre-line: sommige antwoorden bestaan uit
+                      meerdere alinea's, gescheiden door lege regels in de
+                      data. */}
+                  <div className="whitespace-pre-line pb-5 text-sm leading-relaxed text-charcoal-soft">
                     {item.content}
                   </div>
                 </motion.div>

@@ -5,20 +5,19 @@ import { Clock, Mail } from "lucide-react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-// FOLÉA verkoopt alleen online, dus geen bezoekadres. Let op: het e-mailadres
-// en de bereikbaarheid zijn nog aannames en moeten bij de klant bevestigd
-// worden voordat de site live gaat.
+// FOLÉA verkoopt alleen online, dus geen bezoekadres. Gegevens aangeleverd
+// door de klant (14 aug); er komt nog een definitief zakelijk e-mailadres.
 const items = [
   {
     icon: Mail,
     title: "E-mail",
-    detail: "hello@folea.nl",
-    href: "mailto:hello@folea.nl",
+    detail: "info@folea.nl",
+    href: "mailto:info@folea.nl",
   },
   {
     icon: Clock,
     title: "Bereikbaar",
-    detail: "Maandag t/m vrijdag, 9:00 tot 17:00",
+    detail: "Maandag t/m zondag, 10:00 tot 20:00",
   },
 ];
 

@@ -35,32 +35,33 @@ export function AboutStory() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="md:order-1"
           >
-            <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
+            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
               Het begin
             </p>
-            <h2 className="mt-3 text-3xl md:text-4xl text-charcoal">
+            <h2 className="mt-4 font-display text-2xl uppercase leading-[1.15] tracking-[0.02em] text-ink sm:text-3xl">
               Een potje dat ontbrak op de plank
             </h2>
-            <div className="mt-6 space-y-4 text-charcoal-soft leading-relaxed">
+            {/* Tekst letterlijk aangeleverd door de klant (14 aug). */}
+            <div className="mt-6 space-y-4 leading-relaxed text-charcoal-soft">
               <p>
-                Het begon met frustratie: schappen vol producten die
-                beloofden voor &ldquo;alle haartypes&rdquo; te werken, maar in
-                de praktijk voor niemand écht goed genoeg waren. Te zwaar
-                voor steil haar, te licht voor kroeshaar, vol vulstoffen
-                die op de lange termijn meer kapot maakten dan ze
-                herstelden.
+                Wij zijn twee zussen met een passie voor beauty en meerdere
+                jaren ervaring in de beautywereld. Tijdens ons werk merkten we
+                dat we haarproducten misten die het haar op een natuurlijke
+                manier verzorgen en tegelijkertijd een mooi resultaat geven.
               </p>
               <p>
-                Dus gingen we zelf aan de slag. Met natuurlijke boters en
-                oliën, in onze eigen keuken, tot we een formule hadden die
-                zich aanpast aan het haar dat het draagt, in plaats van
-                andersom.
+                Daarom zijn we ons gaan verdiepen in ingrediënten en
+                haarverzorging. We ontdekten hoeveel verschil de samenstelling
+                van een product kan maken en besloten onze eigen haarproducten
+                te ontwikkelen.
+              </p>
+              <p>
+                Uit deze zoektocht ontstond FOLÉA: een haarverzorgingsmerk met
+                100% natuurlijke producten, ontwikkeld vanuit onze eigen
+                ervaring en de behoefte aan haarverzorging die natuurlijk,
+                eenvoudig en effectief is.
               </p>
             </div>
-            <blockquote className="mt-8 border-l-2 border-ink pl-5 text-xl italic text-ink">
-              &ldquo;Haarverzorging die luistert naar je haar, niet naar een
-              label.&rdquo;
-            </blockquote>
           </motion.div>
         </div>
       </Container>

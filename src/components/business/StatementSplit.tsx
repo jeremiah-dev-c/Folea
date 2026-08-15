@@ -42,43 +42,33 @@ export function StatementSplit() {
           </div>
 
           <div>
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, ease: EASE }}
-              className="text-[11px] font-medium uppercase tracking-[0.3em] text-blush"
-            >
-              Voor iedereen
-            </motion.p>
-
             <motion.h2
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7, delay: 0.05, ease: EASE }}
-              className="mt-4 font-display text-2xl uppercase leading-[1.15] tracking-[0.02em] sm:text-3xl lg:text-4xl"
+              transition={{ duration: 0.7, ease: EASE }}
+              className="font-display text-2xl uppercase leading-[1.15] tracking-[0.02em] sm:text-3xl lg:text-4xl"
             >
-              Gemaakt voor het haar dat je al hebt
+              Jouw haar. Jouw ritueel.
             </motion.h2>
 
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
+              transition={{ duration: 0.7, delay: 0.05, ease: EASE }}
               className="mt-6 max-w-md leading-relaxed text-white/65"
             >
-              Geen belofte dat je haar iets anders wordt. Eén pot die doet wat
-              er nodig is, of je nu strakke coils, losse slag of steil haar
-              hebt.
+              Goede haarverzorging hoeft niet ingewikkeld te zijn. Onze
+              producten zijn ontwikkeld voor verschillende haartypen en helpen
+              je eenvoudig naar haar dat zacht, verzorgd en vol leven aanvoelt.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7, delay: 0.15, ease: EASE }}
+              transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
               className="mt-9"
             >
               <Link

@@ -188,3 +188,19 @@ npx eslint src      # lint
 `.claude/launch.json` staat klaar zodat de Browser-preview-tooling de dev server automatisch kan starten onder de naam `folea-dev`.
 
 **Voor de volgende sessie:** loop de openstaande punten hierboven langs, te beginnen bij de verzendingsdrempel (punt 5) en de fontlicentie (punt 6). Beide moeten geregeld zijn voordat de site live kan.
+
+---
+
+## 6. Klantwijzigingen 14 augustus (document "Aanpassing webshop FOLEA 14 aug")
+
+Alle punten uit dat document zijn doorgevoerd. Wat je moet weten voor vervolgwerk:
+
+**Feitelijke correcties.** Er zat geen kokosolie in de formule, terwijl die wel op de site stond (in de ingrediëntenlijst én in de procestekst op Over Ons). Dat kwam uit mijn eerdere dummy-data en is nu rechtgezet met de door de klant aangeleverde ingrediënten. De kop "Vier werkstoffen, meer niet" is "De formule" geworden, omdat de formule er meer dan vier bevat.
+
+**Nog te controleren bij de klant.** De INCI-naam bij ingrediënt 02 luidt "Chebe seed (lavandula stoechas)", maar *Lavandula stoechas* is Spaanse lavendel, niet chebe. Bij een cosmeticaproduct is een onjuiste INCI-naam vervelend, dus dit is het navragen waard.
+
+**Nog open uit het document.** De instructie "Dan de link: Bekijk alle productinformatie:" loopt dood in het document; die link staat nog ongewijzigd op de collectiepagina. De honingvideo op Over Ons wordt door de developer zelf opnieuw opgenomen (minder honing, vallend op de deksel van de bovenste pot); tot die tijd blijft de huidige video staan.
+
+**Marquee-band.** De klant vroeg de bewegende band met "100% natuurlijk / voor elke textuur" van de homepage te halen. Diezelfde band stond ook op `/producten` en `/contact` en is daar meegenomen, omdat de klacht over de band zelf ging en niet over de plek. Makkelijk terug te zetten met `<Marquee>` als dat niet de bedoeling was.
+
+**Bedrijfsgegevens.** KVK en BTW zijn nu echt (42022057 / NL005441000B68). Het e-mailadres is overal `info@folea.nl`; er komt nog een definitief zakelijk adres. Snapchat is uit de footer.

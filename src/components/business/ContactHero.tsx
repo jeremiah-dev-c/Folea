@@ -18,9 +18,8 @@ export function ContactHero() {
         We horen graag van je
       </h1>
       <p className="mt-5 max-w-md leading-relaxed text-charcoal-soft">
-        Vragen over een bestelling, je haartype of het gebruik van de
-        hairbutter? Laat een bericht achter, we reageren binnen één tot twee
-        werkdagen.
+        Vragen over een bestelling of het gebruik van de hairbutter? Laat een
+        bericht achter, we reageren binnen één tot twee werkdagen.
       </p>
     </motion.div>
   );

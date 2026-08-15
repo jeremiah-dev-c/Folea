@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 import { Droplet, FlaskConical, ShieldCheck } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 
+// Teksten letterlijk aangeleverd door de klant (14 aug). Let op: er zit geen
+// kokosolie in de formule, dat stond hier eerder ten onrechte.
 const steps = [
   {
     icon: Droplet,
     title: "Handgekozen ingrediënten",
     description:
-      "Elke batch begint met ruwe shea- en kokosolie die we zelf beoordelen op geur, kleur en zuiverheid voordat er iets wordt gemengd.",
+      "Elke batch begint met ruwe shea butter, die we zelf beoordelen op geur, kleur en zuiverheid voordat er iets wordt gemengd.",
   },
   {
     icon: FlaskConical,
@@ -21,7 +23,7 @@ const steps = [
     icon: ShieldCheck,
     title: "Kwaliteitscontrole per batch",
     description:
-      "Voor elk potje de deur uitgaat, testen we textuur, geur en stabiliteit. Pas dan krijgt het onze naam.",
+      "Voor elk potje dat de deur uitgaat, testen we de textuur, geur en stabiliteit. Pas dan krijgt het onze naam.",
   },
 ];
 
@@ -36,15 +38,15 @@ export function AboutCraft() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="mx-auto max-w-xl text-center"
         >
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
+          <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
             Het proces
           </p>
-          <h2 className="mt-3 text-3xl md:text-4xl text-charcoal">
-            Met de hand gemaakt, van begin tot pot
+          <h2 className="mt-4 font-display text-2xl uppercase leading-[1.15] tracking-[0.02em] text-ink sm:text-3xl">
+            Met de hand gemaakt, van begin tot eind
           </h2>
-          <p className="mt-4 text-charcoal-soft leading-relaxed">
-            Geen fabriekslijnen, geen haast. Elk potje FOLÉA doorloopt
-            hetzelfde zorgvuldige proces.
+          <p className="mt-4 leading-relaxed text-charcoal-soft">
+            Geen fabriekslijnen. Elk potje FOLÉA doorloopt hetzelfde
+            zorgvuldige proces.
           </p>
         </motion.div>
 

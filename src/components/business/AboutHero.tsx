@@ -13,13 +13,14 @@ export function AboutHero() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="mx-auto max-w-2xl text-center"
         >
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
+          <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
             Ons verhaal
           </p>
-          <h1 className="mt-4 text-4xl leading-[1.15] text-ink md:text-5xl">
-            Geïnspireerd door natuur,
+          {/* De merkregel staat in het Engels omdat hij zo op de pot staat. */}
+          <h1 className="mt-4 font-display text-2xl uppercase leading-[1.15] tracking-[0.02em] text-ink sm:text-3xl lg:text-4xl">
+            Inspired by nature,
             <br />
-            gemaakt met intentie
+            created with intention
           </h1>
           <p className="mx-auto mt-6 max-w-lg text-lg text-charcoal-soft leading-relaxed">
             FOLÉA ontstond uit een simpele overtuiging: goede

@@ -15,7 +15,7 @@ export default function FaqPage() {
     <div className="py-16 md:py-24">
       <Container>
         <div className="mx-auto max-w-xl text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-earth">
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-ink/50">
             FAQ
           </p>
           <h1 className="mt-3 text-3xl md:text-4xl text-ink">

@@ -4,7 +4,7 @@ export const hairbutter: Product = {
   id: "folea-hairbutter",
   slug: "hairbutter",
   name: "Nourishing hairbutter",
-  tagline: "Eén butter. Oneindig veel mogelijkheden.",
+  tagline: "Inspired by nature. Created with intention.",
   description:
     "Een veelzijdige haarbutter die het haar intens voedt en beschermt. Geschikt voor iedere haartextuur: van steil en golvend tot krullend en kroeshaar. Met 100% natuurlijke ingrediënten, voor verzorging zonder compromissen.",
   price: 39.95,
@@ -37,43 +37,47 @@ export const hairbutter: Product = {
     "Scalp treatment",
     "Styling butter",
   ],
+  // Twee methodes, letterlijk aangeleverd door de klant (14 aug). Leave-in en
+  // scalp treatment zijn op hun verzoek vervallen.
   usageMethods: [
     {
-      id: "leave-in",
-      title: "Leave-in Conditioner",
-      hairType: "Alle haartypes",
+      id: "deep-treatment",
+      title: "Deep treatment",
+      hairType: "Voor intensieve verzorging",
       description:
-        "Breng een kleine hoeveelheid aan op vochtig haar voor langdurige hydratatie zonder verzwaring.",
-    },
-    {
-      id: "deep-mask",
-      title: "Deep Mask",
-      hairType: "Droog & poreus haar",
-      description:
-        "Smeer royaal in, laat 20 minuten intrekken onder een warme handdoek en spoel uit voor diepe voeding.",
-    },
-    {
-      id: "scalp",
-      title: "Scalp Treatment",
-      hairType: "Gevoelige hoofdhuid",
-      description:
-        "Masseer een kleine hoeveelheid in de hoofdhuid om irritatie te kalmeren en de haarwortels te versterken.",
+        "Breng de Nourishing Hairbutter aan op vochtig haar. Verdeel de hairbutter over de haarlengtes en breng het eventueel ook aan op de hoofdhuid. Laat het product minimaal 2 uur intrekken. Je kunt tijdens het intrekken een haarcap dragen. Was je haar daarna grondig met shampoo en herhaal dit meerdere keren totdat alle resten van de hairbutter zijn verwijderd.",
     },
     {
       id: "styling",
-      title: "Styling Butter",
-      hairType: "Krullend & kroeshaar",
+      title: "Styling butter",
+      hairType: "Voor glans en definitie",
       description:
-        "Gebruik op handdoekdroog haar om krullen te definiëren en pluis te bestrijden, de hele dag door.",
+        "Gebruik de Hairbutter voor extra glans en verzorging wanneer je je haar in een haarstijl draagt, zoals vlechten, een knot of een staart. Breng een kleine hoeveelheid aan op je haar en verdeel het gelijkmatig.",
     },
   ],
-  // Omschrijvingen bewust leeg: de eerdere teksten waren zelfbedacht en dat
-  // zijn productclaims. De echte tekst komt van de klant.
+  // Namen en omschrijvingen komen letterlijk van de klant (14 aug). Er zit
+  // geen kokosolie in, wat eerder wel op de site stond. De formule bevat meer
+  // dan deze vier werkstoffen; dit zijn de vier die uitgelicht worden.
   ingredients: [
-    { name: "Shea Butter" },
-    { name: "Kokosolie" },
-    { name: "Jojoba-olie" },
-    { name: "Arganolie" },
+    {
+      name: "Butyrospermum parkii",
+      description: "Sheaboter voedt en verzegelt de haarschub.",
+    },
+    {
+      name: "Chebe seed (lavandula stoechas)",
+      description:
+        "Chebe olie ondersteunt de haarsterkte, vermindert haarbreuk en draagt bij aan een gezonde haargroei.",
+    },
+    {
+      name: "Simmondsia Chinensis Seed Oil",
+      description:
+        "Jojoba olie hydrateert het haar, voedt de hoofdhuid en helpt het haar zacht, glanzend en gezond te houden.",
+    },
+    {
+      name: "Tocopherol (E)",
+      description:
+        "Vitamine E olie voedt en hydrateert het haar, helpt haarbreuk te verminderen en ondersteunt een gezonde hoofdhuid.",
+    },
   ],
 };
 

@@ -3,17 +3,17 @@
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { Container } from "@/components/ui/Container";
-import {
-  InstagramIcon,
-  SnapchatIcon,
-  TikTokIcon,
-} from "@/components/ui/SocialIcons";
+import { InstagramIcon, TikTokIcon } from "@/components/ui/SocialIcons";
 import { ApplePayBadge, IdealWeroBadge } from "@/components/ui/PaymentBadges";
 
+// Snapchat is er op verzoek van de klant uit.
 const socialLinks = [
-  { label: "Instagram", href: "https://instagram.com", icon: InstagramIcon },
-  { label: "TikTok", href: "https://tiktok.com", icon: TikTokIcon },
-  { label: "Snapchat", href: "https://snapchat.com", icon: SnapchatIcon },
+  {
+    label: "Instagram",
+    href: "https://instagram.com/foleahair",
+    icon: InstagramIcon,
+  },
+  { label: "TikTok", href: "https://tiktok.com/@folea", icon: TikTokIcon },
 ];
 
 const footerNav = [
@@ -60,14 +60,11 @@ export function Footer() {
           <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-white/40">
             Brief
           </p>
-          {/* Geen studio (FOLÉA verkoopt alleen online) en geen beloftes over
-              frequentie, korting of inhoud: niemand weet nog hoe de klant deze
-              lijst gaat gebruiken. */}
           <h2 className="mt-3 font-display text-lg uppercase leading-[1.2] tracking-[0.02em] sm:text-2xl lg:text-4xl">
-            Als eerste weten
+            Blijf verbonden met FOLÉA
           </h2>
           <p className="mt-3 max-w-md text-sm leading-relaxed text-white/60">
-            Laat je e-mail achter, dan hoor je het wanneer er iets nieuws is.
+            Ontdek als eerste nieuwe producten, inspiratie en meer.
           </p>
 
           {submitted ? (
@@ -145,18 +142,18 @@ export function Footer() {
               ))}
             </div>
             <a
-              href="mailto:hello@folea.nl"
+              href="mailto:info@folea.nl"
               className="mt-5 inline-block text-sm text-white/80 transition-colors hover:text-white"
             >
-              hello@folea.nl
+              info@folea.nl
             </a>
           </div>
         </div>
 
         <div className="mt-10 flex flex-col-reverse gap-4 border-t border-white/12 pt-6 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} FOLÉA. KvK 00000000 · BTW
-            NL000000000B00
+            © {new Date().getFullYear()} FOLÉA. KvK 42022057 · BTW
+            NL005441000B68
           </p>
           <div className="flex items-center gap-2">
             <IdealWeroBadge />

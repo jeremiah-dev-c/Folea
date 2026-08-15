@@ -135,7 +135,8 @@ export function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.65, ease: EASE }}
-          className="mt-5 max-w-md text-balance text-sm leading-relaxed text-blush sm:text-base"
+          // Dicht onder de wordmark: de klant wilde die twee als één blok.
+          className="mt-1 max-w-md text-balance text-sm leading-relaxed text-blush sm:mt-2 sm:text-base"
         >
           Inspired by nature, created with intention.
         </motion.p>
@@ -144,7 +145,8 @@ export function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.8, ease: EASE }}
-          className="mt-10"
+          // Bewust ruim onder de tagline, zodat de CTA los staat van het blok.
+          className="mt-16 sm:mt-20"
         >
           <Link
             href="/producten"

@@ -40,9 +40,11 @@ export function ProductSpotlight() {
               aria-hidden="true"
             />
 
+            {/* Langer kader op mobiel: de klant vond het 4:5 blok te gedrongen
+                en wilde de foto verder naar boven en beneden doorgetrokken. */}
             <motion.div
               style={{ y: jarY }}
-              className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem]"
+              className="relative aspect-[3/4.4] overflow-hidden rounded-[1.75rem] sm:aspect-[4/5]"
             >
               <Image
                 src={hairbutter.images[0].src}
@@ -66,7 +68,9 @@ export function ProductSpotlight() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: 0.05, ease: EASE }}
-              className="font-display text-2xl uppercase leading-[1.15] tracking-[0.02em] text-ink sm:text-3xl lg:text-4xl"
+              // clamp zodat "Nourishing hairbutter" ook op een smalle telefoon
+              // op één regel blijft; Horizon is een brede letter.
+              className="font-display text-[clamp(0.8rem,4.2vw,2rem)] uppercase leading-[1.15] tracking-[0.02em] text-ink"
             >
               {hairbutter.name}
             </motion.h2>

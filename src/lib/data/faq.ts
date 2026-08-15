@@ -11,7 +11,7 @@ export const faqItems: AccordionItemData[] = [
     id: "gebruik",
     title: "Hoe vaak kan ik de Hairbutter gebruiken?",
     content:
-      "Dat hangt af van je toepassing. Als leave-in conditioner kan dagelijks, als deep mask raden we 1-2 keer per week aan. Bekijk de gebruiksaanwijzing op de productpagina voor details per haartype.",
+      "Hoe je dit product het beste gebruikt, hangt af van het gewenste resultaat. Als treatment raden we aan om het 1 keer per week te gebruiken. Omdat het een rijk product is, is het hierbij belangrijk om het na gebruik goed uit te wassen.\n\nWil je vooral extra shine creëren? Dan kun je het gebruiken wanneer je een bepaalde hairstyle draagt en net wat meer glans wilt.\n\nOok je haardikte speelt een rol in de hoeveelheid die je nodig hebt. Heb je erg dik haar, dan kun je wat meer product gebruiken. Bij dunner haar is het belangrijk om niet te veel product te gebruiken, omdat het anders moeilijker uit te wassen is.",
   },
   {
     id: "verzending",
@@ -23,7 +23,7 @@ export const faqItems: AccordionItemData[] = [
     id: "retour",
     title: "Kan ik mijn bestelling retourneren?",
     content:
-      "Je hebt 14 dagen bedenktijd na ontvangst. Ongeopende producten kun je kosteloos retourneren. Neem contact met ons op via de contactpagina om een retour te starten.",
+      "Bij FOLÉA kun je je bestelling binnen 14 dagen na ontvangst retourneren, zolang het product ongebruikt, ongeopend en in de originele verpakking zit.\n\nGeopende of gebruikte haarverzorgings- en cosmeticaproducten kunnen vanwege hygiëne niet worden geretourneerd. Dit geldt ook voor producten waarvan de verzegeling is verbroken.\n\nEen retour aanvragen\n\nNeem binnen 14 dagen contact met ons op via info@folea.nl. Vermeld daarbij je naam, ordernummer en het product dat je wilt retourneren. Je ontvangt vervolgens de retourinstructies. De kosten voor het retourneren zijn voor eigen rekening. We raden aan om je retourzending met track-and-trace te versturen.\n\nNa ontvangst en controle van het retour gestuurde product betalen we het aankoopbedrag binnen 14 dagen terug via dezelfde betaalmethode.\n\nHeb je een beschadigd of verkeerd product ontvangen? Neem dan binnen 48 uur na levering contact met ons op en voeg duidelijke foto's toe.",
   },
   {
     id: "ingredienten",
