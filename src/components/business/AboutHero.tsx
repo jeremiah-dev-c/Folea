@@ -7,13 +7,13 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function AboutHero() {
   return (
-    <section className="bg-blush py-16 md:py-24 lg:py-28">
+    <section className="bg-cream py-16 md:py-24 lg:py-28">
       <Container>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, ease: EASE }}
-          className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/60"
+          className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50"
         >
           Ons verhaal
         </motion.p>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { FillOnScroll } from "@/components/ui/FillOnScroll";
+import { BrandText } from "@/components/ui/BrandText";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -39,8 +40,10 @@ export function AboutCraft() {
             className="mt-4 text-[clamp(1.15rem,4vw,2.75rem)]"
           />
           <p className="mt-6 max-w-md leading-relaxed text-white/60">
-            Geen fabriekslijnen. Elk potje FOLÉA doorloopt hetzelfde
-            zorgvuldige proces.
+            <BrandText>
+              Geen fabriekslijnen. Elk potje FOLÉA doorloopt hetzelfde
+              zorgvuldige proces.
+            </BrandText>
           </p>
         </div>
 

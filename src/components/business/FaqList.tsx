@@ -4,11 +4,12 @@ import { Fragment, useState } from "react";
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
+import { BrandText } from "@/components/ui/BrandText";
 import type { FaqBlok, FaqItem } from "@/lib/data/faq";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-/** Maakt e-mailadressen in een alinea klikbaar. */
+/** Maakt e-mailadressen klikbaar en zet de merknaam in het displayfont. */
 function metMailLinks(tekst: string) {
   const delen = tekst.split(/([\w.+-]+@[\w-]+\.[\w.]+)/g);
   return delen.map((deel, i) =>
@@ -21,7 +22,9 @@ function metMailLinks(tekst: string) {
         {deel}
       </a>
     ) : (
-      <Fragment key={i}>{deel}</Fragment>
+      <Fragment key={i}>
+        <BrandText>{deel}</BrandText>
+      </Fragment>
     ),
   );
 }

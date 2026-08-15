@@ -3,12 +3,13 @@
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { RotatingBadge } from "@/components/ui/RotatingBadge";
+import { BrandText } from "@/components/ui/BrandText";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function AboutStory() {
   return (
-    <section className="bg-cream py-16 md:py-24">
+    <section className="bg-blush py-16 md:py-24">
       <Container>
         <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16 lg:gap-20">
           <motion.div
@@ -18,7 +19,7 @@ export function AboutStory() {
             transition={{ duration: 0.8, ease: EASE }}
             className="relative md:order-2"
           >
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-cream-deep">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink/5">
               <video
                 className="h-full w-full object-cover"
                 autoPlay
@@ -45,14 +46,14 @@ export function AboutStory() {
             transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
             className="md:order-1"
           >
-            <h2 className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
+            <h2 className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/60">
               Het begin
             </h2>
 
             {/* Tekst letterlijk aangeleverd door de klant (14 aug). De eerste
                 alinea is groter gezet, zodat het blok een aanhef heeft nu de
                 kop eruit is. */}
-            <div className="mt-6 space-y-4 leading-relaxed text-charcoal-soft [&>p:first-child]:text-lg [&>p:first-child]:leading-relaxed [&>p:first-child]:text-ink">
+            <div className="mt-6 space-y-4 leading-relaxed text-ink/75 [&>p:first-child]:text-lg [&>p:first-child]:leading-relaxed [&>p:first-child]:text-ink">
               <p>
                 Wij zijn twee zussen met een passie voor beauty en meerdere
                 jaren ervaring in de beautywereld. Tijdens ons werk merkten we
@@ -66,10 +67,12 @@ export function AboutStory() {
                 te ontwikkelen.
               </p>
               <p>
-                Uit deze zoektocht ontstond FOLÉA: een haarverzorgingsmerk met
-                100% natuurlijke producten, ontwikkeld vanuit onze eigen
-                ervaring en de behoefte aan haarverzorging die natuurlijk,
-                eenvoudig en effectief is.
+                <BrandText>
+                  Uit deze zoektocht ontstond FOLÉA: een haarverzorgingsmerk
+                  met 100% natuurlijke producten, ontwikkeld vanuit onze eigen
+                  ervaring en de behoefte aan haarverzorging die natuurlijk,
+                  eenvoudig en effectief is.
+                </BrandText>
               </p>
             </div>
           </motion.div>
