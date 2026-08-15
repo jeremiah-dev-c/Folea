@@ -211,9 +211,9 @@ Alle punten uit dat document zijn doorgevoerd. Wat je moet weten voor vervolgwer
 
 De pagina liep als enige nog op de oude opzet. Nu:
 
-- **Hero**: eyebrow, grote Horizon-kop met de Engelse merkregel, en daaronder een breed beeld met parallax (`model-duo-seated`, past bij "twee zussen").
-- **Het verhaal**: de honingvideo met een ronddraaiend zegel eroverheen, naast de door de klant aangeleverde tekst.
-- **Het proces**: zwart blok waar het beeld links blijft staan (`sticky`) terwijl de drie stappen ernaast langs scrollen, elk met een groot outline-nummer. Op mobiel valt het sticky beeld weg, want naast één kolom heeft dat geen zin.
-- **De missie**: roze, grote typografie, met de knop naar de hairbutter.
+- **Hero**: roze vlak met alleen typografie. Er stond eerst een modellenfoto met parallax; die is er op verzoek van de klant uit.
+- **Het verhaal**: de honingvideo met een ronddraaiend zegel eroverheen, naast de door de klant aangeleverde tekst. De kop is geschrapt, dus de eerste alinea is groter gezet om als aanhef te dienen.
+- **Het proces**: zwart blok waar het beeld links blijft staan (`sticky`) terwijl de drie stappen ernaast langs scrollen, elk met een groot outline-nummer. Op mobiel valt het sticky beeld weg, want naast één kolom heeft dat geen zin. Twee dingen om niet terug te draaien: `items-start` op de grid (anders rekt de stappenkolom mee met het sticky beeld en blijft er onderaan lege ruimte over) en scheidingslijnen via `divide-y` in plaats van een achtergrondvlak onder de items (dat vlak schijnt door als een grijze balk zolang een stap nog aan het infaden is).
+- **De missie**: roze, met een grote kop, de tekst in twee kolommen vanaf `lg` en een productfoto met parallax ernaast. Als één kolom onder een kop van deze grootte las het als een muur tekst.
 
 **Let op bij foto 110.** Die heet in de repo `model-portrait.jpg`, niet `model-kneeling-front`. Ik had hem eerst verkeerd benoemd op basis van de aanname dat hij de knielende foto verving; het is in werkelijkheid een schouderportret met kort krulhaar. Hij staat in de social-sectie op de vierde plek met `objectPosition: 50% 18%`, omdat een vierkant kader anders het hoofd afsnijdt.

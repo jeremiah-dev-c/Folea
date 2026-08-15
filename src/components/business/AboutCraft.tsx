@@ -47,7 +47,9 @@ export function AboutCraft() {
         {/* Het beeld blijft staan terwijl de stappen ernaast langs scrollen.
             Op mobiel valt het weg: sticky naast een enkele kolom heeft daar
             geen zin. */}
-        <div className="mt-14 grid gap-12 md:mt-20 md:grid-cols-2 md:gap-16">
+        {/* items-start: anders rekt de stappenkolom mee met de sticky kolom en
+            blijft er onderaan een lege balk over. */}
+        <div className="mt-14 grid items-start gap-12 md:mt-20 md:grid-cols-2 md:gap-16">
           <div className="hidden md:block">
             <div className="sticky top-28">
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white/5">
@@ -62,7 +64,10 @@ export function AboutCraft() {
             </div>
           </div>
 
-          <ol className="space-y-px overflow-hidden rounded-2xl bg-white/12">
+          {/* Scheidingslijnen via divide in plaats van een achtergrondvlak
+              onder de items: zolang een stap nog aan het infaden is, zou dat
+              vlak als een lege grijze balk doorschijnen. */}
+          <ol className="divide-y divide-white/12 overflow-hidden rounded-2xl border border-white/12">
             {steps.map((step, i) => (
               <motion.li
                 key={step.title}
@@ -72,9 +77,11 @@ export function AboutCraft() {
                 transition={{ duration: 0.7, delay: i * 0.08, ease: EASE }}
                 className="group relative overflow-hidden bg-ink p-8 transition-colors duration-500 hover:bg-white/[0.04] md:p-10"
               >
+                {/* Blijft binnen de kaart: half afgesneden zag het eruit als
+                    een fout in plaats van als decoratie. */}
                 <span
-                  className="pointer-events-none absolute -right-2 -top-5 font-display text-[6rem] leading-none text-transparent transition-transform duration-700 ease-[var(--ease-elegant)] group-hover:-translate-y-1"
-                  style={{ WebkitTextStroke: "1.5px rgba(255,255,255,0.13)" }}
+                  className="pointer-events-none absolute right-6 top-5 font-display text-[4.5rem] leading-none text-transparent transition-transform duration-700 ease-[var(--ease-elegant)] group-hover:-translate-y-1 md:right-8 md:text-[5.5rem]"
+                  style={{ WebkitTextStroke: "1.5px rgba(255,255,255,0.14)" }}
                   aria-hidden="true"
                 >
                   {String(i + 1).padStart(2, "0")}
@@ -83,7 +90,7 @@ export function AboutCraft() {
                 <span className="relative text-[11px] font-semibold tracking-[0.2em] text-blush">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="relative mt-3 font-display text-lg uppercase tracking-[0.02em] sm:text-xl">
+                <h3 className="relative mt-3 max-w-[14ch] font-display text-lg uppercase leading-snug tracking-[0.02em] sm:text-xl">
                   {step.title}
                 </h3>
                 <p className="relative mt-3 max-w-sm leading-relaxed text-white/60">

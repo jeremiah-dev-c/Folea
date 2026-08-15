@@ -45,15 +45,14 @@ export function AboutStory() {
             transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
             className="md:order-1"
           >
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
+            <h2 className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
               Het begin
-            </p>
-            <h2 className="mt-4 font-display text-[clamp(1.15rem,4vw,2.25rem)] uppercase leading-[1.15] tracking-[0.02em] text-ink">
-              Twee zussen, één pot
             </h2>
 
-            {/* Tekst letterlijk aangeleverd door de klant (14 aug). */}
-            <div className="mt-6 space-y-4 leading-relaxed text-charcoal-soft">
+            {/* Tekst letterlijk aangeleverd door de klant (14 aug). De eerste
+                alinea is groter gezet, zodat het blok een aanhef heeft nu de
+                kop eruit is. */}
+            <div className="mt-6 space-y-4 leading-relaxed text-charcoal-soft [&>p:first-child]:text-lg [&>p:first-child]:leading-relaxed [&>p:first-child]:text-ink">
               <p>
                 Wij zijn twee zussen met een passie voor beauty en meerdere
                 jaren ervaring in de beautywereld. Tijdens ons werk merkten we

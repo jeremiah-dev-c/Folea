@@ -1,28 +1,19 @@
 "use client";
 
-import Image from "next/image";
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function AboutHero() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
-
   return (
-    <section className="bg-cream pt-14 md:pt-20">
+    <section className="bg-blush py-16 md:py-24 lg:py-28">
       <Container>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, ease: EASE }}
-          className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50"
+          className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/60"
         >
           Ons verhaal
         </motion.p>
@@ -39,26 +30,6 @@ export function AboutHero() {
           created with intention
         </motion.h1>
       </Container>
-
-      <div ref={ref} className="mt-12 overflow-hidden md:mt-16">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.15, ease: EASE }}
-          className="relative h-[52vh] min-h-[320px] w-full md:h-[68vh]"
-        >
-          <motion.div style={{ y }} className="absolute inset-x-0 -top-[8%] h-[116%]">
-            <Image
-              src="/images/model-duo-seated.jpg"
-              alt="De twee zussen achter FOLÉA"
-              fill
-              sizes="100vw"
-              className="object-cover object-[50%_28%]"
-              priority
-            />
-          </motion.div>
-        </motion.div>
-      </div>
     </section>
   );
 }
