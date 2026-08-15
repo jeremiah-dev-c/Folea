@@ -2,45 +2,56 @@
 
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
+import { RotatingBadge } from "@/components/ui/RotatingBadge";
+
+const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function AboutStory() {
   return (
-    <section className="bg-blush/50 py-20 md:py-28">
+    <section className="bg-cream py-16 md:py-24">
       <Container>
-        <div className="grid items-center gap-12 md:grid-cols-2 md:gap-20">
+        <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16 lg:gap-20">
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
+            initial={{ opacity: 0, scale: 0.97 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative aspect-[4/5] overflow-hidden rounded-lg bg-cream-deep md:order-2"
+            transition={{ duration: 0.8, ease: EASE }}
+            className="relative md:order-2"
           >
-            <video
-              className="h-full w-full object-cover"
-              autoPlay
-              muted
-              loop
-              playsInline
-              poster="/video/product-pour-poster.jpg"
-              aria-label="FOLÉA Nourishing hairbutter met gouden olie overgoten"
-            >
-              <source src="/video/product-pour.mp4" type="video/mp4" />
-            </video>
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-cream-deep">
+              <video
+                className="h-full w-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster="/video/product-pour-poster.jpg"
+                aria-label="FOLÉA Nourishing hairbutter met gouden olie overgoten"
+              >
+                <source src="/video/product-pour.mp4" type="video/mp4" />
+              </video>
+            </div>
+
+            <RotatingBadge
+              text="100% natuurlijk · met de hand gemaakt · "
+              className="absolute -bottom-6 -left-4 h-24 w-24 text-ink sm:-left-6 sm:h-28 sm:w-28"
+            />
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
             className="md:order-1"
           >
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
               Het begin
             </p>
-            <h2 className="mt-4 font-display text-2xl uppercase leading-[1.15] tracking-[0.02em] text-ink sm:text-3xl">
-              Een potje dat ontbrak op de plank
+            <h2 className="mt-4 font-display text-[clamp(1.15rem,4vw,2.25rem)] uppercase leading-[1.15] tracking-[0.02em] text-ink">
+              Twee zussen, één pot
             </h2>
+
             {/* Tekst letterlijk aangeleverd door de klant (14 aug). */}
             <div className="mt-6 space-y-4 leading-relaxed text-charcoal-soft">
               <p>

@@ -14,9 +14,31 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 const INSTAGRAM_URL = "https://instagram.com/foleahair";
 const TIKTOK_URL = "https://tiktok.com/@folea";
 
+/**
+ * Het @-teken is in vrijwel elk font uitgelijnd op de x-hoogte, dus naast
+ * kapitalen hangt het zichtbaar te laag. Hier tillen we het los op zodat het
+ * optisch midden op de accountnaam staat.
+ */
+function Handle({ naam }: { naam: string }) {
+  return (
+    <span>
+      <span className="relative -top-[0.09em] text-[0.92em]">@</span>
+      {naam}
+    </span>
+  );
+}
+
+interface Tile {
+  src: string;
+  alt: string;
+  groot?: boolean;
+  /** Uitsnede binnen het vierkante kader, als de standaard te veel wegsnijdt. */
+  objectPosition?: string;
+}
+
 // De eerste tile is bewust groot: een gelijkmatig raster van zes vierkantjes
 // oogde als een opvulsectie in plaats van als een uitnodiging.
-const tiles = [
+const tiles: Tile[] = [
   {
     src: "/images/model-duo-playful.jpg",
     alt: "Twee modellen met potten FOLÉA in een speelse pose",
@@ -33,8 +55,11 @@ const tiles = [
   {
     // Foto 110, aangeleverd door de klant als vervanging van de vorige foto
     // op deze plek. De rest van het raster blijft ongewijzigd.
-    src: "/images/model-kneeling-front.jpg",
-    alt: "Model knielend met een pot FOLÉA",
+    src: "/images/model-portrait.jpg",
+    alt: "Portret van model met kort krulhaar, van opzij",
+    // Staand portret: het gezicht zit in de bovenste helft, dus zonder deze
+    // correctie snijdt het vierkante kader het hoofd eraf.
+    objectPosition: "50% 18%",
   },
   {
     src: "/images/model-duo-hair.jpg",
@@ -60,7 +85,7 @@ export function InstagramGrid() {
               className="inline-flex items-center gap-2.5 rounded-full bg-ink px-6 py-3.5 text-xs font-semibold uppercase leading-none tracking-[0.15em] text-white transition-transform duration-300 ease-[var(--ease-elegant)] hover:scale-105 hover:bg-ink-light"
             >
               <InstagramIconColor width={17} height={17} />
-              @foleahair
+              <Handle naam="foleahair" />
             </a>
             <a
               href={TIKTOK_URL}
@@ -69,7 +94,7 @@ export function InstagramGrid() {
               className="inline-flex items-center gap-2.5 rounded-full bg-ink px-6 py-3.5 text-xs font-semibold uppercase leading-none tracking-[0.15em] text-white transition-transform duration-300 ease-[var(--ease-elegant)] hover:scale-105 hover:bg-ink-light"
             >
               <TikTokIcon width={15} height={15} />
-              @folea
+              <Handle naam="folea" />
             </a>
           </div>
         </div>
@@ -99,6 +124,7 @@ export function InstagramGrid() {
                     ? "(min-width: 768px) 50vw, 100vw"
                     : "(min-width: 768px) 25vw, 50vw"
                 }
+                style={{ objectPosition: tile.objectPosition ?? "50% 50%" }}
                 className="object-cover transition-transform duration-[900ms] ease-[var(--ease-elegant)] group-hover:scale-[1.07]"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-ink/0 transition-colors duration-500 group-hover:bg-ink/35">

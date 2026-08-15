@@ -204,3 +204,16 @@ Alle punten uit dat document zijn doorgevoerd. Wat je moet weten voor vervolgwer
 **Marquee-band.** De klant vroeg de bewegende band met "100% natuurlijk / voor elke textuur" van de homepage te halen. Diezelfde band stond ook op `/producten` en `/contact` en is daar meegenomen, omdat de klacht over de band zelf ging en niet over de plek. Makkelijk terug te zetten met `<Marquee>` als dat niet de bedoeling was.
 
 **Bedrijfsgegevens.** KVK en BTW zijn nu echt (42022057 / NL005441000B68). Het e-mailadres is overal `info@folea.nl`; er komt nog een definitief zakelijk adres. Snapchat is uit de footer.
+
+---
+
+## 7. Over Ons herontworpen (14 augustus)
+
+De pagina liep als enige nog op de oude opzet. Nu:
+
+- **Hero**: eyebrow, grote Horizon-kop met de Engelse merkregel, en daaronder een breed beeld met parallax (`model-duo-seated`, past bij "twee zussen").
+- **Het verhaal**: de honingvideo met een ronddraaiend zegel eroverheen, naast de door de klant aangeleverde tekst.
+- **Het proces**: zwart blok waar het beeld links blijft staan (`sticky`) terwijl de drie stappen ernaast langs scrollen, elk met een groot outline-nummer. Op mobiel valt het sticky beeld weg, want naast één kolom heeft dat geen zin.
+- **De missie**: roze, grote typografie, met de knop naar de hairbutter.
+
+**Let op bij foto 110.** Die heet in de repo `model-portrait.jpg`, niet `model-kneeling-front`. Ik had hem eerst verkeerd benoemd op basis van de aanname dat hij de knielende foto verving; het is in werkelijkheid een schouderportret met kort krulhaar. Hij staat in de social-sectie op de vierde plek met `objectPosition: 50% 18%`, omdat een vierkant kader anders het hoofd afsnijdt.

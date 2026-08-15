@@ -24,7 +24,7 @@ export function AboutValues() {
           <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/60">
             Onze missie
           </p>
-          <h2 className="mt-4 font-display text-2xl uppercase leading-[1.15] tracking-[0.02em] text-ink sm:text-3xl lg:text-4xl">
+          <h2 className="mt-4 font-display text-[clamp(1.15rem,4.4vw,3rem)] uppercase leading-[1.1] tracking-[0.02em] text-ink">
             Elk haar verdient goede verzorging
           </h2>
 
