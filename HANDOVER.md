@@ -56,7 +56,7 @@ src/
 - **Cart** (zustand): add/remove/update/subtotal, werkend getest overal waar "in winkelmand" staat.
 - **Cart Drawer**: slide-in, gratis-verzending-indicator bij €45, checkout-knop doet nog niets (geen betaalflow).
 - **Header**: op de homepage `fixed` en transparant over de hero-video, solide crème zodra je scrollt; op alle andere routes `sticky top-0` en altijd solide. Mobiel hamburgermenu, werkende zoek-overlay (filtert live op producten.ts). Nav bevat nog 4 items: Home, Producten, Over Ons, Contact.
-- **Footer**: zwart, met de nieuwsbriefinschrijving bovenin en compacte linkkolommen (twee kolommen op mobiel). Betaalbadges: iDEAL/Wero plus Apple Pay in de lichte variant.
+- **Footer**: zwart, met de nieuwsbriefinschrijving bovenin en compacte linkkolommen (twee kolommen op mobiel). Betaalbadges: iDEAL/Wero plus Apple Pay in de lichte variant. Onderin staan de copyright met KvK/BTW en de credit "Webdesign by SOM" met link naar snelonlinemarketing.nl. Het jaartal loopt automatisch mee: zie CLAUDE.md voor waarom dat via `useSyncExternalStore` gaat en niet via `new Date()` in de render.
 
 ### Copy-conventies (belangrijk voor vervolgwerk)
 - **Geen em dashes (—)** waar dan ook. Herschrijven met punt, dubbele punt of komma.

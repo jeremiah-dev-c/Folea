@@ -121,6 +121,16 @@ Black (`bg-ink`), and it carries the newsletter signup at the top: eyebrow, a Ho
 
 `ApplePayBadge` needs `tone="light"` here — its default black pill is invisible against the black footer.
 
+The bottom bar carries the copyright, the KvK/BTW numbers and a `Webdesign by SOM` credit linking to `snelonlinemarketing.nl`.
+
+**Don't "simplify" the copyright year back to `new Date().getFullYear()` in the render.** Every route is statically prerendered, so a year computed during render is frozen at build time in the HTML, and computing it inline makes the first client render disagree with that HTML — a hydration mismatch. The footer therefore reads the year through `useSyncExternalStore`: the server snapshot returns the `BOUWJAAR` constant (what search engines and no-JS visitors see), and the client snapshot returns the real year after hydration. Verified by setting `BOUWJAAR` to 2019: the served HTML said 2019 and the rendered page said 2026. Bump the constant when you touch the file; the site corrects itself either way.
+
+### Over Ons opening
+
+`AboutHero` is nothing but type on beige, so its proportions are the whole design. Two things carry it and both are load-bearing: a top row of eyebrow + hairline rule + `FOLÉA` that gives the section an edge to hang from, and a heading sized so the jar's tagline breaks exactly where it breaks on the label.
+
+**The heading size is derived, not chosen.** "created with intention" in Horizon is ~20.3x the font size wide, so `clamp(1.5rem,4.2vw,3.4rem)` is the largest ramp that still fits inside `Container` at every width from `md` up. Raise the vw factor and the title collapses back into four ragged lines, which is exactly what the client rejected. Below `md` no readable size fits the line at all, so the two halves run as one text and `text-balance` spreads the lines evenly; without it "nature," was left stranded on its own line.
+
 ### Header
 
 **On the homepage only** the header is `fixed` and starts transparent with white text over the hero video, turning solid cream once `scrollY > 40`. On every other route it is `sticky top-0` and always solid, which also keeps page content from sliding underneath it. The switch is driven by `usePathname() === "/"`.

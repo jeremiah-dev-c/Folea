@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, type FormEvent } from "react";
+import { useState, useSyncExternalStore, type FormEvent } from "react";
 import { Container } from "@/components/ui/Container";
 import { InstagramIcon, TikTokIcon } from "@/components/ui/SocialIcons";
 import { ApplePayBadge, IdealWeroBadge } from "@/components/ui/PaymentBadges";
@@ -40,9 +40,28 @@ const footerNav = [
   },
 ];
 
+/**
+ * De pagina's zijn statisch, dus het jaar in de HTML is het jaar waarin
+ * gebouwd is. Dit is de waarde die zoekmachines en bezoekers zonder JS zien.
+ * Werk hem bij zodra je toch in dit bestand zit; de site zelf corrigeert
+ * zichzelf hieronder.
+ */
+const BOUWJAAR = 2026;
+
+/** Het jaar wisselt niet tijdens een bezoek, dus er valt niets te abonneren. */
+const geenAbonnement = () => () => {};
+const jaarNu = () => new Date().getFullYear();
+const jaarBijBouw = () => BOUWJAAR;
+
 export function Footer() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+
+  // Hydrateert op het bouwjaar en schakelt daarna door naar het echte jaar, zodat
+  // de copyright ook klopt als de site een jaarwisseling lang niet opnieuw
+  // gebouwd wordt. Rechtstreeks new Date() in de render zou de server-HTML en de
+  // eerste client-render laten verschillen, en dat is een hydration mismatch.
+  const jaar = useSyncExternalStore(geenAbonnement, jaarNu, jaarBijBouw);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -151,10 +170,20 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col-reverse gap-4 border-t border-white/12 pt-6 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {new Date().getFullYear()} FOLÉA. KvK 42022057 · BTW
-            NL005441000B68
-          </p>
+          <div className="space-y-1.5">
+            <p>© {jaar} FOLÉA. KvK 42022057 · BTW NL005441000B68</p>
+            <p>
+              Webdesign by{" "}
+              <a
+                href="https://snelonlinemarketing.nl"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 transition-colors hover:text-white"
+              >
+                SOM
+              </a>
+            </p>
+          </div>
           <div className="flex items-center gap-2">
             <IdealWeroBadge />
             <ApplePayBadge tone="light" />
