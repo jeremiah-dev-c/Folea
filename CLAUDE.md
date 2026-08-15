@@ -172,6 +172,15 @@ No "photos coming soon" placeholders anywhere; that was tried (ImagePlaceholder/
 
 FAQ lives on its own route `/faq` (accordion + "Naar contact" card). The contact page (`/contact`) holds only the form + contact info and links to `/faq` from its hero. Footer "Klantenservice" links point at both.
 
+### FAQ is SEO-gevoelig
+
+`/faq` gebruikt `FaqList`, niet een generieke accordeon. Twee dingen zijn daar bewust aan:
+
+1. **De antwoorden blijven altijd in de DOM.** Een dichte vraag animeert alleen zijn hoogte naar 0; de tekst wordt niet ge-unmount. Met `AnimatePresence` verdween de content uit de HTML en kon Google de antwoorden niet lezen. Verifieer na wijzigingen met `curl -s localhost:3000/faq | grep "<een zin uit een antwoord>"`.
+2. **De pagina zet FAQPage structured data** (JSON-LD) neer, opgebouwd uit dezelfde data via `faqAlsPlatteTekst()`. Daarmee kan Google de vragen als rich result tonen. Voeg je een vraag toe, dan gaat dat vanzelf mee.
+
+Antwoorden zijn een array van blokken: een string is een alinea, `{ heading }` een tussenkop. E-mailadressen in de tekst worden automatisch klikbaar gemaakt, dus schrijf ze gewoon uit.
+
 ### Known quirks
 
 - The installed `lucide-react` version does not export brand/social icons (`Instagram`, etc. were removed upstream). Custom inline SVGs live in `components/ui/SocialIcons.tsx` (`InstagramIcon`, `TikTokIcon`, `SnapchatIcon`) — reach for these instead of trying to import from lucide-react. (Snapchat replaced Pinterest in the footer by request.)

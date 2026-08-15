@@ -18,8 +18,8 @@ const TIKTOK_URL = "https://tiktok.com/@folea";
 // oogde als een opvulsectie in plaats van als een uitnodiging.
 const tiles = [
   {
-    src: "/images/model-kneeling-front.jpg",
-    alt: "Model knielend met een pot FOLÉA",
+    src: "/images/model-duo-playful.jpg",
+    alt: "Twee modellen met potten FOLÉA in een speelse pose",
     groot: true,
   },
   {
@@ -31,8 +31,10 @@ const tiles = [
     alt: "Model liggend met potten FOLÉA en een tas",
   },
   {
-    src: "/images/model-duo-playful.jpg",
-    alt: "Twee modellen met potten FOLÉA in een speelse pose",
+    // Foto 110, aangeleverd door de klant als vervanging van de vorige foto
+    // op deze plek. De rest van het raster blijft ongewijzigd.
+    src: "/images/model-kneeling-front.jpg",
+    alt: "Model knielend met een pot FOLÉA",
   },
   {
     src: "/images/model-duo-hair.jpg",
@@ -55,7 +57,7 @@ export function InstagramGrid() {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 rounded-full bg-ink px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.15em] text-white transition-transform duration-300 ease-[var(--ease-elegant)] hover:scale-105 hover:bg-ink-light"
+              className="inline-flex items-center gap-2.5 rounded-full bg-ink px-6 py-3.5 text-xs font-semibold uppercase leading-none tracking-[0.15em] text-white transition-transform duration-300 ease-[var(--ease-elegant)] hover:scale-105 hover:bg-ink-light"
             >
               <InstagramIconColor width={17} height={17} />
               @foleahair
@@ -64,7 +66,7 @@ export function InstagramGrid() {
               href={TIKTOK_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 rounded-full bg-ink px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.15em] text-white transition-transform duration-300 ease-[var(--ease-elegant)] hover:scale-105 hover:bg-ink-light"
+              className="inline-flex items-center gap-2.5 rounded-full bg-ink px-6 py-3.5 text-xs font-semibold uppercase leading-none tracking-[0.15em] text-white transition-transform duration-300 ease-[var(--ease-elegant)] hover:scale-105 hover:bg-ink-light"
             >
               <TikTokIcon width={15} height={15} />
               @folea

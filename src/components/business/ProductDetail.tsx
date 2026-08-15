@@ -8,7 +8,6 @@ import type { Product } from "@/types/product";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { QuantitySelector } from "@/components/ui/QuantitySelector";
-import { Accordion } from "@/components/ui/Accordion";
 import { ProductGallery } from "@/components/business/ProductGallery";
 import { useCart } from "@/hooks/useCart";
 import { formatPrice } from "@/lib/utils/format";
@@ -17,17 +16,8 @@ export function ProductDetail({ product }: { product: Product }) {
   const [quantity, setQuantity] = useState(1);
   const { addItem } = useCart();
 
-  // Zolang de klant geen omschrijvingen heeft aangeleverd tonen we een platte
-  // lijst; een accordeon die leeg openklapt is alleen maar verwarrend.
-  const heeftOmschrijvingen = product.ingredients.some((i) => i.description);
-  const ingredientItems = product.ingredients.map((ingredient) => ({
-    id: ingredient.name,
-    title: ingredient.name,
-    content: ingredient.description ?? "",
-  }));
-
   return (
-    <div className="py-10 md:py-16">
+    <div className="pt-10 md:pt-16">
       <Container>
         <nav className="mb-8 flex items-center gap-1.5 text-xs text-charcoal-soft">
           <Link href="/" className="hover:text-ink">
@@ -80,50 +70,73 @@ export function ProductDetail({ product }: { product: Product }) {
               </Button>
             </div>
 
-            <div className="pt-4">
-              <h2 className="mb-2 text-sm font-semibold uppercase tracking-wider text-charcoal">
+            <div className="pt-2">
+              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
                 Ingrediënten
-              </h2>
-              {heeftOmschrijvingen ? (
-                <Accordion items={ingredientItems} />
-              ) : (
-                <ul className="flex flex-wrap gap-x-2 gap-y-2 pt-1">
-                  {product.ingredients.map((ingredient) => (
-                    <li
-                      key={ingredient.name}
-                      className="rounded-full border border-charcoal/15 px-4 py-2 text-sm text-charcoal-soft"
-                    >
-                      {ingredient.name}
-                    </li>
-                  ))}
-                </ul>
-              )}
+              </p>
+              <ul className="mt-4 divide-y divide-ink/10 border-y border-ink/10">
+                {product.ingredients.map((ingredient, i) => (
+                  <li key={ingredient.name} className="flex gap-4 py-4">
+                    <span className="shrink-0 pt-0.5 text-[11px] font-semibold tabular-nums tracking-[0.2em] text-ink/35">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <p className="font-display text-sm uppercase tracking-[0.02em] text-ink">
+                        {ingredient.name}
+                      </p>
+                      {ingredient.description && (
+                        <p className="mt-1.5 text-sm leading-relaxed text-charcoal-soft">
+                          {ingredient.description}
+                        </p>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </motion.div>
         </div>
+      </Container>
 
-        <section className="mt-20 md:mt-28">
-          <h2 className="text-3xl md:text-4xl text-ink text-center">
+      {/* Gebruiksaanwijzing op een eigen gekleurd vlak: het stond eerder als
+          twee vlakke kaartjes tussen de rest en viel volledig weg. */}
+      <section className="mt-20 bg-blush py-16 md:mt-28 md:py-24">
+        <Container>
+          <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/60">
+            Zo gebruik je het
+          </p>
+          <h2 className="mt-4 max-w-2xl font-display text-[clamp(1rem,4.2vw,2rem)] uppercase leading-[1.15] tracking-[0.02em] text-ink">
             Gebruiksaanwijzing Nourishing hairbutter
           </h2>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {product.usageMethods.map((method) => (
-              <div
+
+          <div className="mt-12 grid gap-px overflow-hidden rounded-2xl bg-ink/10 md:mt-16 md:grid-cols-2">
+            {product.usageMethods.map((method, i) => (
+              <article
                 key={method.id}
-                className="rounded-lg bg-blush/40 p-8"
+                className="group relative overflow-hidden bg-blush p-8 transition-colors duration-500 hover:bg-blush-deep/35 md:p-10"
               >
-                <p className="text-xs font-medium uppercase tracking-wider text-ink/50">
+                <span
+                  className="pointer-events-none absolute -right-3 -top-6 font-display text-[7rem] leading-none text-transparent transition-transform duration-700 ease-[var(--ease-elegant)] group-hover:-translate-y-1"
+                  style={{ WebkitTextStroke: "1.5px rgba(10,10,10,0.14)" }}
+                  aria-hidden="true"
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+
+                <p className="relative text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60">
                   {method.hairType}
                 </p>
-                <h3 className="mt-2 text-2xl text-ink">{method.title}</h3>
-                <p className="mt-3 text-charcoal-soft leading-relaxed">
+                <h3 className="relative mt-3 font-display text-lg uppercase tracking-[0.02em] text-ink sm:text-xl">
+                  {method.title}
+                </h3>
+                <p className="relative mt-4 max-w-md leading-relaxed text-ink/75">
                   {method.description}
                 </p>
-              </div>
+              </article>
             ))}
           </div>
-        </section>
-      </Container>
+        </Container>
+      </section>
     </div>
   );
 }
