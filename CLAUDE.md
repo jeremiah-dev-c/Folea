@@ -198,6 +198,8 @@ All three variants are kept outside the repo in `source-media/images/varianten/`
 
 **All six product stills are 2:3 portrait, and the PDP gallery depends on that.** `product-trio` was the one landscape file, which forced the gallery onto `object-contain` and produced the beige bars the client flagged on 15 Aug; it has been recropped to portrait from its master. The gallery is now `aspect-[2/3]` with `object-cover`, so nothing is letterboxed and nothing is cut. Add a still with a different ratio and the bars come back, so bring new files to 2:3 first.
 
+**Thumbnail rows are the classic source of horizontal page scroll on mobile.** A flex item defaults to `min-width: auto`, so a row of five 80px thumbnails refuses to shrink and pushes the whole page 97px wider than the viewport, which is exactly what the client reported on 15 Aug. Two things fix it together and both are needed: `min-w-0` on the column so it may shrink, and thumbnails small enough to actually fit (`h-14 w-14` with `gap-2` on mobile, full size from `sm`). The same pattern bit `ProductShowcase` on `/producten`. When a page scrolls sideways, walk the DOM for elements whose `getBoundingClientRect().right` exceeds `documentElement.clientWidth` rather than guessing.
+
 That frame also needs `sm:items-start` on its flex row. Without it the row stretches the image container to the row's height and the aspect-ratio is silently overridden: the frame went to 279x963 instead of 279x418.
 
 No "photos coming soon" placeholders anywhere; that was tried (ImagePlaceholder/CampaignPreview/StudioPeek) and removed on request. The Instagram grid still uses dummy links, with real shoot photos as tiles.

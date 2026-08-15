@@ -17,7 +17,7 @@ export function ProductGallery({ images }: ProductGalleryProps) {
   // sm:items-start is nodig: zonder dat rekt de flexrij het beeldkader uit tot
   // de hoogte van de rij, en dat overruled de aspect-ratio.
   return (
-    <div className="flex flex-col gap-4 sm:flex-row-reverse sm:items-start">
+    <div className="flex min-w-0 flex-col gap-4 sm:flex-row-reverse sm:items-start">
       {/* Alle zes de productstills zijn 2:3 staand, dus een 2:3 kader met
           object-cover toont ze volledig zonder balken en zonder iets af te
           snijden. Komt er ooit een foto met een andere verhouding bij, dan
@@ -45,14 +45,14 @@ export function ProductGallery({ images }: ProductGalleryProps) {
       </div>
 
       {images.length > 1 && (
-        <div className="flex gap-3 sm:flex-col">
+        <div className="flex min-w-0 gap-2 sm:gap-3 sm:flex-col">
           {images.map((image, index) => (
             <button
               key={image.src + index}
               onClick={() => setActiveIndex(index)}
               aria-label={`Toon afbeelding ${index + 1}`}
               className={cn(
-                "relative h-20 w-20 shrink-0 overflow-hidden rounded-md bg-blush transition-opacity",
+                "relative h-14 w-14 shrink-0 overflow-hidden rounded-md bg-blush transition-opacity sm:h-20 sm:w-20",
                 index === activeIndex
                   ? "ring-2 ring-ink ring-offset-2 ring-offset-cream"
                   : "opacity-60 hover:opacity-100",
@@ -62,7 +62,7 @@ export function ProductGallery({ images }: ProductGalleryProps) {
                 src={image.src}
                 alt={image.alt}
                 fill
-                sizes="80px"
+                sizes="(min-width: 640px) 80px, 56px"
                 className="object-cover"
               />
             </button>

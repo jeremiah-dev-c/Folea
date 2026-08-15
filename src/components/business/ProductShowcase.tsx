@@ -30,7 +30,7 @@ export function ProductShowcase({ product }: { product: Product }) {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.7, ease: EASE }}
-        className="mx-auto w-full max-w-sm lg:mx-0 lg:max-w-md"
+        className="mx-auto w-full min-w-0 max-w-sm lg:mx-0 lg:max-w-md"
       >
         <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink/5">
           <Image
@@ -44,7 +44,7 @@ export function ProductShowcase({ product }: { product: Product }) {
         </div>
 
         {product.images.length > 1 && (
-          <div className="mt-3 flex gap-3">
+          <div className="mt-3 flex min-w-0 gap-2 sm:gap-3">
             {product.images.map((afbeelding, i) => (
               <button
                 key={afbeelding.src}
@@ -53,7 +53,7 @@ export function ProductShowcase({ product }: { product: Product }) {
                 aria-label={`Toon afbeelding ${i + 1}`}
                 aria-pressed={i === actief}
                 className={cn(
-                  "relative aspect-square w-16 shrink-0 overflow-hidden rounded-lg bg-ink/5 transition-opacity sm:w-20",
+                  "relative aspect-square w-14 shrink-0 overflow-hidden rounded-lg bg-ink/5 transition-opacity sm:w-20",
                   i === actief
                     ? "ring-2 ring-ink ring-offset-2 ring-offset-blush"
                     : "opacity-55 hover:opacity-100",
@@ -63,7 +63,7 @@ export function ProductShowcase({ product }: { product: Product }) {
                   src={afbeelding.src}
                   alt=""
                   fill
-                  sizes="80px"
+                  sizes="(min-width: 640px) 80px, 56px"
                   className="object-cover"
                 />
               </button>
