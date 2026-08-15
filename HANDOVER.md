@@ -49,7 +49,7 @@ src/
 | `/producten` | `ProductShowcase`: groot productbeeld met aanklikbare thumbnails, naam, prijs en winkelmandknop. Schakelt naar een raster van kaarten zodra er een tweede product bijkomt |
 | `/producten/hairbutter` | PDP: fotogalerij met 5 beelden (`object-contain`), prijs, aantal-selector, "in winkelmand", ingrediënten-accordeon en de gebruiksaanwijzing met twee methodes. **Geen sterren-rating, geen opsommingen.** |
 | `/over-ons` | Ons verhaal (twee zussen), het proces (3 stappen) en de missie. Teksten aangeleverd door de klant; de statistieken zijn vervallen |
-| `/contact` | Horizon-kop, formulier naast een productfoto met contactgegevens eronder, zwarte FAQ-verwijzing. Formulier is front-end only |
+| `/contact` | Crème opening (kopregel met haarlijn, productfoto, mailadres groot), roze formulier dat als een invulbrief leest met onderwerp-chips en een voortgangsteller, zwarte FAQ-verwijzing. Formulier is front-end only |
 | `/faq` | Accordeon met veelgestelde vragen + "Naar contact"-kaart |
 
 ### Globale functionaliteit
