@@ -27,7 +27,7 @@ export function AboutStory() {
                 loop
                 playsInline
                 poster="/video/product-pour-poster.jpg"
-                aria-label="FOLÉA Nourishing hairbutter met gouden olie overgoten"
+                aria-label="Twee potten FOLÉA Nourishing hairbutter met honing die langs de deksel loopt"
               >
                 <source src="/video/product-pour.mp4" type="video/mp4" />
               </video>

@@ -67,7 +67,7 @@ src/
 
 ### Assets
 - `public/video/hero.mp4` (4,3MB, 1920px) en `hero-mobile.mp4` (569KB, 1280px) + `hero-poster.jpg` (89KB). De mobiele variant staat als eerste `<source>` met `media="(max-width: 767px)"`, omdat de volledige video op mobiele data merkbaar traag startte. Bron: `IMG_9125.MOV`.
-- `public/video/product-pour.mp4` (946KB) + `product-pour-poster.jpg` — de cinemagraph (gouden olie over de potjes), nu in Over Ons i.p.v. op de PDP.
+- `public/video/product-pour.mp4` (524KB, 1248x1664, 5s) + `product-pour-poster.jpg` — de honingcinemagraph in Over Ons ("Het begin"), niet meer op de PDP. Opnieuw gegenereerd op verzoek van de klant: de eerste versie liet een dikke straal links op de bovenste pot vallen, waardoor de honing dwars over FOLÉA liep. Nu valt een dun straaltje op de **witte deksel rechts** van de bovenste pot en blijft het woordmerk op beide potten leesbaar. Bron en startframe in `source-media/video/`.
 - `public/images/product-*.jpg` (6 productstills) en `model-*.jpg` (16 modelfoto's, 2:3 staand) — de volledige studioshoot van de klant, allemaal 1600x2400 of 2400x1600. Masters staan als `Folea-0xx.jpg` in `source-media/images/` (git-ignored).
 - **De oude 100KB-regel is vervallen**; die maakte de foto's te klein voor full-bleed en retinaschermen. Nu: 2400px langste zijde op q84, ~7MB voor de map. `next/image` comprimeert de bron alsnog naar 30-80KB WebP, dus de pagina wordt er niet zwaarder van. De werkwijze en de twee valkuilen (dev server herstarten na het vervangen van bestanden, en `naturalWidth` niet vertrouwen in de preview) staan in CLAUDE.md.
 - De AI-gegenereerde `portfolio-*.jpg` en `blog-*.jpg` beelden zijn verwijderd samen met hun pagina's.

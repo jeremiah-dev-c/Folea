@@ -137,7 +137,11 @@ This rule outranks copy supplied by the client: the product description they del
 
 ### 3D / video product media
 
-There is no 3D viewer or in-PDP video (`@react-three/fiber` etc. were tried and then removed — don't reinstall unless asked again). The product-pour cinemagraph video lives in the Over Ons "Ons verhaal" section (`AboutStory.tsx`), not on the PDP; the PDP shows only the static photo gallery (`ProductGallery.tsx`).
+There is no 3D viewer or in-PDP video (`@react-three/fiber` etc. were tried and then removed — don't reinstall unless asked again). The product-pour cinemagraph video lives in the Over Ons "Het begin" section (`AboutStory.tsx`), not on the PDP; the PDP shows only the static photo gallery (`ProductGallery.tsx`).
+
+**The pour video is generated, and the honey must not cover the label.** It is Higgsfield image-to-video (`seedance_2_0`, 1080p, 3:4, 5s, no audio) built from a still of the two stacked jars. The first version let a thick stream land on the *left* rim of the upper jar, so it flooded down over the red FOLÉA lettering; the client rejected that. The current one lands a thin trickle on the **white lid at the right of the upper jar** (the smooth section past the seam line), so both wordmarks stay readable end to end. If you ever regenerate it, that is the whole brief: less honey, right-hand lid, label stays clean.
+
+The inputs are in the git-ignored `source-media/video/`: `product-pour-startframe.jpg` is the exact 3:4 start frame handed to the model, and `product-pour-source-v2.mp4` is the untouched render. **Crop the start frame to the output aspect ratio yourself** rather than letting the model crop a 2:3 master, otherwise it decides its own framing. The master still is `source-media/images/product-stacked-clean.png`; keep generated masters out of `public/`, where a 14 MB PNG would ship.
 
 ### Image budget: resolution first, file size second
 
