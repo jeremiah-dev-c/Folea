@@ -39,10 +39,11 @@ export function AboutStory() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: EASE }}
-            // Begrensd op desktop: zonder cap groeit een 4:5 video in een halve
-            // kolom van 616px door naar 770px hoog, terwijl de tekst ernaast
-            // rond de 400px blijft. Dat liep zichtbaar uit verhouding.
-            className="relative md:order-2 md:mx-auto md:w-full md:max-w-[26rem]"
+            // Begrensd op desktop. Gemeten op een breed scherm: de tekst
+            // ernaast wordt 346px hoog, en zonder cap groeit een 4:5 video in
+            // een halve kolom van 616px door naar 770px. Bij 21rem komt de
+            // video op 420px uit en staan de twee in verhouding.
+            className="relative md:order-2 md:mx-auto md:w-full md:max-w-[21rem]"
           >
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink/5">
               <video

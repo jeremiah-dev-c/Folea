@@ -168,8 +168,7 @@ export function ContactForm() {
           </div>
 
           {/* De foto hoort bij het formulier en niet als los blok bovenaan de
-              pagina: dit is het product waar de vragen over gaan. Sticky, omdat
-              het formulier ernaast langer is. */}
+              pagina: dit is het product waar de vragen over gaan. */}
           <motion.aside
             initial={{ opacity: 0, scale: 0.97 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -177,9 +176,11 @@ export function ContactForm() {
             transition={{ duration: 0.8, ease: EASE }}
             className="lg:col-span-5"
           >
-            {/* Onder lg staat de foto onder het formulier; op volle breedte werd
-                een 2:3 beeld daar een blok van bijna 750px hoog. */}
-            <div className="max-w-sm lg:sticky lg:top-28 lg:max-w-none">
+            {/* Begrensd, anders wordt de foto veel groter dan het formulier:
+                in een kolom van 520px werd dit 2:3 beeld 780px hoog tegen 444px
+                formulier. Bij 21rem komt de foto op 504px uit. Sticky is
+                daarmee zinloos geworden en is eruit. */}
+            <div className="max-w-sm lg:mx-auto lg:max-w-[21rem]">
               <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-ink/5">
                 <Image
                   src="/images/product-drip.jpg"
