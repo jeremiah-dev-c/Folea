@@ -45,11 +45,11 @@ src/
 
 | Route | Inhoud |
 |---|---|
-| `/` | Hero (video) → Product Spotlight (boterfoto + draaiend zegel) → Marquee-band → Lookbook (felroze, genummerd, loopt vanzelf door) → StatementSplit (parallax) → PhotoMarquee (bewegende fotostrip) → Ingredients (vier werkstoffen) → Instagram-grid. **Geen USP-bar, geen gebruiksaanwijzing, geen nieuwsbrieksectie in de body, geen reviews.** |
-| `/producten` | Horizon-kop op beige met `ProductShowcase`: groot productbeeld met aanklikbare thumbnails, naam, prijs en winkelmandknop, afgesloten met de marquee-band. Schakelt naar een raster van kaarten zodra er een tweede product bijkomt |
-| `/producten/hairbutter` | PDP: fotogalerij met 5 beelden (`object-contain`), prijs, aantal-selector, "in winkelmand", ingrediëntnamen als chips, gebruiksaanwijzing per haartype. **Geen sterren-rating.** |
-| `/over-ons` | Storytelling: ontstaan (met de product-pour video), proces (3 stappen), missie/waarden met stats |
-| `/contact` | Horizon-kop, formulier naast een productfoto met contactgegevens eronder, zwarte FAQ-verwijzing en marquee-band. Formulier is front-end only |
+| `/` | Hero (video) → Product Spotlight (boterfoto + draaiend zegel) → StatementSplit ("Jouw haar. Jouw ritueel.") → PhotoMarquee (bewegende fotostrip) → Ingredients (De formule) → Instagram-grid (felroze). **Geen USP-bar, geen marquee-band, geen lookbook, geen gebruiksaanwijzing, geen nieuwsbrieksectie in de body, geen reviews.** |
+| `/producten` | `ProductShowcase`: groot productbeeld met aanklikbare thumbnails, naam, prijs en winkelmandknop. Schakelt naar een raster van kaarten zodra er een tweede product bijkomt |
+| `/producten/hairbutter` | PDP: fotogalerij met 5 beelden (`object-contain`), prijs, aantal-selector, "in winkelmand", ingrediënten-accordeon en de gebruiksaanwijzing met twee methodes. **Geen sterren-rating, geen opsommingen.** |
+| `/over-ons` | Ons verhaal (twee zussen), het proces (3 stappen) en de missie. Teksten aangeleverd door de klant; de statistieken zijn vervallen |
+| `/contact` | Horizon-kop, formulier naast een productfoto met contactgegevens eronder, zwarte FAQ-verwijzing. Formulier is front-end only |
 | `/faq` | Accordeon met veelgestelde vragen + "Naar contact"-kaart |
 
 ### Globale functionaliteit
