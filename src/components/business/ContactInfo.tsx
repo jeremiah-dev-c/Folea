@@ -1,65 +1,50 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Clock, Mail } from "lucide-react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 // FOLÉA verkoopt alleen online, dus geen bezoekadres. Gegevens aangeleverd
 // door de klant (14 aug); er komt nog een definitief zakelijk e-mailadres.
-const items = [
-  {
-    icon: Mail,
-    title: "E-mail",
-    detail: "info@folea.nl",
-    href: "mailto:info@folea.nl",
-  },
-  {
-    icon: Clock,
-    title: "Bereikbaar",
-    detail: "Maandag t/m zondag, 10:00 tot 20:00",
-  },
-];
+const MAIL = "info@folea.nl";
+const BEREIKBAAR = "Maandag t/m zondag, 10:00 tot 20:00";
 
+/**
+ * Wie alleen het mailadres zoekt, moet niet eerst een formulier hoeven lezen.
+ * Daarom staat het adres hier groot en direct, boven de rest van de pagina.
+ */
 export function ContactInfo() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.7, ease: EASE }}
-      className="border-t border-ink/12 pt-8"
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
+      className="mt-10 border-t border-ink/15 pt-8 md:mt-12"
     >
       <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
         Rechtstreeks
       </p>
 
-      <ul className="mt-6 space-y-5">
-        {items.map((item) => (
-          <li key={item.title} className="flex items-start gap-3.5">
-            <item.icon
-              size={17}
-              strokeWidth={1.5}
-              className="mt-0.5 shrink-0 text-ink"
-            />
-            <div>
-              <p className="font-display text-sm uppercase tracking-[0.02em] text-ink">
-                {item.title}
-              </p>
-              {item.href ? (
-                <a
-                  href={item.href}
-                  className="text-sm text-charcoal-soft underline underline-offset-4 transition-colors hover:text-ink"
-                >
-                  {item.detail}
-                </a>
-              ) : (
-                <p className="text-sm text-charcoal-soft">{item.detail}</p>
-              )}
-            </div>
-          </li>
-        ))}
-      </ul>
+      {/* De onderlijn groeit vanaf links mee op hover, in plaats van een
+          standaard underline die er altijd al staat. */}
+      <a
+        href={`mailto:${MAIL}`}
+        className="group mt-4 inline-block font-sans text-[clamp(1.35rem,3.4vw,2.1rem)] font-medium leading-none tracking-tight text-ink"
+      >
+        {MAIL}
+        <span
+          aria-hidden="true"
+          className="mt-2 block h-px w-full origin-left scale-x-100 bg-ink/25 transition-transform duration-500 ease-[var(--ease-elegant)] group-hover:scale-x-0"
+        />
+        <span
+          aria-hidden="true"
+          className="-mt-px block h-px w-full origin-left scale-x-0 bg-ink transition-transform duration-500 ease-[var(--ease-elegant)] group-hover:scale-x-100"
+        />
+      </a>
+
+      <p className="mt-5 text-sm leading-relaxed text-charcoal-soft">
+        {BEREIKBAAR}
+      </p>
     </motion.div>
   );
 }

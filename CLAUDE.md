@@ -184,6 +184,22 @@ Because most of the shoot is 2:3 portrait while `product-trio` is 3:2 landscape,
 
 No "photos coming soon" placeholders anywhere; that was tried (ImagePlaceholder/CampaignPreview/StudioPeek) and removed on request. The Instagram grid still uses dummy links, with real shoot photos as tiles.
 
+### Contact page
+
+`/contact` runs cream → blush → ink, because as one flat beige block it read as dead next to the other routes. `ContactHero` (cream) repeats Over Ons's eyebrow + hairline + `FOLÉA` masthead, with the product photo beside it and the mail address set large through `ContactInfo`, so visitors who only want the address never have to read a form.
+
+**The form is written as a letter, not a stack of boxes.** "ik ben [naam] en ik heb een vraag over", then subject chips, then the message, then "Je kunt me bereiken op [e-mail]". The fields are underlined and transparent, matching the footer's newsletter input; boxed fields on beige were most of what made the old page look like a default template. Three things carry the interaction and all three are deliberate:
+
+- **Subject is a chip row backed by real radio inputs** (`peer sr-only` + a styled `<span>`), not a text field. It keeps native form semantics and keyboard focus while looking like pills.
+- **Inline fields grow while you type** via the `size` attribute, clamped between a readable minimum and a width that still fits a phone. `size` needs no measuring, so there is no ref, no layout effect and nothing to resync.
+- **A counter reads "n van 4 ingevuld"** with a bar next to it, so progress is visible before you press anything. The submit button is never disabled: native `required` validation handles the rest.
+
+`text-transform` also changes what `innerText` returns, so that counter reads back as "4 VAN 4 INGEVULD" when you assert on it in the browser.
+
+**Don't wrap FOLÉA in `BrandText` inside text that is already `font-display`.** `BrandText` scales the name to `0.86em` to sit correctly among Plus Jakarta Sans; inside a Horizon line it makes the brand name visibly *smaller* than the words around it. The "Hoi FOLÉA," line therefore sets the name plainly.
+
+**The form still has no backend.** Submitting only swaps in a confirmation, which is worse than no form at all once the site is live, because visitors believe they have made contact. Wire a mail service before launch.
+
 ### FAQ page
 
 FAQ lives on its own route `/faq` (accordion + "Naar contact" card). The contact page (`/contact`) holds only the form + contact info and links to `/faq` from its hero. Footer "Klantenservice" links point at both.
