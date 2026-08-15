@@ -186,7 +186,11 @@ No "photos coming soon" placeholders anywhere; that was tried (ImagePlaceholder/
 
 ### Contact page
 
-`/contact` runs cream → blush → ink, because as one flat beige block it read as dead next to the other routes. `ContactHero` (cream) repeats Over Ons's eyebrow + hairline + `FOLÉA` masthead, with the product photo beside it and the mail address set large through `ContactInfo`, so visitors who only want the address never have to read a form.
+`/contact` runs **cream → blush → cream**, then the black footer. Two things about that order are load-bearing. The masthead is deliberately short (eyebrow + hairline + heading + one line, with `ContactInfo` alongside it rather than beneath) because the form is the point of the page and was sitting too far down. And the FAQ card is cream, not ink: the footer under it is already black, so an ink card there read as one continuous black block instead of a separate offer.
+
+`ContactInfo` sets the mail address large next to the heading, so visitors who only want the address never have to pass a form to reach it.
+
+**The product photo lives beside the form, not above it.** As its own block at the top of the page it was decoration with no argument for being there; in the form's right-hand column it is the thing the questions are about, and it is `lg:sticky` because the letter next to it is much taller. Below `lg` it drops under the form and is capped at `max-w-sm`, since a full-width 2:3 image there became a 750px wall.
 
 **The form is written as a letter, not a stack of boxes.** "ik ben [naam] en ik heb een vraag over", then subject chips, then the message, then "Je kunt me bereiken op [e-mail]". The fields are underlined and transparent, matching the footer's newsletter input; boxed fields on beige were most of what made the old page look like a default template. Three things carry the interaction and all three are deliberate:
 

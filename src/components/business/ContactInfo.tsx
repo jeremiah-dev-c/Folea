@@ -10,8 +10,8 @@ const MAIL = "info@folea.nl";
 const BEREIKBAAR = "Maandag t/m zondag, 10:00 tot 20:00";
 
 /**
- * Wie alleen het mailadres zoekt, moet niet eerst een formulier hoeven lezen.
- * Daarom staat het adres hier groot en direct, boven de rest van de pagina.
+ * Staat naast de kop en niet als eigen blok verderop: wie alleen het mailadres
+ * zoekt, moet daar niet eerst een formulier voor hoeven passeren.
  */
 export function ContactInfo() {
   return (
@@ -19,22 +19,22 @@ export function ContactInfo() {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-      className="mt-10 border-t border-ink/15 pt-8 md:mt-12"
+      className="border-t border-ink/15 pt-6 lg:col-span-5 lg:border-t-0 lg:pt-0"
     >
       <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
         Rechtstreeks
       </p>
 
-      {/* De onderlijn groeit vanaf links mee op hover, in plaats van een
-          standaard underline die er altijd al staat. */}
+      {/* De onderlijn wisselt op hover van de doffe naar de volle variant, in
+          plaats van een underline die er altijd al staat. */}
       <a
         href={`mailto:${MAIL}`}
-        className="group mt-4 inline-block font-sans text-[clamp(1.35rem,3.4vw,2.1rem)] font-medium leading-none tracking-tight text-ink"
+        className="group mt-3 inline-block font-sans text-[clamp(1.15rem,2.4vw,1.6rem)] font-medium leading-none tracking-tight text-ink"
       >
         {MAIL}
         <span
           aria-hidden="true"
-          className="mt-2 block h-px w-full origin-left scale-x-100 bg-ink/25 transition-transform duration-500 ease-[var(--ease-elegant)] group-hover:scale-x-0"
+          className="mt-2 block h-px w-full origin-left bg-ink/25 transition-transform duration-500 ease-[var(--ease-elegant)] group-hover:scale-x-0"
         />
         <span
           aria-hidden="true"
@@ -42,7 +42,7 @@ export function ContactInfo() {
         />
       </a>
 
-      <p className="mt-5 text-sm leading-relaxed text-charcoal-soft">
+      <p className="mt-4 text-sm leading-relaxed text-charcoal-soft">
         {BEREIKBAAR}
       </p>
     </motion.div>
