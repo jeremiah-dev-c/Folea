@@ -14,12 +14,15 @@ export function ProductGallery({ images }: ProductGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const active = images[activeIndex];
 
+  // sm:items-start is nodig: zonder dat rekt de flexrij het beeldkader uit tot
+  // de hoogte van de rij, en dat overruled de aspect-ratio.
   return (
-    <div className="flex flex-col gap-4 sm:flex-row-reverse">
-      {/* De studiofoto's zijn deels staand (2:3) en deels liggend (3:2). Met
-          object-cover in een vierkant kader werd de pot afgesneden, dus tonen
-          we ze volledig binnen een vast kader. */}
-      <div className="relative aspect-[4/5] flex-1 overflow-hidden rounded-lg bg-cream-deep/40 sm:aspect-auto sm:h-[560px]">
+    <div className="flex flex-col gap-4 sm:flex-row-reverse sm:items-start">
+      {/* Alle zes de productstills zijn 2:3 staand, dus een 2:3 kader met
+          object-cover toont ze volledig zonder balken en zonder iets af te
+          snijden. Komt er ooit een foto met een andere verhouding bij, dan
+          moet die eerst naar 2:3 of dit kader krijgt weer randen. */}
+      <div className="relative aspect-[2/3] flex-1 overflow-hidden rounded-lg bg-cream-deep/40">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={activeIndex}
@@ -34,7 +37,7 @@ export function ProductGallery({ images }: ProductGalleryProps) {
               alt={active.alt}
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-contain"
+              className="object-cover"
               priority
             />
           </motion.div>

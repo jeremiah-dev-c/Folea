@@ -48,9 +48,9 @@ src/
 | `/` | Hero (video) → Product Spotlight (boterfoto + draaiend zegel) → StatementSplit ("Jouw haar. Jouw ritueel.") → PhotoMarquee (bewegende fotostrip) → Ingredients (De formule) → Instagram-grid (felroze). **Geen USP-bar, geen marquee-band, geen lookbook, geen gebruiksaanwijzing, geen nieuwsbrieksectie in de body, geen reviews.** |
 | `/producten` | `ProductShowcase`: groot productbeeld met aanklikbare thumbnails, naam, prijs en winkelmandknop. Schakelt naar een raster van kaarten zodra er een tweede product bijkomt |
 | `/producten/hairbutter` | PDP: fotogalerij met 5 beelden (`object-contain`), prijs, aantal-selector, "in winkelmand", ingrediënten-accordeon en de gebruiksaanwijzing met twee methodes. **Geen sterren-rating, geen opsommingen.** |
-| `/over-ons` | Ons verhaal (twee zussen), het proces (3 stappen) en de missie. Teksten aangeleverd door de klant; de statistieken zijn vervallen |
-| `/contact` | Crème opening (kopregel met haarlijn, productfoto, mailadres groot), roze formulier dat als een invulbrief leest met onderwerp-chips en een voortgangsteller, zwarte FAQ-verwijzing. Formulier is front-end only |
-| `/faq` | Accordeon met veelgestelde vragen + "Naar contact"-kaart |
+| `/over-ons` | Opent meteen in het roze met de merkregel als h1, daarna ons verhaal (twee zussen), het proces (3 stappen) en de missie. Teksten aangeleverd door de klant; de statistieken zijn vervallen |
+| `/contact` | Roze opening (kop, mailadres groot, bereikbaarheid), roze formulier dat als een invulbrief leest met onderwerp-chips en een voortgangsteller, crème FAQ-verwijzing. Formulier is front-end only |
+| `/faq` | Roze pagina, accordeon met veelgestelde vragen + zwarte "Naar contact"-kaart |
 
 ### Globale functionaliteit
 - **Cart** (zustand): add/remove/update/subtotal, werkend getest overal waar "in winkelmand" staat.

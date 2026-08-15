@@ -36,7 +36,7 @@ Tailwind v4's CSS-based `@theme` is used instead of `tailwind.config.js` — col
 
 **Never put a bare element selector outside `@layer`.** `h1–h6` live in `@layer base` for a reason: unlayered CSS beats everything Tailwind puts in `@layer utilities`, so an unlayered `h1 { font-family: … }` silently overrode `font-display` on every heading and the hero rendered in the wrong face while looking plausible. If a utility class mysteriously does nothing, check for an unlayered rule in `globals.css` first.
 
-**Standing color-balance rule:** three section backgrounds carry the site, and they alternate: `cream` beige, `blush` hot pink, and full-black `ink`. `earth` (brown) is accent-only. The client explicitly rejected white and pastel: `cream` is a visible khaki beige (`#e9e3cb`) and `blush` is a saturated pink (`#f9a3bd`), both sampled from the reference design they supplied. `blush-soft` (`#fbd3e0`) exists for the rare case where a genuinely soft pink is needed. Don't drift these back toward white or pastel.
+**Standing color-balance rule:** three section backgrounds carry the site: `cream` beige, `blush` hot pink, and full-black `ink`. Since 15 Aug the client has pulled most page openings to `blush` (producten, Over Ons, contact and FAQ all start pink), so beige has become the minority. That was her explicit call; the flagged risk is that pink stops reading as an accent once it is the default. `earth` (brown) is accent-only. The client explicitly rejected white and pastel: `cream` is a visible khaki beige (`#e9e3cb`) and `blush` is a saturated pink (`#f9a3bd`), both sampled from the reference design they supplied. `blush-soft` (`#fbd3e0`) exists for the rare case where a genuinely soft pink is needed. Don't drift these back toward white or pastel.
 
 **No green and no red in the interface.** The original `forest` (Pantone Peridot) green went first; the `berry` carmine red that replaced it was itself removed on client request and replaced site-wide by `ink` (`#0a0a0a`, hover `#2e2e2e`). Buttons, headings and accents are black now. Red still appears everywhere in the *product photography* (the jar label is carmine), which is exactly the point: the interface stays neutral so the product supplies the only colour. Don't reintroduce green or a red UI token.
 
@@ -127,9 +127,9 @@ The bottom bar carries the copyright, the KvK/BTW numbers and a `Webdesign by SO
 
 ### Over Ons opening
 
-`AboutHero` is nothing but type on beige, so its proportions are the whole design. Two things carry it and both are load-bearing: a top row of eyebrow + hairline rule + `FOLÉA` that gives the section an edge to hang from, and a heading sized so the jar's tagline breaks exactly where it breaks on the label.
+The page opens straight into `blush`: the beige masthead block (`AboutHero`) was dropped on 15 Aug and its title now sits at the top of `AboutStory`. That title carries the page's `h1`, so it had to move with it, otherwise Over Ons has no heading left for search engines.
 
-**The heading size is derived, not chosen.** "created with intention" in Horizon is ~20.3x the font size wide, so `clamp(1.5rem,4.2vw,3.4rem)` is the largest ramp that still fits inside `Container` at every width from `md` up. Raise the vw factor and the title collapses back into four ragged lines, which is exactly what the client rejected. Below `md` no readable size fits the line at all, so the two halves run as one text and `text-balance` spreads the lines evenly; without it "nature," was left stranded on its own line.
+**The heading size is derived, not chosen.** "created with intention" in Horizon is ~20.3x the font size wide, so `clamp(1.5rem,4.2vw,3.4rem)` is the largest ramp that still fits inside `Container` at every width from `md` up. Raise the vw factor and the title collapses back into four ragged lines, which is what the client rejected earlier. Below `md` no readable size fits the line at all, so the two halves run as one text and `text-balance` spreads the lines evenly; without it "nature," was left stranded on its own line.
 
 ### Header
 
@@ -196,7 +196,9 @@ All three variants are kept outside the repo in `source-media/images/varianten/`
 
 `product-butter` was never touched by any pass: the client calls it perfect, and it is the only still with a real background falloff (measured 88 against 14 on `product-top`), which is exactly why it reads better than the rest. That is also the honest fix for the others, and it needs a reshoot rather than software. There is no from-above frame of the jar in the shoot beyond `product-top`.
 
-Because most of the shoot is 2:3 portrait while `product-trio` is 3:2 landscape, **the PDP gallery uses `object-contain` in a fixed frame rather than `object-cover` in a square** — cropping cut the jar off, which the client flagged. Check the aspect ratio of the file before choosing any new image frame.
+**All six product stills are 2:3 portrait, and the PDP gallery depends on that.** `product-trio` was the one landscape file, which forced the gallery onto `object-contain` and produced the beige bars the client flagged on 15 Aug; it has been recropped to portrait from its master. The gallery is now `aspect-[2/3]` with `object-cover`, so nothing is letterboxed and nothing is cut. Add a still with a different ratio and the bars come back, so bring new files to 2:3 first.
+
+That frame also needs `sm:items-start` on its flex row. Without it the row stretches the image container to the row's height and the aspect-ratio is silently overridden: the frame went to 279x963 instead of 279x418.
 
 No "photos coming soon" placeholders anywhere; that was tried (ImagePlaceholder/CampaignPreview/StudioPeek) and removed on request. The Instagram grid still uses dummy links, with real shoot photos as tiles.
 

@@ -9,8 +9,30 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function AboutStory() {
   return (
-    <section className="bg-blush py-16 md:py-24">
+    <section className="bg-blush pb-16 pt-14 md:pb-24 md:pt-20">
       <Container>
+        {/* De pagina begon eerst met een beige blok waar deze titel in stond.
+            Dat blok is er op verzoek uit (15 aug) en de titel staat nu hier,
+            zodat Over Ons meteen in het roze opent. Dit is de h1 van de
+            pagina, dus die moest meeverhuizen. */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: EASE }}
+          className="mb-14 md:mb-20"
+        >
+          <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/60">
+            Ons verhaal
+          </p>
+          {/* Engels, want zo staat de regel op de pot. De maat is afgestemd op
+              "created with intention": die regel is in Horizon ruim 20x de
+              lettergrootte breed en past zo boven md op één regel. */}
+          <h1 className="mt-5 text-balance font-display text-[clamp(1.5rem,4.2vw,3.4rem)] uppercase leading-[1.08] tracking-[0.02em] text-ink">
+            <span className="inline md:block">Inspired by nature,</span>{" "}
+            <span className="inline md:block">created with intention</span>
+          </h1>
+        </motion.div>
+
         <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16 lg:gap-20">
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}

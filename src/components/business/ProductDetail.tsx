@@ -72,7 +72,7 @@ export function ProductDetail({ product }: { product: Product }) {
 
             <div className="pt-2">
               <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
-                Ingrediënten
+                Hoofdingrediënten
               </p>
               <ul className="mt-4 divide-y divide-ink/10 border-y border-ink/10">
                 {product.ingredients.map((ingredient, i) => (

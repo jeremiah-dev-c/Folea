@@ -41,7 +41,7 @@ export function ContactForm() {
   }
 
   return (
-    <section className="overflow-hidden bg-blush py-14 md:py-20">
+    <section className="overflow-hidden bg-blush pb-14 pt-8 md:pb-20 md:pt-10">
       <Container>
         <div className="flex items-center gap-4 sm:gap-6">
           <p className="shrink-0 text-[11px] font-medium uppercase tracking-[0.3em] text-ink/60">
@@ -226,8 +226,8 @@ export function ContactForm() {
             <div className="max-w-sm lg:sticky lg:top-28 lg:max-w-none">
               <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-ink/5">
                 <Image
-                  src="/images/product-duo.jpg"
-                  alt="Twee potten FOLÉA Nourishing hairbutter"
+                  src="/images/product-drip.jpg"
+                  alt="Gouden honing die over twee potten FOLÉA Nourishing hairbutter loopt"
                   fill
                   sizes="(min-width: 1024px) 38vw, 90vw"
                   className="object-cover"

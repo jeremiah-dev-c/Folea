@@ -17,9 +17,9 @@ export default function ProductenPage() {
 
   return (
     <>
-      <section className="bg-cream pt-14 pb-16 md:pt-20 md:pb-24">
+      <section className="bg-blush pt-14 pb-16 md:pt-20 md:pb-24">
         <Container>
-          <h1 className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
+          <h1 className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/60">
             De collectie
           </h1>
 

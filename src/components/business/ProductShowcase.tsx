@@ -22,14 +22,17 @@ export function ProductShowcase({ product }: { product: Product }) {
   const beeld = product.images[actief];
 
   return (
-    <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
+    <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+      {/* Beeldkolom begrensd en tekst een maat groter: op volle kolombreedte
+          drukte de foto de tekst weg (klant, 15 aug). */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.7, ease: EASE }}
+        className="mx-auto w-full max-w-sm lg:mx-0 lg:max-w-md"
       >
-        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-blush/40">
+        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink/5">
           <Image
             src={beeld.src}
             alt={beeld.alt}
@@ -50,9 +53,9 @@ export function ProductShowcase({ product }: { product: Product }) {
                 aria-label={`Toon afbeelding ${i + 1}`}
                 aria-pressed={i === actief}
                 className={cn(
-                  "relative aspect-square w-16 shrink-0 overflow-hidden rounded-lg bg-blush/40 transition-opacity sm:w-20",
+                  "relative aspect-square w-16 shrink-0 overflow-hidden rounded-lg bg-ink/5 transition-opacity sm:w-20",
                   i === actief
-                    ? "ring-2 ring-ink ring-offset-2 ring-offset-cream"
+                    ? "ring-2 ring-ink ring-offset-2 ring-offset-blush"
                     : "opacity-55 hover:opacity-100",
                 )}
               >
@@ -76,11 +79,11 @@ export function ProductShowcase({ product }: { product: Product }) {
         transition={{ duration: 0.7, delay: 0.05, ease: EASE }}
         className="lg:pt-6"
       >
-        <h2 className="font-display text-[clamp(0.8rem,4.2vw,2rem)] uppercase leading-[1.15] tracking-[0.02em] text-ink">
+        <h2 className="font-display text-[clamp(1rem,5vw,2.6rem)] uppercase leading-[1.12] tracking-[0.02em] text-ink">
           {product.name}
         </h2>
 
-        <p className="mt-6 max-w-md leading-relaxed text-charcoal-soft">
+        <p className="mt-6 max-w-md text-lg leading-relaxed text-ink/70">
           {product.description}
         </p>
 

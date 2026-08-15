@@ -57,8 +57,8 @@ export function AboutCraft() {
             <div className="sticky top-28">
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white/5">
                 <Image
-                  src="/images/product-drip.jpg"
-                  alt="Gouden olie die over twee potten FOLÉA loopt"
+                  src="/images/product-duo.jpg"
+                  alt="Twee potten FOLÉA Nourishing hairbutter"
                   fill
                   sizes="(min-width: 768px) 46vw, 100vw"
                   className="object-cover"

@@ -32,19 +32,14 @@ export function ProductSpotlight() {
     >
       <Container>
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+          {/* Geen roze vlak meer achter de pot en rechte hoeken: de klant vond
+              het roze randje dat er onderuit stak niet mooi (15 aug). */}
           <div className="relative mx-auto w-full max-w-md lg:mx-0">
-            {/* Roze vlak achter de pot, met een offset zodat het beeld ervoor
-                lijkt te zweven. */}
-            <div
-              className="absolute inset-x-5 -bottom-5 top-20 rounded-[2rem] bg-blush"
-              aria-hidden="true"
-            />
-
             {/* Langer kader op mobiel: de klant vond het 4:5 blok te gedrongen
                 en wilde de foto verder naar boven en beneden doorgetrokken. */}
             <motion.div
               style={{ y: jarY }}
-              className="relative aspect-[3/4.4] overflow-hidden rounded-[1.75rem] sm:aspect-[4/5]"
+              className="relative aspect-[3/4.4] overflow-hidden sm:aspect-[4/5]"
             >
               <Image
                 src={hairbutter.images[0].src}

@@ -33,9 +33,9 @@ export default function FaqPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <section className="bg-cream pt-14 pb-16 md:pt-20 md:pb-24">
+      <section className="bg-blush pt-14 pb-16 md:pt-20 md:pb-24">
         <Container>
-          <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
+          <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/60">
             FAQ
           </p>
           <h1 className="mt-4 max-w-2xl font-display text-2xl uppercase leading-[1.15] tracking-[0.02em] text-ink sm:text-3xl lg:text-4xl">

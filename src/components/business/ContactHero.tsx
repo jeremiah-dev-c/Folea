@@ -13,32 +13,13 @@ const EASE = [0.22, 1, 0.36, 1] as const;
  */
 export function ContactHero() {
   return (
-    <section className="bg-cream pb-12 pt-12 md:pb-14 md:pt-16">
+    <section className="bg-blush pb-8 pt-14 md:pb-10 md:pt-20">
       <Container>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, ease: EASE }}
-          className="flex items-center gap-4 sm:gap-6"
-        >
-          <p className="shrink-0 text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
-            Contact
-          </p>
-          <motion.span
-            aria-hidden="true"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 1.1, delay: 0.15, ease: EASE }}
-            className="h-px flex-1 origin-left bg-ink/20"
-          />
-          <p className="shrink-0 font-display text-[11px] uppercase tracking-[0.18em] text-ink/40">
-            FOLÉA
-          </p>
-        </motion.div>
-
+        {/* De kopregel met haarlijn en FOLÉA is er op verzoek uit (15 aug), en
+            de pagina opent nu in het roze in plaats van in beige. */}
         {/* items-end zet de contactgegevens gelijk met de onderkant van de kop,
             zodat de twee kolommen op één lijn afsluiten. */}
-        <div className="mt-8 grid gap-8 md:mt-11 lg:grid-cols-12 lg:items-end lg:gap-16">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-16">
           <div className="lg:col-span-7">
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
@@ -53,7 +34,7 @@ export function ContactHero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
-              className="mt-5 max-w-md leading-relaxed text-charcoal-soft"
+              className="mt-5 max-w-md leading-relaxed text-ink/75"
             >
               Vragen over een bestelling of het gebruik van de hairbutter? Laat
               een bericht achter, we reageren binnen één tot twee werkdagen.

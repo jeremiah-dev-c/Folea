@@ -19,9 +19,9 @@ export function ContactInfo() {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-      className="border-t border-ink/15 pt-6 lg:col-span-5 lg:border-t-0 lg:pt-0"
+      className="border-t border-ink/20 pt-6 lg:col-span-5 lg:border-t-0 lg:pt-0"
     >
-      <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
+      <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/60">
         Rechtstreeks
       </p>
 
@@ -34,7 +34,7 @@ export function ContactInfo() {
         {MAIL}
         <span
           aria-hidden="true"
-          className="mt-2 block h-px w-full origin-left bg-ink/25 transition-transform duration-500 ease-[var(--ease-elegant)] group-hover:scale-x-0"
+          className="mt-2 block h-px w-full origin-left bg-ink/30 transition-transform duration-500 ease-[var(--ease-elegant)] group-hover:scale-x-0"
         />
         <span
           aria-hidden="true"
@@ -44,12 +44,10 @@ export function ContactInfo() {
 
       {/* Het kopje "Bereikbaar" staat zo in de aangeleverde tekst en hoort bij
           de tijden; zonder label bleef er een losse regel over. */}
-      <p className="mt-6 text-[11px] font-medium uppercase tracking-[0.2em] text-ink/50">
+      <p className="mt-6 text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60">
         Bereikbaar
       </p>
-      <p className="mt-2 text-sm leading-relaxed text-charcoal-soft">
-        {BEREIKBAAR}
-      </p>
+      <p className="mt-2 text-sm leading-relaxed text-ink/70">{BEREIKBAAR}</p>
     </motion.div>
   );
 }
