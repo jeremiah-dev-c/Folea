@@ -218,6 +218,8 @@ No "photos coming soon" placeholders anywhere; that was tried (ImagePlaceholder/
 
 `text-transform` changes what `innerText` returns, so the confirmation reads back as "BERICHT VERZONDEN" when you assert on it in the browser. A case-sensitive check will tell you the form is broken when it is not.
 
+**The form panel is `ink` with white type**, sitting inside the `blush` section. Cream was tried first and the client found it too much beige on the page (16 Aug). Every tone in the component is tuned to that black ground, so swapping the panel colour means revisiting all of them: labels and input text are pure white (the client called the muted greys "grey, not white"), placeholders `white/60`, field underlines `white/45`, and the submit button flips to `blush` with ink type because a black button on a black panel is invisible. Measured against `#0a0a0a` those land at 19.8, 7.3 and 4.5 contrast; the earlier `white/40` placeholder sat at 3.77 and failed AA. The native `<select>` needs `[&>option]:bg-white [&>option]:text-ink`, otherwise the dropdown list inherits white-on-white from the panel.
+
 **The form still has no backend.** Submitting only swaps in a confirmation, which is worse than no form at all once the site is live, because visitors believe they have made contact. Wire a mail service before launch.
 
 ### FAQ page

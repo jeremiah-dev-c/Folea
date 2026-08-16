@@ -18,17 +18,21 @@ const ONDERWERPEN = [
 
 /**
  * Onderstreepte, transparante velden in plaats van omkaderde hokjes: dat sluit
- * aan op het nieuwsbriefveld in de footer en houdt het rustig op het roze.
+ * aan op het nieuwsbriefveld in de footer.
  *
  * De eerdere invulbrief ("Hoi FOLÉA, ik ben ... en ik heb een vraag over")
  * vond de klant kinderlijk (15 aug). Die aanhef is eruit, net als de chips en
  * de voortgangsteller. Bouw dat niet terug: het onderwerp is nu een gewone
  * keuzelijst en het formulier leest als een formulier.
+ *
+ * Het vlak is zwart met witte letters (16 aug): crème gaf te veel beige op de
+ * pagina. Alle tinten hieronder zijn daarop afgestemd, dus wissel de
+ * paneelkleur niet zonder ze mee te nemen.
  */
 const labelStijl =
-  "block text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60";
+  "block text-[11px] font-medium uppercase tracking-[0.2em] text-white";
 const veldStijl =
-  "mt-3 w-full border-b border-ink/25 bg-transparent pb-2 text-ink transition-colors duration-300 placeholder:text-ink/40 focus:border-ink focus:outline-none";
+  "mt-3 w-full border-b border-white/45 bg-transparent pb-2 text-white transition-colors duration-300 placeholder:text-white/60 focus:border-white focus:outline-none";
 
 export function ContactForm() {
   const [verzonden, setVerzonden] = useState(false);
@@ -49,23 +53,23 @@ export function ContactForm() {
             onderstreepte velden eronder, en het kopje "Stuur een bericht" is
             er daarna ook uit op verzoek (klant, 16 aug).
 
-            Het formulier staat daarom op een eigen crème vlak. Zonder kopje en
+            Het formulier staat daarom op een eigen zwart vlak. Zonder kopje en
             zonder lijn liep het anders naadloos door in het roze blok erboven
             en zag je niet meer waar de tekst ophield en het invullen begon.
             Een kleurwissel doet dat werk zonder een streep die opnieuw voor
             een invoerveld kan worden aangezien. */}
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="rounded-2xl bg-cream p-7 sm:p-10 lg:col-span-7">
+          <div className="rounded-2xl bg-ink p-7 sm:p-10 lg:col-span-7">
             {verzonden ? (
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: EASE }}
               >
-                <p className="font-display text-[clamp(1.4rem,4.5vw,2.4rem)] uppercase leading-[1.08] tracking-[0.02em] text-ink">
+                <p className="font-display text-[clamp(1.4rem,4.5vw,2.4rem)] uppercase leading-[1.08] tracking-[0.02em] text-white">
                   Bericht verzonden
                 </p>
-                <p className="mt-5 max-w-md leading-relaxed text-ink/75">
+                <p className="mt-5 max-w-md leading-relaxed text-white/90">
                   Bedankt voor je bericht. We reageren binnen één tot twee
                   werkdagen.
                 </p>
@@ -120,7 +124,7 @@ export function ContactForm() {
                     name="onderwerp"
                     required
                     defaultValue=""
-                    className={`${veldStijl} appearance-none rounded-none invalid:text-ink/40`}
+                    className={`${veldStijl} appearance-none rounded-none invalid:text-white/60 [&>option]:bg-white [&>option]:text-ink`}
                   >
                     <option value="" disabled>
                       Maak een keuze
@@ -149,7 +153,7 @@ export function ContactForm() {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="group inline-flex items-center gap-3 rounded-full bg-ink px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-transform duration-300 ease-[var(--ease-elegant)] hover:scale-105"
+                    className="group inline-flex items-center gap-3 rounded-full bg-blush px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] text-ink transition-all duration-300 ease-[var(--ease-elegant)] hover:scale-105 hover:bg-blush-deep"
                   >
                     Versturen
                     <ArrowRight
