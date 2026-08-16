@@ -28,7 +28,7 @@ const ONDERWERPEN = [
 const labelStijl =
   "block text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60";
 const veldStijl =
-  "mt-3 w-full border-b border-ink/30 bg-transparent pb-2 text-ink transition-colors duration-300 placeholder:text-ink/40 focus:border-ink focus:outline-none";
+  "mt-3 w-full border-b border-ink/25 bg-transparent pb-2 text-ink transition-colors duration-300 placeholder:text-ink/40 focus:border-ink focus:outline-none";
 
 export function ContactForm() {
   const [verzonden, setVerzonden] = useState(false);
@@ -47,10 +47,15 @@ export function ContactForm() {
         {/* Geen kopje en geen haarlijn boven dit formulier. De lijn las als
             een leeg invoerveld omdat hij dezelfde vorm had als de
             onderstreepte velden eronder, en het kopje "Stuur een bericht" is
-            er daarna ook uit op verzoek (klant, 16 aug). De labels bij de
-            velden zeggen al wat er moet gebeuren. */}
+            er daarna ook uit op verzoek (klant, 16 aug).
+
+            Het formulier staat daarom op een eigen crème vlak. Zonder kopje en
+            zonder lijn liep het anders naadloos door in het roze blok erboven
+            en zag je niet meer waar de tekst ophield en het invullen begon.
+            Een kleurwissel doet dat werk zonder een streep die opnieuw voor
+            een invoerveld kan worden aangezien. */}
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-7">
+          <div className="rounded-2xl bg-cream p-7 sm:p-10 lg:col-span-7">
             {verzonden ? (
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
