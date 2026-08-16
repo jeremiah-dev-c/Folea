@@ -119,9 +119,7 @@ There is no reviews feature anywhere on the site (homepage slider, star ratings 
 
 Black (`bg-ink`), and it carries the newsletter signup at the top: eyebrow, a Horizon heading, an underlined (not boxed) email field and a pink pill button. Below that, link columns in **two columns on mobile** and four from `md` up, because the client asked for a distinctly shorter footer on phones. Keep it compact: it sits around 750px tall on a 375px viewport.
 
-`ApplePayBadge` needs `tone="light"` here — its default black pill is invisible against the black footer.
-
-The bottom bar carries the copyright, the KvK/BTW numbers and a `Webdesign by SOM` credit linking to `snelonlinemarketing.nl`.
+The bottom bar carries the copyright with the KvK/BTW numbers on the left and a `Webdesign by SOM` credit linking to `snelonlinemarketing.nl` on the right. **The payment badges were removed on 16 Aug**, along with `PaymentBadges.tsx` and `public/images/payment-ideal-wero.png`; the same change was made in the Shopify build, so don't reintroduce them here.
 
 **Don't "simplify" the copyright year back to `new Date().getFullYear()` in the render.** Every route is statically prerendered, so a year computed during render is frozen at build time in the HTML, and computing it inline makes the first client render disagree with that HTML — a hydration mismatch. The footer therefore reads the year through `useSyncExternalStore`: the server snapshot returns the `BOUWJAAR` constant (what search engines and no-JS visitors see), and the client snapshot returns the real year after hydration. Verified by setting `BOUWJAAR` to 2019: the served HTML said 2019 and the rendered page said 2026. Bump the constant when you touch the file; the site corrects itself either way.
 
@@ -238,7 +236,6 @@ Antwoorden zijn een array van blokken: een string is een alinea, `{ heading }` e
 ### Known quirks
 
 - The installed `lucide-react` version does not export brand/social icons (`Instagram`, etc. were removed upstream). Custom inline SVGs live in `components/ui/SocialIcons.tsx` (`InstagramIcon`, `TikTokIcon`, `SnapchatIcon`) — reach for these instead of trying to import from lucide-react. (Snapchat replaced Pinterest in the footer by request.)
-- Payment badges in the footer (`components/ui/PaymentBadges.tsx`): `ApplePayBadge` is a hand-built SVG (black, by request). `IdealWeroBadge` renders the real official lockup image (`public/images/payment-ideal-wero.png`, resized from a user-supplied source) via `next/image` — don't replace it with a hand-drawn version again.
 - Video/image assets under `public/video` and `public/images` were preprocessed with `ffmpeg`/`cjpeg` outside of any npm script — there's no build-time asset pipeline, so new source footage/photos need the same manual treatment (H.264 transcode at a quality-preserving CRF for video, the 100 KB budget above for stills) before landing in `public/`. Raw/unoptimized source masters live in `source-media/` (git-ignored, not shipped) rather than `public/`.
 - The sandboxed shell (Bash tool) can lose macOS file-system permission to `~/Downloads` mid-session (TCC), even after working earlier in the same session — if a file copy from Downloads suddenly fails with "Operation not permitted", ask the user to drag the file into the project directly rather than retrying the same path.
 - **Two hero videos.** `hero.mp4` is 1920px/4.3 MB; `hero-mobile.mp4` is 1280px/569 KB, served through `<source media="(max-width: 767px)">` **listed first**, because the browser takes the first matching source. Over mobile data the full file made the hero visibly slow to start. Both already have `moov` at the front (faststart), so that was never the bottleneck — it was purely file size. Keep the mobile source first if you touch this.

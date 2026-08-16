@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState, useSyncExternalStore, type FormEvent } from "react";
 import { Container } from "@/components/ui/Container";
 import { InstagramIcon, TikTokIcon } from "@/components/ui/SocialIcons";
-import { ApplePayBadge, IdealWeroBadge } from "@/components/ui/PaymentBadges";
 
 // Snapchat is er op verzoek van de klant uit.
 const socialLinks = [
@@ -105,7 +104,7 @@ export function Footer() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="je@mail.nl"
+                  placeholder="jouw@mail.nl"
                   className="w-full border-0 border-b border-white/25 bg-transparent pb-2.5 text-base text-white placeholder:text-white/35 focus:border-blush focus:outline-none"
                 />
               </div>
@@ -169,25 +168,21 @@ export function Footer() {
           </div>
         </div>
 
+        {/* De betaalbadges stonden hier rechts en zijn eruit op verzoek; de
+            credit staat nu op die plek in plaats van onder de copyright. */}
         <div className="mt-10 flex flex-col-reverse gap-4 border-t border-white/12 pt-6 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
-          <div className="space-y-1.5">
-            <p>© {jaar} FOLÉA. KvK 42022057 · BTW NL005441000B68</p>
-            <p>
-              Webdesign by{" "}
-              <a
-                href="https://snelonlinemarketing.nl"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-2 transition-colors hover:text-white"
-              >
-                SOM
-              </a>
-            </p>
-          </div>
-          <div className="flex items-center gap-2">
-            <IdealWeroBadge />
-            <ApplePayBadge tone="light" />
-          </div>
+          <p>© {jaar} FOLÉA. KvK 42022057 · BTW NL005441000B68</p>
+          <p>
+            Webdesign by{" "}
+            <a
+              href="https://snelonlinemarketing.nl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 transition-colors hover:text-white"
+            >
+              SOM
+            </a>
+          </p>
         </div>
       </Container>
     </footer>
