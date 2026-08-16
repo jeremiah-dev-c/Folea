@@ -169,26 +169,31 @@ export function ContactForm() {
           </div>
 
           {/* De foto hoort bij het formulier en niet als los blok bovenaan de
-              pagina: dit is het product waar de vragen over gaan. */}
+              pagina: dit is het product waar de vragen over gaan.
+
+              Alleen zichtbaar vanaf lg, want daar bestaat de tweede kolom pas.
+              Daaronder viel de foto als een lang blok onder het formulier en
+              moest je er op een telefoon helemaal langs scrollen zonder dat hij
+              iets toevoegde. */}
           <motion.aside
             initial={{ opacity: 0, scale: 0.97 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: EASE }}
-            className="lg:col-span-5"
+            className="hidden lg:col-span-5 lg:block"
           >
-            {/* Vanaf lg loopt de foto even hoog als het formulier ernaast: het
-                kader laat de vaste verhouding los en vult de rijhoogte, die de
-                langste kolom bepaalt. De breedte blijft begrensd, anders wordt
-                het beeld veel te fors naast de tekst. Onder lg staat de foto
-                onder het formulier en geldt de 2:3 verhouding gewoon. */}
-            <div className="max-w-sm lg:mx-auto lg:h-full lg:max-w-[21rem]">
-              <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-ink/5 lg:aspect-auto lg:h-full">
+            {/* Geen vaste verhouding: het kader vult de rijhoogte van de grid,
+                die door de langste kolom wordt bepaald. Zo loopt de foto altijd
+                even hoog als het formulier ernaast, ook als daar een veld bij
+                komt. De breedte blijft begrensd, anders wordt het beeld veel te
+                fors naast de tekst. */}
+            <div className="mx-auto h-full max-w-[21rem]">
+              <div className="relative h-full overflow-hidden rounded-2xl bg-ink/5">
                 <Image
                   src="/images/product-drip.jpg"
                   alt="Gouden honing die over twee potten FOLÉA Nourishing hairbutter loopt"
                   fill
-                  sizes="(min-width: 1024px) 38vw, 90vw"
+                  sizes="(min-width: 1024px) 38vw, 0px"
                   className="object-cover"
                 />
               </div>
