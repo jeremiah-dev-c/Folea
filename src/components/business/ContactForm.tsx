@@ -44,19 +44,13 @@ export function ContactForm() {
   return (
     <section className="overflow-hidden bg-blush pb-14 pt-8 md:pb-20 md:pt-10">
       <Container>
-        <div className="flex items-center gap-4 sm:gap-6">
-          <p className="shrink-0 text-[11px] font-medium uppercase tracking-[0.3em] text-ink/60">
-            Stuur een bericht
-          </p>
-          <motion.span
-            aria-hidden="true"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 1.1, ease: EASE }}
-            className="h-px flex-1 origin-left bg-ink/25"
-          />
-        </div>
+        {/* Geen haarlijn naast dit kopje meer. Die had dezelfde vorm als de
+            onderstreepte velden eronder en las daardoor als een leeg
+            invoerveld (klant, 16 aug). Elke horizontale lijn boven een
+            formulier met onderstreepte velden loopt tegen dat probleem aan. */}
+        <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/60">
+          Stuur een bericht
+        </p>
 
         <div className="mt-10 grid gap-12 md:mt-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
@@ -124,7 +118,7 @@ export function ContactForm() {
                     name="onderwerp"
                     required
                     defaultValue=""
-                    className={`${veldStijl} appearance-none rounded-none`}
+                    className={`${veldStijl} appearance-none rounded-none invalid:text-ink/40`}
                   >
                     <option value="" disabled>
                       Maak een keuze
