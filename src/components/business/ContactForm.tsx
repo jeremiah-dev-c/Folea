@@ -42,17 +42,14 @@ export function ContactForm() {
   }
 
   return (
-    <section className="overflow-hidden bg-blush pb-14 pt-8 md:pb-20 md:pt-10">
+    <section className="overflow-hidden bg-blush pb-14 pt-12 md:pb-20 md:pt-16">
       <Container>
-        {/* Geen haarlijn naast dit kopje meer. Die had dezelfde vorm als de
-            onderstreepte velden eronder en las daardoor als een leeg
-            invoerveld (klant, 16 aug). Elke horizontale lijn boven een
-            formulier met onderstreepte velden loopt tegen dat probleem aan. */}
-        <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/60">
-          Stuur een bericht
-        </p>
-
-        <div className="mt-10 grid gap-12 md:mt-12 lg:grid-cols-12 lg:gap-16">
+        {/* Geen kopje en geen haarlijn boven dit formulier. De lijn las als
+            een leeg invoerveld omdat hij dezelfde vorm had als de
+            onderstreepte velden eronder, en het kopje "Stuur een bericht" is
+            er daarna ook uit op verzoek (klant, 16 aug). De labels bij de
+            velden zeggen al wat er moet gebeuren. */}
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
             {verzonden ? (
               <motion.div
