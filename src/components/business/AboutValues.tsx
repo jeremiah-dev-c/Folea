@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
-import { BrandText } from "@/components/ui/BrandText";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -44,11 +43,9 @@ export function AboutValues() {
             className="space-y-5 leading-relaxed text-charcoal-soft lg:col-span-5 lg:pt-3"
           >
             <p className="border-l-2 border-ink pl-5 text-lg leading-relaxed text-ink">
-              <BrandText>
-                FOLÉA is ontstaan vanuit de behoefte aan natuurlijke
-                haarverzorging die eenvoudig is in gebruik en geschikt is voor
-                verschillende haartypen.
-              </BrandText>
+              FOLÉA is ontstaan vanuit de behoefte aan natuurlijke
+              haarverzorging die eenvoudig is in gebruik en geschikt is voor
+              verschillende haartypen.
             </p>
             <p>
               Ieder haar heeft een eigen structuur en vraagt om een passende
@@ -57,13 +54,11 @@ export function AboutValues() {
               afhankelijk van jouw haar en behoefte.
             </p>
             <p>
-              <BrandText>
-                Met zorgvuldig gekozen, natuurlijke ingrediënten willen we
-                haarverzorging overzichtelijk en toegankelijk maken. Geen
-                ingewikkelde routines of een kast vol verschillende producten,
-                maar één bewuste verzorging die het haar voedt, verzacht en een
-                gezonde uitstraling geeft. Dat is waar FOLÉA voor staat.
-              </BrandText>
+              Met zorgvuldig gekozen, natuurlijke ingrediënten willen we
+              haarverzorging overzichtelijk en toegankelijk maken. Geen
+              ingewikkelde routines of een kast vol verschillende producten,
+              maar één bewuste verzorging die het haar voedt, verzacht en een
+              gezonde uitstraling geeft. Dat is waar FOLÉA voor staat.
             </p>
 
             <div className="pt-4">

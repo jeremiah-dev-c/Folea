@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { RotatingBadge } from "@/components/ui/RotatingBadge";
-import { BrandText } from "@/components/ui/BrandText";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -51,9 +50,11 @@ export function AboutStory() {
               Het begin
             </h2>
 
-            {/* Tekst letterlijk aangeleverd door de klant (14 aug). De eerste
-                alinea is groter gezet, zodat het blok een aanhef heeft. */}
-            <div className="mt-6 space-y-4 leading-relaxed text-ink/75 [&>p:first-child]:text-lg [&>p:first-child]:leading-relaxed [&>p:first-child]:text-ink">
+            {/* Tekst letterlijk aangeleverd door de klant (14 aug). Alle drie
+                de alinea's staan bewust in hetzelfde lettertype en dezelfde
+                maat: de eerste stond eerder groter als aanhef en de klant wilde
+                dat gelijkgetrokken hebben. */}
+            <div className="mt-6 space-y-4 leading-relaxed text-ink/75">
               <p>
                 Wij zijn twee zussen met een passie voor beauty en meerdere
                 jaren ervaring in de beautywereld. Tijdens ons werk merkten we
@@ -67,12 +68,10 @@ export function AboutStory() {
                 te ontwikkelen.
               </p>
               <p>
-                <BrandText>
-                  Uit deze zoektocht ontstond FOLÉA: een haarverzorgingsmerk
-                  met 100% natuurlijke producten, ontwikkeld vanuit onze eigen
-                  ervaring en de behoefte aan haarverzorging die natuurlijk,
-                  eenvoudig en effectief is.
-                </BrandText>
+                Uit deze zoektocht ontstond FOLÉA: een haarverzorgingsmerk met
+                100% natuurlijke producten, ontwikkeld vanuit onze eigen
+                ervaring en de behoefte aan haarverzorging die natuurlijk,
+                eenvoudig en effectief is.
               </p>
             </div>
           </motion.div>

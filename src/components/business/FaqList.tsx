@@ -4,7 +4,6 @@ import { Fragment, useState } from "react";
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
-import { BrandText } from "@/components/ui/BrandText";
 import type { FaqBlok, FaqItem } from "@/lib/data/faq";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -22,9 +21,7 @@ function metMailLinks(tekst: string) {
         {deel}
       </a>
     ) : (
-      <Fragment key={i}>
-        <BrandText>{deel}</BrandText>
-      </Fragment>
+      <Fragment key={i}>{deel}</Fragment>
     ),
   );
 }

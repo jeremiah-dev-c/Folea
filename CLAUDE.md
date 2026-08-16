@@ -29,7 +29,7 @@ Tailwind v4's CSS-based `@theme` is used instead of `tailwind.config.js` — col
 - **Horizon** (`font-display`, `--font-horizon`) is the display face from the jar label, loaded from `src/app/fonts/Horizon.woff2` via `next/font/local`. It has a full charset including `É`, but the lowercase glyphs are the same shapes as the capitals at identical widths, so **it is an all-caps face in practice**. Only use it with `uppercase` for the FOLÉA wordmark, short section headings and labels. Never for running text or long Dutch headings.
 - **Horizon Outlined** (`font-outline`, `--font-horizon-outline`) is the same face in outline. It exists for one effect: `FillOnScroll`, where a heading is drawn as an outline and fills in with the solid variant as you scroll past it. Don't use it as a plain heading font, since outline type at small sizes is unreadable.
 
-**The brand name in running text** goes through `BrandText` (`components/ui/BrandText.tsx`), which wraps every "FOLÉA" in the display face. Horizon sits optically larger and wider than Plus Jakarta Sans, so the component scales it to `0.86em` and tightens the tracking; don't drop those corrections or the name starts shouting mid-sentence. Wrap a whole paragraph in `<BrandText>` rather than hand-splitting the string, and note it takes a plain string as its child.
+**The brand name in running text stays in the body face.** There used to be a `BrandText` component that set every "FOLÉA" in Horizon at `0.86em`; the client asked on 16 Aug for that bold treatment to go, so the component is deleted and all four call sites (`AboutStory`, `AboutCraft`, `AboutValues`, `FaqList`) now write the name plainly. Horizon is reserved for the wordmark, headings and labels. Don't reintroduce it inside paragraphs.
 
 **Horizon has a `€` glyph that renders empty.** A price set in `font-display` shows up as "39,95" with the euro sign silently missing. Set prices and any currency in `font-sans`. Digits and `%` are fine.
 - **Plus Jakarta Sans** (`font-sans`, `--font-jakarta`) carries everything else, including all `h1`–`h6`. `globals.css` sets h1–h6 to `font-sans` at weight 500. Jakarta has a much larger x-height than the old serif, so headings sit one step lower on the scale than they did (`text-3xl md:text-4xl` where it used to be `text-4xl md:text-5xl`).
@@ -127,7 +127,11 @@ The bottom bar carries the copyright, the KvK/BTW numbers and a `Webdesign by SO
 
 ### Over Ons opening
 
-The page opens straight into `blush`: the beige masthead block (`AboutHero`) was dropped on 15 Aug and its title now sits at the top of `AboutStory`. That title carries the page's `h1`, so it had to move with it, otherwise Over Ons has no heading left for search engines.
+The page opens straight into `blush`: the beige masthead block (`AboutHero`) was dropped on 15 Aug and its title now sits inside `AboutStory`. That title carries the page's `h1`, so it had to move with it, otherwise Over Ons has no heading left for search engines.
+
+**Title, eyebrow and story text share one column with the video beside it.** When the title spanned the full width instead, a gap of over 200px opened up under it next to the video and the section read as three unrelated pieces. With `items-start` on the grid the two columns start level and end within a few pixels of each other (517px of text against 550px of video). The three paragraphs are deliberately identical in face and size: the first one used to be set larger as a lead-in and the client asked for that levelled out (16 Aug).
+
+**Measure alignment with the transforms disabled.** Framer Motion's entrance animation is still inside the bounding box, which reported a 12px difference in column tops that did not exist once the animation had settled.
 
 **The heading size is derived, not chosen.** "created with intention" in Horizon is ~20.3x the font size wide, so `clamp(1.5rem,4.2vw,3.4rem)` is the largest ramp that still fits inside `Container` at every width from `md` up. Raise the vw factor and the title collapses back into four ragged lines, which is what the client rejected earlier. Below `md` no readable size fits the line at all, so the two halves run as one text and `text-balance` spreads the lines evenly; without it "nature," was left stranded on its own line.
 
@@ -215,8 +219,6 @@ No "photos coming soon" placeholders anywhere; that was tried (ImagePlaceholder/
 **The form was rebuilt twice; land on the plain version.** It first shipped as boxed inputs with labels on beige, which read as an untouched default template. That was replaced by a fill-in-the-blank letter ("Hoi FOLÉA, ik ben [naam] en ik heb een vraag over" with pill chips and a "n van 4 ingevuld" counter), and the client called that childish and asked for it gone (15 Aug). What stands now is a straight form: labels above underlined transparent fields, name and email side by side, subject as a native `<select>`, message, submit. The underlined fields are the part worth keeping, since they match the footer's newsletter input and are what stops it looking like a template. Don't reintroduce the greeting, the chips or the counter.
 
 `text-transform` changes what `innerText` returns, so the confirmation reads back as "BERICHT VERZONDEN" when you assert on it in the browser. A case-sensitive check will tell you the form is broken when it is not.
-
-**Don't wrap FOLÉA in `BrandText` inside text that is already `font-display`.** `BrandText` scales the name to `0.86em` to sit correctly among Plus Jakarta Sans; inside a Horizon line it makes the brand name visibly *smaller* than the words around it. The "Hoi FOLÉA," line therefore sets the name plainly.
 
 **The form still has no backend.** Submitting only swaps in a confirmation, which is worse than no form at all once the site is live, because visitors believe they have made contact. Wire a mail service before launch.
 
