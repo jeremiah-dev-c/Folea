@@ -177,12 +177,13 @@ export function ContactForm() {
             transition={{ duration: 0.8, ease: EASE }}
             className="lg:col-span-5"
           >
-            {/* Begrensd, anders wordt de foto veel groter dan het formulier:
-                in een kolom van 520px werd dit 2:3 beeld 780px hoog tegen 444px
-                formulier. Bij 21rem komt de foto op 504px uit. Sticky is
-                daarmee zinloos geworden en is eruit. */}
-            <div className="max-w-sm lg:mx-auto lg:max-w-[21rem]">
-              <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-ink/5">
+            {/* Vanaf lg loopt de foto even hoog als het formulier ernaast: het
+                kader laat de vaste verhouding los en vult de rijhoogte, die de
+                langste kolom bepaalt. De breedte blijft begrensd, anders wordt
+                het beeld veel te fors naast de tekst. Onder lg staat de foto
+                onder het formulier en geldt de 2:3 verhouding gewoon. */}
+            <div className="max-w-sm lg:mx-auto lg:h-full lg:max-w-[21rem]">
+              <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-ink/5 lg:aspect-auto lg:h-full">
                 <Image
                   src="/images/product-drip.jpg"
                   alt="Gouden honing die over twee potten FOLÉA Nourishing hairbutter loopt"
@@ -191,9 +192,6 @@ export function ContactForm() {
                   className="object-cover"
                 />
               </div>
-              <p className="mt-4 text-[11px] font-medium uppercase tracking-[0.2em] text-ink/50">
-                Nourishing hairbutter
-              </p>
             </div>
           </motion.aside>
         </div>
