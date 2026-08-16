@@ -19,15 +19,19 @@ export function AboutStory() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: EASE }}
-          className="mb-14 md:mb-20"
+          className="mb-12 md:mb-16"
         >
           <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/60">
             Ons verhaal
           </p>
-          {/* Engels, want zo staat de regel op de pot. De maat is afgestemd op
-              "created with intention": die regel is in Horizon ruim 20x de
-              lettergrootte breed en past zo boven md op één regel. */}
-          <h1 className="mt-5 text-balance font-display text-[clamp(1.5rem,4.2vw,3.4rem)] uppercase leading-[1.08] tracking-[0.02em] text-ink">
+          {/* Engels, want zo staat de regel op de pot. Bewust klein gehouden op
+              verzoek: hij zit nu dicht bij de aanhefalinea eronder in plaats
+              van als display-kop boven de sectie te hangen. Op deze maat past
+              "created with intention" ruimschoots op één regel, dus de
+              breedteberekening van de oude clamp is niet meer nodig. De ondergrens
+              staat op 1.15rem: daaronder werd de kop kleiner dan de alinea van
+              18px eronder, en dan leest hij niet meer als kop. */}
+          <h1 className="mt-4 text-balance font-display text-[clamp(1.15rem,2.1vw,1.75rem)] uppercase leading-[1.25] tracking-[0.03em] text-ink">
             <span className="inline md:block">Inspired by nature,</span>{" "}
             <span className="inline md:block">created with intention</span>
           </h1>
@@ -39,11 +43,11 @@ export function AboutStory() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: EASE }}
-            // Begrensd op desktop. Gemeten op een breed scherm: de tekst
-            // ernaast wordt 346px hoog, en zonder cap groeit een 4:5 video in
-            // een halve kolom van 616px door naar 770px. Bij 21rem komt de
-            // video op 420px uit en staan de twee in verhouding.
-            className="relative md:order-2 md:mx-auto md:w-full md:max-w-[21rem]"
+            // Begrensd op desktop, anders groeit een 4:5 video in een halve
+            // kolom van 616px door naar 770px terwijl de tekst ernaast 346px
+            // blijft. Bij 25rem komt de video op 500px uit; ruimer dan eerst,
+            // omdat de kop erboven kleiner is geworden en de sectie dat aankan.
+            className="relative md:order-2 md:mx-auto md:w-full md:max-w-[25rem]"
           >
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink/5">
               <video
